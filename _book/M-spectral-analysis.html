@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Spectral Analysis Concepts and Tools</title>
+<title>JDemetra+ documentation - Spectral Analysis Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-spectral-analysis.html">Spectral Analysis Concepts and Tools</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-spectral-analysis.html">Spectral Analysis Tools</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Spectral Analysis Concepts and Tools</span></a>
+ <span class="menu-text">Spectral Analysis Tools</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -387,10 +387,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#spectral-analysis-concepts" id="toc-spectral-analysis-concepts" class="nav-link" data-scroll-target="#spectral-analysis-concepts">Spectral analysis concepts</a></li>
-  <li><a href="#spectral-density-of-an-arima-model" id="toc-spectral-density-of-an-arima-model" class="nav-link" data-scroll-target="#spectral-density-of-an-arima-model">Spectral density of an ARIMA model</a>
+  <li><a href="#spectral-density-of-a-stationnary-process" id="toc-spectral-density-of-a-stationnary-process" class="nav-link" data-scroll-target="#spectral-density-of-a-stationnary-process">Spectral density of a stationnary process</a></li>
+  <li><a href="#estimation-of-the-spectral-density" id="toc-estimation-of-the-spectral-density" class="nav-link" data-scroll-target="#estimation-of-the-spectral-density">Estimation of the Spectral density</a>
   <ul class="collapse">
-  <li><a href="#estimation" id="toc-estimation" class="nav-link" data-scroll-target="#estimation">Estimation</a></li>
+  <li><a href="#m-spectral-analysis-m-spectrum-periodogram" id="toc-m-spectral-analysis-m-spectrum-periodogram" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-periodogram">Method 1: Periodogram</a></li>
+  <li><a href="#m-spectral-analysis-m-spectrum-ar-est" id="toc-m-spectral-analysis-m-spectrum-ar-est" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-ar-est">Method 2: Autoregressive spectrum estimation</a></li>
+  <li><a href="#m-spectral-analysis-m-spectrum-tuckey" id="toc-m-spectral-analysis-m-spectrum-tuckey" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-tuckey">Method 3: Tukey spectrum</a></li>
   </ul></li>
   <li><a href="#m-spectral-analysis-m-spectrum-id-peaks" id="toc-m-spectral-analysis-m-spectrum-id-peaks" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-id-peaks">Identification of spectral peaks</a>
   <ul class="collapse">
@@ -407,7 +409,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="m-spectrum" class="quarto-section-identifier">Spectral Analysis Concepts and Tools</span></h1>
+<h1 class="title"><span id="m-spectrum" class="quarto-section-identifier">Spectral Analysis Tools</span></h1>
 </div>
 
 
@@ -424,7 +426,10 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter provides some guidance on spectral analysis in order to understand the spectral analysis tools available in JDemetra+ <a href="#t-GUI-tstools-spectral">Graphical User Interface</a>.</p>
+<p>This chapter provides some guidance in order to understand the spectral analysis tools available in JDemetra+ <a href="#t-GUI-tstools-spectral">Graphical User Interface</a>.</p>
+<!-- ADD  -->
+<!-- and in R ? -->
+<!-- List of tools, links and tests -->
 <!-- and also to understand some seasonality tests ? -->
 <!-- and [R packages](#t-r-packs) -->
 <!-- what do we have in R ? toolkit or SA packs: nothing, rjd3filter!: not really spectral approach -->
@@ -432,41 +437,51 @@ ul.task-list li input[type="checkbox"] {
 <!-- -   outputs of tests ? -->
 <!-- -   description of spectral graphs in GUI can be found here -->
 </section>
-<section id="spectral-analysis-concepts" class="level2">
-<h2 class="anchored" data-anchor-id="spectral-analysis-concepts">Spectral analysis concepts</h2>
-<p>A stationary time series <span class="math inline">\(x_{t}\)</span> with mean <span class="math inline">\(μ\)</span> and autocovariance <span class="math inline">\(\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi}{T}\)</span> denotes frequency. Spectral analysis investigates this frequency domain representation of <span class="math inline">\(x_{t}\)</span> to determine how important cycles of different frequencies are in accounting for the behaviour of <span class="math inline">\(x_{t}\)</span>.</p>
-<p>Assuming that the autocovariances <span class="math inline">\(\gamma(k)\)</span> are absolutely summable(<span class="math inline">\(\sum_{k=-\infty}^{\infty}|\gamma(k)|&lt;\infty\)</span>), the Auto-Covariance Generating Function is given by the following equations (HAMILTON, J.D. (1994)).</p>
+<section id="spectral-density-of-a-stationnary-process" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-density-of-a-stationnary-process">Spectral density of a stationnary process</h2>
+<p>A stationary time series <span class="math inline">\({x_t: t = 1, \dots T}\)</span> with mean <span class="math inline">\(μ\)</span> and autocovariance <span class="math inline">\(\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi*k}{T}, k: 1 \dots [\frac{T}{2}]\)</span> denotes the (angular) Fourier frequencies.</p>
+<!-- ADD : units  -->
+<!-- equation -->
+<p>Spectral analysis investigates this frequency domain representation of <span class="math inline">\(x_{t}\)</span> to determine how important components of different frequencies are in accounting for the behaviour of <span class="math inline">\(x_{t}\)</span>.</p>
+<p>Assuming that the autocovariances <span class="math inline">\(\gamma(k)\)</span> are absolutely summable(<span class="math inline">\(\sum_{k=-\infty}^{\infty}|\gamma(k)|&lt;\infty\)</span>), the spectral density of the process is defined by (HAMILTON, J.D. (1994))</p>
 <p><span id="eq-1"><span class="math display">\[
-acgf(z)=\sum_{k=-\infty}^{\infty}\gamma(k){z^{k}}
+f(\omega)=\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
 \tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(z\)</span> denotes a complex scalar.</p>
-<p>Once <a href="M-tests.html#eq-1">Equation&nbsp;<span>1</span></a> is divided by <span class="math inline">\(\pi\)</span> and evaluated at some <span class="math inline">\(z{=e}^{-i\omega}=cos\omega-isin\omega\)</span>, where <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(\omega\)</span> is a real scalar, <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>, the result of this transformation is called a population spectrum <span class="math inline">\(f(\omega)\)</span>for <span class="math inline">\(\ x_{t}\)</span>, given in <a href="M-SEATS-decomposition.html#eq-2">Equation&nbsp;<span>2</span></a> (HAMILTON, J.D. (1994)).</p>
+<p>where <span class="math inline">\(e^{-ik\omega}=cos(k\omega)-isin(k\omega)\)</span>, <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>.</p>
+<p>The spectral density is also called the population spectrum. The analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain, as by Fourier inversion, we can recover the autocovariances from the spectral density:</p>
 <p><span id="eq-2"><span class="math display">\[
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
+\gamma (k) = \frac{1}{2 \pi} \int_{-\pi}^{\pi} f(\omega) e^{i\omega k} \, d\omega.
 \tag{2}\]</span></span></p>
-<p>Therefore, the analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain analysis; however it provides an alternative way of inspecting the process. Because <span class="math inline">\(f(\omega)\text{dω}\)</span> is interpreted as a contribution to the variance of components with frequencies in the range <span class="math inline">\((\omega,\ \omega+d\omega)\)</span>, a peak in the spectrum indicates an important contribution to the variance at frequencies near the value that corresponds to this peak.</p>
-<p>As <span class="math inline">\(e^{-i\omega}=cos\omega-isin\omega\)</span>, the spectrum can be also expressed as in <a href="M-tests.html#eq-3">Equation&nbsp;<span>2</span></a>.</p>
+<ul>
+<li><p>for <span class="math inline">\(k=0\)</span>, we see the process’ variance is the average integral of <span class="math inline">\(f\)</span>.</p></li>
+<li><p><span class="math inline">\(f(\omega)\text{dω}\)</span> is interpreted as a contribution to the variance of components with frequencies in the range <span class="math inline">\((\omega,\ \omega+d\omega)\)</span>, a peak in the spectrum indicates an important contribution to the variance at the corresponding frequencies</p></li>
+</ul>
+<p>Spectral density can also be expressed</p>
 <p><span id="eq-3"><span class="math display">\[
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{(cos\omega k-isin\omega k)\gamma(k)}
+f(\omega)=\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}{(cos(\omega k)-isin(\omega k)\gamma(k)}
 \tag{3}\]</span></span></p>
-<p><a href="M-tests.html#eq-3">Equation&nbsp;<span>2</span></a> can be presented as:</p>
+<p>or</p>
 <p><span id="eq-4"><span class="math display">\[
-f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ωk}]
+f(\omega)=\frac{1}{2\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos(\omega k)]
 \tag{4}\]</span></span></p>
-<p>This implies that if autocovariances are absolutely summable the population spectrum exists and is a continuous, real-valued function of <span class="math inline">\(\omega\)</span>. Due to the properties of trigonometric functions <span class="math inline">\((\cos(-\omega k)=\cos(\text{ωk})\)</span> and <span class="math inline">\(\cos(\omega+2\pi j)k=cos(\omega k))\)</span> the spectrum is a periodic, even function of <span class="math inline">\(\omega\)</span>, symmetric around <span class="math inline">\(\omega=0\)</span>. Therefore, the analysis of the spectrum can be reduced to the interval <span class="math inline">\((-\pi,\pi)\)</span>. The spectrum is non-negative for all <span class="math inline">\(\omega \in (-\pi,\pi)\)</span>.</p>
-<p>The shortest cycle that can be distinguished in a time series lasts two periods. The frequency which corresponds to this cycle is <span class="math inline">\(\omega=\pi\)</span> and is called the Nyquist frequency. The frequency of the longest cycles that can be observed in the time series with <span class="math inline">\(n\)</span> observations is <span class="math inline">\(\omega=\frac{2\pi}{n}\)</span> and is called the fundamental (Fourier) frequency.</p>
-<p>Note that if <span class="math inline">\(x_{t}\)</span> is a white noise process with zero mean and variance <span class="math inline">\(\sigma^{2}\)</span>, then for all <span class="math inline">\(|k|&gt; 0\)</span> <span class="math inline">\(\gamma(k)=0\)</span> and the spectrum of <span class="math inline">\(x_{t}\)</span> is constant (<span class="math inline">\(f(\omega)=\frac{\sigma^{2}}{\pi}\)</span>) since each frequency in the spectrum contributes equally to the variance of the process (BROCKWELL, P.J., and DAVIS, R.A. (2002)).</p>
-<p>The aim of spectral analysis is to determine how important cycles of different frequencies are in accounting for the behaviour of a time series. Since spectral analysis can be used to detect the presence of periodic components, it is a natural diagnostic tool for detecting trading day effects as well as seasonal.</p>
-<p>Among the tools used for spectral analysis are the autoregressive spectrum and the periodogram.</p>
-<p>The explanations given in the subsections of this node derive mainly from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and DAVIS, R.A. (2006).</p>
+<p>This implies that if autocovariances are absolutely summable then the population spectrum exists and is a continuous, real-valued function of <span class="math inline">\(\omega\)</span>.</p>
+<p>Due to the properties of trigonometric functions <span class="math inline">\((\cos(-\omega k)=\cos(\omega k)\)</span> and <span class="math inline">\(\cos(\omega+2\pi j)k=cos(\omega k))\)</span> the spectrum is a periodic, even function of <span class="math inline">\(\omega\)</span>, symmetric around <span class="math inline">\(\omega=0\)</span>. Therefore, the analysis of the spectrum can be reduced to the interval <span class="math inline">\((-\pi,\pi)\)</span>. The spectrum is non-negative for all <span class="math inline">\(\omega \in (-\pi,\pi)\)</span>.</p>
+<p>The fastest oscillation that can be observed in a time series sampled at discrete time intervals (<span class="math inline">\(\Delta t\)</span>) lasts two sampling periods (<span class="math inline">\(2\Delta t\)</span>), it corresponds to the fastest observable frequency : <span class="math inline">\(\omega=\frac{2\pi}{2\Delta t}=\frac{\pi}{\Delta t}\)</span> called the Nyquist frequency. The slowest oscillation that can be observed in the time series with <span class="math inline">\(n\)</span> observations corresponds to the lowest frequency <span class="math inline">\(\omega=\frac{2\pi}{n}\)</span> and is called the fundamental (Fourier) frequency.</p>
+<p>Note that if <span class="math inline">\(x_{t}\)</span> is a white noise process with zero mean and variance <span class="math inline">\(\sigma^{2}\)</span>, then for all <span class="math inline">\(|k|&gt; 0\)</span> <span class="math inline">\(\gamma(k)=0\)</span>, <span class="math inline">\(\gamma(0)=\sigma^{2}\)</span>. Hence the spectrum of <span class="math inline">\(x_{t}\)</span> is constant (<span class="math inline">\(f(\omega)=\frac{\sigma^{2}}{2\pi}\)</span>) showing that each frequency contributes equally to the variance of the process (BROCKWELL, P.J., and DAVIS, R.A. (2002)).</p>
+<p>The aim of spectral analysis is to determine how important components of different frequencies are in accounting for the behaviour of a time series. Since spectral analysis can be used to detect the presence of periodic components, it is a natural diagnostic tool for detecting seasonality as well as trading day effects.</p>
+<p>In practice the spectral density (population spectrum) has to be estimated. In JDemetra+, it is done in two ways:</p>
+<pre><code>- using the sample spectrum also called periodogramm
+
+- using an ARIMA representation of the process</code></pre>
+<p>The explanations given in the remainder of this chapter derive mainly from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and DAVIS, R.A. (2006).</p>
 </section>
-<section id="spectral-density-of-an-arima-model" class="level2">
-<h2 class="anchored" data-anchor-id="spectral-density-of-an-arima-model">Spectral density of an ARIMA model</h2>
-<section id="estimation" class="level3">
-<h3 class="anchored" data-anchor-id="estimation">Estimation</h3>
-<section id="m-spectral-analysis-m-spectrum-periodogram" class="level4">
-<h4 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-periodogram">Method 1: Periodogram</h4>
-<p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
+<section id="estimation-of-the-spectral-density" class="level2">
+<h2 class="anchored" data-anchor-id="estimation-of-the-spectral-density">Estimation of the Spectral density</h2>
+<section id="m-spectral-analysis-m-spectrum-periodogram" class="level3">
+<h3 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-periodogram">Method 1: Periodogram</h3>
+<p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the population spectrum. It will be used as an estimator of the spectral density, with certain drawbacks.</p>
+<!-- REDEF -->
+<!-- In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model. -->
 <p>To define a periodogram, first consider a vector of complex numbers</p>
 <p><span id="eq-5"><span class="math display">\[
 \mathbf{x}=\begin{bmatrix}
@@ -615,8 +630,8 @@ f(\omega_{\ })=\frac{1}{2\pi}\sum_{k &lt;-\infty}^{\infty}{\gamma(k)}_{\ }e^{-ik
 \tag{20}\]</span></span></p>
 <p>It can be noticed that a periodogram is a sample analogue of the population spectrum. In fact, it can be shown that the periodogram is asymptotically unbiased but inconsistent estimator of the population spectrum <span class="math inline">\(f(\omega)\)</span>. Therefore, the periodogram is a wildly fluctuating, with high variance, estimate of the spectrum. However, the consistent estimator can be achieved by applying the different linear smoothing filters to the periodogram, called lag-window estimators. The lag-window estimators implemented in JDemetra+ includes square, Welch, Tukey, Barlett, Hanning and Parzen. They are described in DE ANTONIO, D., and PALATE, J. (2015). Alternatively, the model-based consistent estimation procedure, resulting in autoregressive spectrum estimator, can be applied.</p>
 </section>
-<section id="m-spectral-analysis-m-spectrum-ar-est" class="level4">
-<h4 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-ar-est">Method 2: Autoregressive spectrum estimation</h4>
+<section id="m-spectral-analysis-m-spectrum-ar-est" class="level3">
+<h3 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-ar-est">Method 2: Autoregressive spectrum estimation</h3>
 <p>BROCKWELL, P.J., and DAVIS, R.A. (2006) point out that for any real-valued stationary process <span class="math inline">\((x_{t})\)</span> with continuous spectral density <span class="math inline">\(f(\omega)\)</span> it is possible to find both <span class="math inline">\(AR(p)\)</span> and <span class="math inline">\(MA(q)\)</span> processes which spectral densities are arbitrarily close to <span class="math inline">\(f(\omega)\)</span>. For this reason, in some sense, <span class="math inline">\((x_{t})\)</span> can be approximated by either <span class="math inline">\(AR(p)\)</span> or <span class="math inline">\(MA(q)\)</span> process. This fact is a basis of one of the methods of achieving a consistent estimator of the spectrum, which is called an autoregressive spectrum estimation. It is based on the approximation of the stochastic process <span class="math inline">\((x_{t})\)</span> by an autoregressive process of sufficiently high order <span class="math inline">\(p\)</span>:</p>
 <p><span id="eq-21"><span class="math display">\[
 x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
@@ -638,8 +653,8 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 <p>The model order can also be selected based on the AIC criterion (in practice it is much lower than 30). A lower order produces the smoother spectrum, but the contrast between the spectral amplitudes at the trading day frequencies and neighbouring frequencies is weaker, and therefore not as suitable for automatic detection.</p>
 <p>SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram can be used in the <em>visual significance</em> test as it has as good as those of the AR(30) spectrum abilities to detect trading day effect, but also has a greater false alarm rate, which is defined as the fraction of the 50 replicates for which a visually significant spectral peak occurred at one of the trading day frequencies being considered in the designated output spectra (SOUKUP, R.J., and FINDLEY, D.F. (1999)).</p>
 </section>
-<section id="m-spectral-analysis-m-spectrum-tuckey" class="level4">
-<h4 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-tuckey">Method 3: Tukey spectrum</h4>
+<section id="m-spectral-analysis-m-spectrum-tuckey" class="level3">
+<h3 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-tuckey">Method 3: Tukey spectrum</h3>
 <p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density <span class="math inline">\(f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}\)</span> is defined as follows:</p>
 <p><span class="math display">\[
 \hat{f}_{L}(\omega)=\frac{1}{2\pi}\sum_{|h|\leq r} w(h/r)\hat{\gamma}(h)e^{i h \omega}
@@ -648,7 +663,6 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 <p>JDemetra+ implements the so-called Blackman-Tukey (or Tukey-Hanning) estimator, which is given by <span class="math inline">\(w(h/r)=0.5(1+cos(\pi h/r))\)</span> if <span class="math inline">\(|h/r|\leq 1\)</span> and <span class="math inline">\(0\)</span> otherwise.</p>
 <p>The choice of large truncation lags <span class="math inline">\(r\)</span> decreases the bias, of course, but it also increases the variance of the spectral estimate and decreases the bandwidth.</p>
 <p>JDemetra+ allows the user to modify all the parameters of this estimator, including the window function.</p>
-</section>
 </section>
 </section>
 <section id="m-spectral-analysis-m-spectrum-id-peaks" class="level2">

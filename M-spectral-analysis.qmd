@@ -1,8 +1,13 @@
-# Spectral Analysis Concepts and Tools {#m-spectrum .unnumbered}
+# Spectral Analysis Tools {#m-spectrum .unnumbered}
 
 ## In this chapter
 
-This chapter provides some guidance on spectral analysis in order to understand the spectral analysis tools available in JDemetra+ [Graphical User Interface](#t-GUI-tstools-spectral).
+This chapter provides some guidance in order to understand the spectral analysis tools available in JDemetra+ [Graphical User Interface](#t-GUI-tstools-spectral).
+
+<!-- ADD  -->
+<!-- and in R ? -->
+
+<!-- List of tools, links and tests -->
 
 <!-- and also to understand some seasonality tests ? -->
 
@@ -15,58 +20,72 @@ This chapter provides some guidance on spectral analysis in order to understand 
 
 <!-- -   description of spectral graphs in GUI can be found here -->
 
-## Spectral analysis concepts
+## Spectral density of a stationnary process
 
-A stationary time series $x_{t}$ with mean $μ$ and autocovariance $\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency. Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important cycles of different frequencies are in accounting for the behaviour of $x_{t}$.
+A stationary time series ${x_t: t = 1, \dots T}$ with mean $μ$ and autocovariance $\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi*k}{T}, k: 1 \dots [\frac{T}{2}]$ denotes the (angular) Fourier frequencies. 
 
-Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the Auto-Covariance Generating Function is given by the following equations (HAMILTON, J.D. (1994)).
+<!-- ADD : units  -->
+<!-- equation -->
 
+Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important components of different frequencies are in accounting for the behaviour of $x_{t}$.
+
+Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the spectral density of the process is defined by (HAMILTON, J.D. (1994))
 
 $$
-acgf(z)=\sum_{k=-\infty}^{\infty}\gamma(k){z^{k}}
+f(\omega)=\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
 $$ {#eq-1}
 
-where $z$ denotes a complex scalar.
+where $e^{-ik\omega}=cos(k\omega)-isin(k\omega)$, $i=\sqrt{-1}$ and $-\infty < \ \omega < \infty$.
 
-Once @eq-1 is divided by $\pi$ and evaluated at some $z{=e}^{-i\omega}=cos\omega-isin\omega$, where $i=\sqrt{-1}$ and $\omega$ is a real scalar, $-\infty < \ \omega < \infty$, the result of this transformation is called a population spectrum $f(\omega)$for $\ x_{t}$, given in @eq-2 (HAMILTON, J.D. (1994)).
+The spectral density is also called the population spectrum. 
+The analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain, as by Fourier inversion, we can recover the autocovariances from the spectral density:
 
 $$
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
+ \gamma (k) = \frac{1}{2 \pi} \int_{-\pi}^{\pi} f(\omega) e^{i\omega k} \, d\omega.
 $$ {#eq-2}
 
-Therefore, the analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain analysis; however it provides an alternative way of inspecting the process. Because $f(\omega)\text{dω}$ is interpreted as a contribution to the variance of components with frequencies in the range $(\omega,\ \omega+d\omega)$, a peak in the spectrum indicates an important contribution to the variance at frequencies near the value that corresponds to this peak.
+- for $k=0$, we see the process' variance is the average integral of $f$.
 
-As $e^{-i\omega}=cos\omega-isin\omega$, the spectrum can be also expressed as in @eq-3.
+- $f(\omega)\text{dω}$ is interpreted as a contribution to the variance of components with frequencies in the range $(\omega,\ \omega+d\omega)$, a peak in the spectrum indicates an important contribution to the variance at the corresponding frequencies
+
+Spectral density can also be expressed
 
 $$
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{(cos\omega k-isin\omega k)\gamma(k)}
+f(\omega)=\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}{(cos(\omega k)-isin(\omega k)\gamma(k)}
 $$ {#eq-3}
 
-@eq-3 can be presented as:
+or 
 
 $$
-f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ωk}]
+f(\omega)=\frac{1}{2\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos(\omega k)]
 $$ {#eq-4}
 
-This implies that if autocovariances are absolutely summable the population spectrum exists and is a continuous, real-valued function of $\omega$. Due to the properties of trigonometric functions $(\cos(-\omega k)=\cos(\text{ωk})$ and $\cos(\omega+2\pi j)k=cos(\omega k))$ the spectrum is a periodic, even function of $\omega$, symmetric around $\omega=0$. Therefore, the analysis of the spectrum can be reduced to the interval $(-\pi,\pi)$. The spectrum is non-negative for all $\omega \in (-\pi,\pi)$.
+This implies that if autocovariances are absolutely summable then the population spectrum exists and is a continuous, real-valued function of $\omega$. 
 
-The shortest cycle that can be distinguished in a time series lasts two periods. The frequency which corresponds to this cycle is $\omega=\pi$ and is called the Nyquist frequency. The frequency of the longest cycles that can be observed in the time series with $n$ observations is $\omega=\frac{2\pi}{n}$ and is called the fundamental (Fourier) frequency.
+Due to the properties of trigonometric functions $(\cos(-\omega k)=\cos(\omega k)$ and $\cos(\omega+2\pi j)k=cos(\omega k))$ the spectrum is a periodic, even function of $\omega$, symmetric around $\omega=0$. Therefore, the analysis of the spectrum can be reduced to the interval $(-\pi,\pi)$. The spectrum is non-negative for all $\omega \in (-\pi,\pi)$.
 
-Note that if $x_{t}$ is a white noise process with zero mean and variance $\sigma^{2}$, then for all $|k|> 0$ $\gamma(k)=0$ and the spectrum of $x_{t}$ is constant ($f(\omega)=\frac{\sigma^{2}}{\pi}$) since each frequency in the spectrum contributes equally to the variance of the process (BROCKWELL, P.J., and DAVIS, R.A. (2002)).
+The fastest oscillation that can be observed in a time series sampled at discrete time intervals ($\Delta t$) lasts two sampling periods ($2\Delta t$), it corresponds to the fastest observable  frequency : $\omega=\frac{2\pi}{2\Delta t}=\frac{\pi}{\Delta t}$ called the Nyquist frequency. The slowest oscillation that can be observed in the time series with $n$ observations corresponds to the lowest frequency $\omega=\frac{2\pi}{n}$ and is called the fundamental (Fourier) frequency.
 
-The aim of spectral analysis is to determine how important cycles of different frequencies are in accounting for the behaviour of a time series. Since spectral analysis can be used to detect the presence of periodic components, it is a natural diagnostic tool for detecting trading day effects as well as seasonal.
+Note that if $x_{t}$ is a white noise process with zero mean and variance $\sigma^{2}$, then for all $|k|> 0$ $\gamma(k)=0$, $\gamma(0)=\sigma^{2}$. Hence the spectrum of $x_{t}$ is constant ($f(\omega)=\frac{\sigma^{2}}{2\pi}$) showing that each frequency contributes equally to the variance of the process (BROCKWELL, P.J., and DAVIS, R.A. (2002)).
 
-Among the tools used for spectral analysis are the autoregressive spectrum and the periodogram.
+The aim of spectral analysis is to determine how important components of different frequencies are in accounting for the behaviour of a time series. Since spectral analysis can be used to detect the presence of periodic components, it is a natural diagnostic tool for detecting seasonality as well as trading day effects.
 
-The explanations given in the subsections of this node derive mainly from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and DAVIS, R.A. (2006).
+In practice the spectral density (population spectrum) has to be estimated. In JDemetra+, it is done in two ways: 
 
-## Spectral density of an ARIMA model
+    - using the sample spectrum also called periodogramm
+    
+    - using an ARIMA representation of the process
 
-### Estimation
+The explanations given in the remainder of this chapter derive mainly from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and DAVIS, R.A. (2006).
 
-#### Method 1: Periodogram {#m-spectral-analysis-m-spectrum-periodogram}
+## Estimation of the Spectral density
 
-For any given frequency $\omega$ the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.
+### Method 1: Periodogram {#m-spectral-analysis-m-spectrum-periodogram}
+
+For any given frequency $\omega$ the sample periodogram is the sample analog of the population spectrum. It will be used as an estimator of the spectral density, with certain drawbacks.
+
+<!-- REDEF -->
+<!-- In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model. -->
 
 To define a periodogram, first consider a vector of complex numbers
 
@@ -220,7 +239,7 @@ $$ {#eq-20}
 
 It can be noticed that a periodogram is a sample analogue of the population spectrum. In fact, it can be shown that the periodogram is asymptotically unbiased but inconsistent estimator of the population spectrum $f(\omega)$. Therefore, the periodogram is a wildly fluctuating, with high variance, estimate of the spectrum. However, the consistent estimator can be achieved by applying the different linear smoothing filters to the periodogram, called lag-window estimators. The lag-window estimators implemented in JDemetra+ includes square, Welch, Tukey, Barlett, Hanning and Parzen. They are described in DE ANTONIO, D., and PALATE, J. (2015). Alternatively, the model-based consistent estimation procedure, resulting in autoregressive spectrum estimator, can be applied.
 
-#### Method 2: Autoregressive spectrum estimation {#m-spectral-analysis-m-spectrum-ar-est}
+### Method 2: Autoregressive spectrum estimation {#m-spectral-analysis-m-spectrum-ar-est}
 
 BROCKWELL, P.J., and DAVIS, R.A. (2006) point out that for any real-valued stationary process $(x_{t})$ with continuous spectral density $f(\omega)$ it is possible to find both $AR(p)$ and $MA(q)$ processes which spectral densities are arbitrarily close to $f(\omega)$. For this reason, in some sense, $(x_{t})$ can be approximated by either $AR(p)$ or $MA(q)$ process. This fact is a basis of one of the methods of achieving a consistent estimator of the spectrum, which is called an autoregressive spectrum estimation. It is based on the approximation of the stochastic process $(x_{t})$ by an autoregressive process of sufficiently high order $p$:
 
@@ -254,7 +273,7 @@ The model order can also be selected based on the AIC criterion (in practice it 
 
 SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram can be used in the *visual significance* test as it has as good as those of the AR(30) spectrum abilities to detect trading day effect, but also has a greater false alarm rate, which is defined as the fraction of the 50 replicates for which a visually significant spectral peak occurred at one of the trading day frequencies being considered in the designated output spectra (SOUKUP, R.J., and FINDLEY, D.F. (1999)).
 
-#### Method 3: Tukey spectrum {#m-spectral-analysis-m-spectrum-tuckey}
+### Method 3: Tukey spectrum {#m-spectral-analysis-m-spectrum-tuckey}
 
 The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density $f(\omega)=\frac{1}{2\pi}\sum_{k<-\infty}^{\infty}\gamma(k)e^{i k \omega}$ is defined as follows:
 
