@@ -1,4 +1,4 @@
-# Output description {#output-chap .unnumbered}
+# Output description: Internal issues  {#output-chap .unnumbered}
 
 ## In this chapter
 

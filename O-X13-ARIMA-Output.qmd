@@ -1,0 +1,104 @@
+# Output from X13-Arima {#output-chap .unnumbered}
+
+## In this chapter
+
+- series
+- parameters
+- diagnostics
+
+<!-- Table structure ! -->
+
+<!-- as pb of width tables broken in 2 parts  -->
+
+<!-- where are auxiliary excel files  -->
+
+<!-- auxiliary R code  -->
+
+<!-- all in "Documents/JD_Quarto_Book_AUX" -->
+
+<!-- - part 1: GUI + cruncher  -->
+
+<!-- name -->
+
+<!-- description  -->
+
+<!-- - part 2: R with code avec $ sign -->
+
+tables : 1 copie from R generated file ? 2 tool for table building in quarto
+
+## Series
+
+name: is name in... unless difference is signalled
+
+howto ? links
+
+full name and how to parametrize (?)
+
+in R (ex rjd3) x13: here user defined output
+
+- how to generate it
+
+also visible in print / summary
+
+and in default output in the model see: estimation object documentation (str)
+
+### Final series from Seasonal Adjustment Process
+
+<!-- contain effects from preadjustment  -->
+
+<!-- link to allocation part  -->
+
+| Name                  | Description                             | GUI display          | Fullname              |
+| --------------------- | --------------------------------------- | -------------------- | --------------------- |
+| y                     | Original series                         | Main Results > Table | y                     |
+| y_f                   | Forecasts of original series            | Main Results > Table | y_f(?)                |
+| y_ef                  | Forecasts errors of original series     | Main Results > Table | y_ef(?)               |
+| y_b                   | Backcasts of original series            | Main Results > Table | y_b(?)                |
+| y_eb                  | Backcasts errors of original series     | Main Results > Table | y_eb(?)               |
+| sa                    | Seasonally adjusted series              | Main Results > Table | sa                    |
+| sa_f                  | Forecasts of seasonally adjusted series | Main Results > Table | sa_f                  |
+| t                     | Trend component                         | Main Results > Table | t                     |
+| t_f                   | Forecasts of trend                      | Main Results > Table | t_f                   |
+| s                     | Seasonal component                      | Main Results > Table | s                     |
+| s_f                   | Forecasts of seasonal component         | Main Results > Table | s_f                   |
+| i                     | Irregular component                     | Main Results > Table | i                     |
+| i_f                   | Forecasts of irregular component        | Main Results > Table | i_f                   |
+| benchmarking.original | Unbenchmarked sa series                 | No                   | benchmarking.original |
+| benchmarking.target   | Series used to compute annual targets   | No                   | benchmarking.target   |
+| benchmarking.result   | Final benchmarked sa series             | No                   | benchmarking.result   |
+
+
+
+#### rjd3x13 output 
+
+here user defined output
+generated as 
+
+also available in 
+
+
+### Pre-processing series
+
+### Preadjustment / modelling
+
+identical for reg-arima and ts
+
+### X-11 decomposition (start 1)
+
+## Diagnostics
+
+obj have all the tests used in BQ and displayed in GUI
+
+stand alone tests: - in GUI - in R (rjd3toolkit)
+
+### Tests on residuals
+
+ONE TEST example : LB TEST, link to M chap what do we describe here
+
+### Seasonality tests
+
+ONE TEST example : Friedman TEST, link to M chap what do we describe here
+
+## Parameters
+
+last

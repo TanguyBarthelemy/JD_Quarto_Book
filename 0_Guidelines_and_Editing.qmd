@@ -23,7 +23,7 @@ web explo stack
 
 ### In All ALGO chapters 
 
--   version 3 before version T 
+-   version 3 before version 2
 -   R version 3 code to be added
 -   remove theory related parts (add to methods)
 -   much less text than old doc (too long)
@@ -220,7 +220,7 @@ add - List of exportable series (Tramo / x13 with names)
 
 X11+
 
-- Will take all x11 related functions from rjd3highfreq which will stay model based (then Seats+ will comme, another pack or not ?)
+- Will take all x11 related functions from rjd3highfreq which will stay model based (then Seats+ will come, another pack or not ?)
 
 - Simple (extended) airline processing + more choices in all asymetrical filters (better for revisions)**
 
