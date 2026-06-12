@@ -1,0 +1,21 @@
+# Output description  {.unnumbered #part-Out}
+
+This part provides a description of "all" the objects (time series, diagnostics...) which can be generated with JDemetra+ algorithms, as well means of generating them (with R packages, Graphical User Interface, Plug-ins, Cruncher...)
+
+
+
+<!-- In this part:  -->
+
+<!-- -   [Forecasting and nowcasting examples](#u-now) -->
+
+<!-- -   [Several ways for detecing outliers](#u-out) -->
+
+<!-- -   [Refreshing a series or workspace](#u-refresh) -->
+
+
+
+
+
+
+
+

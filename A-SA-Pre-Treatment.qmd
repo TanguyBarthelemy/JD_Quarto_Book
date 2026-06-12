@@ -1,8 +1,15 @@
+---
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # SA: Pre-Treatment {#sa-pre-t .unnumbered}
 
 ## In this chapter
 
-The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA. 
+The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.
 
 Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its [own](#a-reg-a). Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.
 
@@ -12,25 +19,21 @@ More in-depth methodological explanations of the algorithms can be found in [thi
 
 The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
 
-$$
-Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_{lin,t}
-$$
+$$Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_{lin,t}$$
 
--   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
+- $O_{it}$ are the $i$ final outliers (AO, LS, TC)
 
--   $C_{it}$ are the calendar regressors (automatic or user-defined), details [here](#a-cal)
+- $C_{it}$ are the calendar regressors (automatic or user-defined), details [here](#a-cal)
 
--   $Reg_{it}$ are all the other user-defined regressors details [here](#a-out-reg-ext)
+- $Reg_{it}$ are all the other user-defined regressors details [here](#a-out-reg-ext)
 
--   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
-
+- $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
 
 ## Reallocation of pre-treatment effects {#sa-pre-t-realloc}
 
 The linearised series ($Y_{lin,t}$) is be decomposed into unobservable components in the decomposition phase
 
 $$Y_{lin} =S_{lin} +T_{lin}+I_{lin}$$
-
 
 Pre-treatment effects are then reallocated to build the final components
 
@@ -40,7 +43,7 @@ $$T=T_{lin}+out_t+reg_{t}$$
 
 $$I=I_{lin}+out_i+reg_{i}$$
 
-Where 
+Where
 
 - $cal$ is the total calendar effect
 
@@ -48,52 +51,60 @@ Where
 
 - $reg_j$ is the total effect of user-defined regressors on component $j$
 
-
 ## Setting Specifications {#a-pre-t-def-spec}
 
 Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X-13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.
 
 #### Starting point for X-13-ARIMA {#a-pre-t-def-spec-x13}
 
++-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|-----------------|---------------------|--------------------|------------------|----------------|
++=================+=====================+====================+==================+================+
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
++-----------------+---------------------+--------------------+------------------+----------------+
 
 explanations:
 
--   *NA:* non applied, for example in RSA3 there is no calendar effect correction
+- *NA:* non applied, for example in RSA3 there is no calendar effect correction
 
--   automatic: test is performed
+- automatic: test is performed
 
 outliers detection: AO/LS/TC type of outliers automatically detected under a critical T-Stat value (default value=4)
 
 calendar:
 
--   2 regressors: weekdays vs week-ends + LY
+- 2 regressors: weekdays vs week-ends + LY
 
--   7 regressors: each week day vs Sundays + LY
+- 7 regressors: each week day vs Sundays + LY
 
--   always tested
+- always tested
 
--   easter tested (default length = 6 days in Tramo, 8 days in X-13-ARIMA)
-
+- easter tested (default length = 6 days in Tramo, 8 days in X-13-ARIMA)
 
 #### Starting point for Tramo-Seats {#sa-pre-t-ts-specs}
 
-| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|-----------------|---------------------|--------------------|------------------|----------------|
-| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-| RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-| RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
+| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA |   |   |   |   |   |
+|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|--------------|
+| RSA0 | *NA* | *NA* | *NA* | Airline(+mean) |  |  |  |  |  |
+| RSA1 | automatic | AO/LS/TC | *NA* | Airline(+mean) |  |  |  |  |  |
+| RSA2 | automatic | AO/LS/TC | 2 TD vars+Easter | Airline(+mean) |  |  |  |  |  |
+| RSA3 | automatic | AO/LS/TC | *NA* | automatic |  |  |  |  |  |
+| RSA4 | automatic | AO/LS/TC | 2 TD vars+Easter | automatic | 2 TD vars+Easter |  | 2 TD vars+Easter | 2 TD vars+Easter |  |
+| RSA5 | automatic | AO/LS/TC | 7 TD vars+Easter | automatic |  |  |  |  |  |
+| RSAfull | automatic | AO/LS/TC | automatic | automatic |  |  |  |  |  |
+
 
 ### User-defined specifications {#usr-def-spec}
 
@@ -115,16 +126,25 @@ Specifies the span (data interval) of the time series to be used in the seasonal
 
 Common settings
 
-| Option            | Description (expected format)                                                                                                                                               |     |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
-| All               | default                                                                                                                                                                     |     |
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
-| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
-| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |     |
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |     |
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |     |
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Option            | Description (expected format)                                                                                                                                               |       |
++===================+=============================================================================================================================================================================+=======+
+| All               | default                                                                                                                                                                     |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 
 **Setting series span in GUI**
 
@@ -205,6 +225,8 @@ The user can also specify the span (data interval) of the time series to be used
 Additional (vs series span setting) parameters are described below:
 
 +---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+|                           |                                                                                                                             |
++===========================+=============================================================================================================================+
 | Tolerance                 | Convergence tolerance for the non-linear estimation.                                                                        |
 |                           |                                                                                                                             |
 |                           | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations. |
@@ -332,9 +354,9 @@ Some calendar correction options included in the starting specifications for X-1
 
 JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
 
--   user-defined regressors (link)
+- user-defined regressors (link)
 
--   customized calendars (link)
+- customized calendars (link)
 
 Overview: what you can do
 
@@ -342,7 +364,7 @@ Need 1: correct for working days, trading days (+ easter) not taking national ca
 
 Need 2: taking national calendar into account Solutions
 
--   add a work of means of allocating regressors to the calendar component
+- add a work of means of allocating regressors to the calendar component
 
 #### Available Options
 
@@ -402,7 +424,7 @@ Calendar effects
 
 ![**STEP 1: Selection from JDemetra+ Default...or User_defined**](All_images/SA_REGA_calendar_options.png)
 
-![**STEP2: Calendar effects minus Easter are labeled *trading days* **](All_images/SA_REGA_calendar_default_options.png)
+![**STEP2: Calendar effects minus Easter are labeled *trading days*** ](All_images/SA_REGA_calendar_default_options.png)
 
 ##### Holidays option
 
@@ -454,7 +476,7 @@ Step 2: Link the regressors to the workspace, procedure detailed here
 
 Step 3: Modify specifications Modifications are done the same way in a global specification (whole SAP) or series by series.
 
--   select trading days **User-defined option** and select variables
+- select trading days **User-defined option** and select variables
 
 In the specification window, click right from "userVariables" on "Unused" to open the variable selection window
 
@@ -464,7 +486,7 @@ Move right the chosen regressors
 
 ![](All_images/SA_REGA_calendar_user_def_variables.png)
 
--   set TEST option (expl)
+- set TEST option (expl)
 
 ![](All_images/SA_REGA_Calendar_user_def_test.png)
 
@@ -576,74 +598,73 @@ Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estima
 
 The sections below focus on
 
--   outlier detection parameters (type and critical value)
+- outlier detection parameters (type and critical value)
 
--   pre-specifying outliers in a seasonal adjustement (Reg-ARIMA modelling) process
+- pre-specifying outliers in a seasonal adjustement (Reg-ARIMA modelling) process
 
 Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
 #### Options for automatic detection
 
--   **Is enabled**  
-    *outliers; iatip*
-       
-    Enables/disables the automatic detection of outliers in the span determined by the **Detection span** option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.
+- **Is enabled**\
+  *outliers; iatip*
 
+  Enables/disables the automatic detection of outliers in the span determined by the **Detection span** option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.
 
--   **Use default critical value**  
-    *outliers; va*
+- **Use default critical value**\
+  *outliers; va*
 
-    The critical value is automatically determined by the number of observations in the interval specified by the **Detection span** option. When **Use default critical value** is disabled, the procedure uses the critical value inputted in the **Critical value** item (see below). Otherwise, the default value is used (the first case corresponds to "*critical* = *xxx*"; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.
+  The critical value is automatically determined by the number of observations in the interval specified by the **Detection span** option. When **Use default critical value** is disabled, the procedure uses the critical value inputted in the **Critical value** item (see below). Otherwise, the default value is used (the first case corresponds to "*critical* = *xxx*"; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.
 
--   **Critical value**  
-    *outliers; va*
+- **Critical value**\
+  *outliers; va*
 
-    The critical value used in the outlier detection procedure. The option is active once **Use default critical value** is disabled. By default, it is set to 3.5.
+  The critical value used in the outlier detection procedure. The option is active once **Use default critical value** is disabled. By default, it is set to 3.5.
 
--   **Detection span** $\rightarrow $ **type**  
-    *outliers; int1, int2\**
+- **Detection span** \$\rightarrow \$ **type**\
+  *outliers; int1, int2\**
 
-    A span of the time series to be searched for outliers. The possible values of the parameter are:
+  A span of the time series to be searched for outliers. The possible values of the parameter are:
 
-    -   *All* -- full time series span is considered in the modelling;
-    -   *From* -- date of the first time series observation included in the pre-processing model;
-    -   *To* -- date of the last time series observation included in the pre-processing model;
-    -   *Between* -- date of the first and the last time series observations included in the pre-processing model;
-    -   *Last* -- number of observations from the end of the time series included in the pre-processing model;
-    -   *First* -- number of observations from the beginning of the time series included in the pre-processing model;
-    -   *Excluding* -- number of observations excluded from the beginning (specified in the *first* field) and/or end of the time series (specified in the *last* field) of the pre-processing model.
+  - *All* -- full time series span is considered in the modelling;
+  - *From* -- date of the first time series observation included in the pre-processing model;
+  - *To* -- date of the last time series observation included in the pre-processing model;
+  - *Between* -- date of the first and the last time series observations included in the pre-processing model;
+  - *Last* -- number of observations from the end of the time series included in the pre-processing model;
+  - *First* -- number of observations from the beginning of the time series included in the pre-processing model;
+  - *Excluding* -- number of observations excluded from the beginning (specified in the *first* field) and/or end of the time series (specified in the *last* field) of the pre-processing model.
 
-    With the options *Last*, *First*, *Excluding* the span can be computed dynamically on the series. The default setting is *All*.
+  With the options *Last*, *First*, *Excluding* the span can be computed dynamically on the series. The default setting is *All*.
 
--   **Additive**  
-    *outliers; aio\**
+- **Additive**\
+  *outliers; aio\**
 
-    Automatic identification of additive outliers. By default, this option is enabled.\
+  Automatic identification of additive outliers. By default, this option is enabled.\
 
--   **Level shift**  
-    *outliers; aio\**
+- **Level shift**\
+  *outliers; aio\**
 
-    Automatic identification of level shifts. By default, this option is enabled.
+  Automatic identification of level shifts. By default, this option is enabled.
 
--   **Transitory change**  
-    *outliers; aio\**
+- **Transitory change**\
+  *outliers; aio\**
 
-    Automatic identification of transitory changes. By default, this option is enabled.
+  Automatic identification of transitory changes. By default, this option is enabled.
 
--   **Seasonal outlier**  
-    *outliers; aio\**
+- **Seasonal outlier**\
+  *outliers; aio\**
 
-    Automatic identification of seasonal outliers. By default, this option is disabled. Tramo specific
+  Automatic identification of seasonal outliers. By default, this option is disabled. Tramo specific
 
--   **EML estimation**  
-    *outliers; imvx*
+- **EML estimation**\
+  *outliers; imvx*
 
-    The estimation method used in the automatic model identification procedure. By default, the fast method of Hannan-Rissanen is used for parameter estimation in the intermediate steps of the automatic detection and correction of outliers. When the checkbox is marked the exact maximum likelihood estimation method is used.
+  The estimation method used in the automatic model identification procedure. By default, the fast method of Hannan-Rissanen is used for parameter estimation in the intermediate steps of the automatic detection and correction of outliers. When the checkbox is marked the exact maximum likelihood estimation method is used.
 
--   **TC rate**  
-    *outliers; deltatc*
+- **TC rate**\
+  *outliers; deltatc*
 
-    The rate of decay for the transitory change outlier. It takes values between 0 and 1. The default value is 0.7.
+  The rate of decay for the transitory change outlier. It takes values between 0 and 1. The default value is 0.7.
 
 #### Options for pre-specified outliers
 
@@ -651,17 +672,16 @@ User-defined outliers are used when prior knowledge suggests that certain effect
 
 #### Setting in GUI
 
-
 ![**Automatic detection of outliers in GUI**](All_images/SA_REGA_Outliers_Automatic_detection.png)
 
 ![**Outliers types in GUI**](All_images/SA_REGA_Outliers_automatic_detection_span.png)
 
 Pre-specified :
 
--   Click on **...**
--   Click on **+**
--   Fill the outlier's information
--   Click on **Ok**
+- Click on **...**
+- Click on **+**
+- Fill the outlier's information
+- Click on **Ok**
 
 ![**Pre-specified outliers in GUI**](All_images/SA_REGA_Outliers_set_pre_specified.png)
 
@@ -675,7 +695,7 @@ Then to **Demetra** --\> **Pre-specified Outliers** --\> **Calendar-like Grid** 
 
 Then you have the calendar view (when selecting the pre-specified outliers) :
 
-![**Calendar view in GUI](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
+![\*\*Calendar view in GUI](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
 
 #### Setting in R
 
@@ -715,15 +735,13 @@ In main results NODE (same info at top of pre-processing NODE)
 
 (to be added)
 
--   rationale
+- rationale
 
--   parameters: assign to a component
+- parameters: assign to a component
 
 Pre-treatment regression with additional outliers
 
-$$
-Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg_{kt} + y_{lin_t}
-$$
+$$Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg_{kt} + y_{lin_t}$$
 
 ##### Allocation to components
 
@@ -765,15 +783,15 @@ impossible (?) to create several intervention variables
 
 #### Special case 2: Intervention variables
 
-Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures: 
+Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures:
 
-* Dummy variables \[\^17\]; 
-* Any possible sequence of ones and zeros;
-* $\frac{1}{(1 - \delta B)}$,
-* $(0 < \delta \leq 1)$
-* $\frac{1}{(1 - \delta_{s}B^{s })}$, 
-* $(0 < \delta_{s} \leq 1)$; 
-* $\frac{1}{(1 - B)(1 - B^{s})}$; 
+- Dummy variables \[\^17\];
+- Any possible sequence of ones and zeros;
+- $\frac{1}{(1 - \delta B)}$,
+- $(0 < \delta \leq 1)$
+- $\frac{1}{(1 - \delta_{s}B^{s })}$,
+- $(0 < \delta_{s} \leq 1)$;
+- $\frac{1}{(1 - B)(1 - B^{s})}$;
 
 where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series ($s = 12$ for a monthly time series, $s = 4$ for a quarterly time series).
 
@@ -783,9 +801,7 @@ These basic structures enable the generation of not only AO, LS, TC, SO and RP o
 
 ![**Step 1**](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
 
-
 ![**Step 2**](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
-
 
 ![**Step 3**](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
 
@@ -799,16 +815,16 @@ allocation (to be added)
 
 fixed coefficient options
 
--   **Fixed regression coefficients**  
-    *regression variables; --*
+- **Fixed regression coefficients**\
+  *regression variables; --*
 
-    For the pre-specified regression variables this option specifies the parameter estimates that will be held fixed at the values provided by the user. To fix a coefficient the user should undertake the following actions:
+  For the pre-specified regression variables this option specifies the parameter estimates that will be held fixed at the values provided by the user. To fix a coefficient the user should undertake the following actions:
 
-    -   Choose the transformation (log or none).
-    -   Define some regression variables in the *Regressors* specification.
-    -   Push on the fixed regression coefficients editor button in the **User-defined variables** row.
-    -   Select the regression variable from the list for which the coefficient will be fixed.
-    -   Save the new setting with the **Done** button.
+  - Choose the transformation (log or none).
+  - Define some regression variables in the *Regressors* specification.
+  - Push on the fixed regression coefficients editor button in the **User-defined variables** row.
+  - Select the regression variable from the list for which the coefficient will be fixed.
+  - Save the new setting with the **Done** button.
 
 <!-- Overview: differences GUI set up vs R set up -->
 
@@ -844,9 +860,9 @@ Key specifications on ARIMA modelling are embedded in default specifications: ai
 
 Two kinds of interventions are available to the user
 
--   modify automatic detection parameters
+- modify automatic detection parameters
 
--   set a user defined ARIMA model
+- set a user defined ARIMA model
 
 In both cases forecast horizon can also be set (link)
 
@@ -878,9 +894,7 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 (for both options) *fcst.horizon* the forecasting horizon (numeric). The forecast length generated by the Reg-ARIMA model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.
 
-
 ::: {.panel-tabset .content-visible when-format="html"}
-
 #### v2
 
 ![**Setting in GUI in v2**](All_images/SA_REGA_arima_auto_params_v2.png)
@@ -888,19 +902,13 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 #### v3
 
 ![**Setting in GUI in v3**](All_images/SA_REGA_arima_auto_params_v3.png)
-
 :::
 
-
 ::: {.content-visible when-format="pdf"}
-
 ![**Setting in GUI in v2**](All_images/SA_REGA_arima_auto_params_v2.png)
 
 ![**Setting in GUI in v3**](All_images/SA_REGA_arima_auto_params_v3.png)
-
 :::
-
-
 
 Forecast horizon when using Tramo-Seats Is set in the decomposition part of the specification in GUI.
 
@@ -993,21 +1001,21 @@ in version 3
 
 Type of results (including Tramo addenda)
 
--   all regressors used (shown above)
+- all regressors used (shown above)
 
--   regression details: explanatory variables (above)
+- regression details: explanatory variables (above)
 
--   ARIMA model specific results
+- ARIMA model specific results
 
--   additional diagnostics on residuals
+- additional diagnostics on residuals
 
--   likelihood
+- likelihood
 
--   seasonality tests on residuals
+- seasonality tests on residuals
 
 #### Display in GUI
 
-Reg-ARIMA model detail with other regression results in pre-processing pane. with number of observations.. parameters 
+Reg-ARIMA model detail with other regression results in pre-processing pane. with number of observations.. parameters
 
 ![**Final model**](All_images/SA_REGA_ARIMA_model_results_1.png)
 
@@ -1018,14 +1026,10 @@ More details in Pre-processing/ARIMA Node
 In residual Node
 
 ::: {.content-visible when-format="html"}
-
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node.png)
-
 :::
 
-
 ::: {.content-visible when-format="pdf"}
-
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_1.png)
 
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_2.png)
@@ -1037,17 +1041,14 @@ In residual Node
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_5.png)
 
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_6.png)
-
 :::
-
 
 ![**Distribution**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_7.png)
 
-![**Likelihood**](All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png) 
+![**Likelihood**](All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png)
 
 ![](All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png)
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 
 ![**Residuals**](All_images/SA_REGA_ARIMA_Model_residuals_seaso_tests.png)
-

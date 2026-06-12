@@ -430,6 +430,19 @@ JDemetra+ adds it to the calendars list
 ##### Type of days
 
 
+<!-- En version 3 JDemetra+ propose -->
+
+<!-- - 5 jeux de regresseurs et une possibilité de les selectionner automatiquement selon 3 critères statistiques différents -->
+
+<!--     - TD7: REG + LY  -->
+<!--     - TD4: Mon-Thu, Fri, Sat +LY -->
+<!--     - TD4c: Mon, Tue-Fri, Sat + LY -->
+<!--     - TD6: REG5 +LY -->
+<!--     - TD3: week, Sat +LY -->
+<!--     - TD3c: Mon-Thu, Fri-Sat +LY -->
+<!--     - TD2 (TD2c, TD2d) : REG1 +LY -->
+
+
 ##### Leap year 
 
 ##### Length of Period

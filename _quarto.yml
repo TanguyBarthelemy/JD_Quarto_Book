@@ -106,6 +106,8 @@ book:
         - T-plug-ins.qmd ##(#t-plug-ins)
         - T-Production-tools-cruncher-QR.qmd ##(#t-prod)
         - T-r-packages.qmd ##(#t-r-packs)
+    - part: P_Output.qmd ##(#part-Out)
+        - Output_Description.qmd ##(#output-chap)
     - part: P_Methods.qmd ##(#part-T)
       chapters:
         - M-spectral-analysis.qmd ##(#m-spectrum)
@@ -119,7 +121,6 @@ book:
         # - M-state-space-framework.qmd ##(#m-ssf)
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
-    # -  Output_Description.qmd ##(#output-chap)
     # - part: P-Use-Cases.qmd ##(#part-U)
     #   chapters:
     #     - U-forecasting-nowcasting.qmd ##(#u-now)
