@@ -48,25 +48,49 @@ and in default output in the model see: estimation object documentation (str)
 
 <!-- link to allocation part  -->
 
-| Name                  | Description                             | GUI display          | Fullname              |
-| --------------------- | --------------------------------------- | -------------------- | --------------------- |
-| y                     | Original series                         | Main Results > Table | y                     |
-| y_f                   | Forecasts of original series            | Main Results > Table | y_f(?)                |
-| y_ef                  | Forecasts errors of original series     | Main Results > Table | y_ef(?)               |
-| y_b                   | Backcasts of original series            | Main Results > Table | y_b(?)                |
-| y_eb                  | Backcasts errors of original series     | Main Results > Table | y_eb(?)               |
-| sa                    | Seasonally adjusted series              | Main Results > Table | sa                    |
-| sa_f                  | Forecasts of seasonally adjusted series | Main Results > Table | sa_f                  |
-| t                     | Trend component                         | Main Results > Table | t                     |
-| t_f                   | Forecasts of trend                      | Main Results > Table | t_f                   |
-| s                     | Seasonal component                      | Main Results > Table | s                     |
-| s_f                   | Forecasts of seasonal component         | Main Results > Table | s_f                   |
-| i                     | Irregular component                     | Main Results > Table | i                     |
-| i_f                   | Forecasts of irregular component        | Main Results > Table | i_f                   |
-| benchmarking.original | Unbenchmarked sa series                 | No                   | benchmarking.original |
-| benchmarking.target   | Series used to compute annual targets   | No                   | benchmarking.target   |
-| benchmarking.result   | Final benchmarked sa series             | No                   | benchmarking.result   |
+| Name                  | Description                                            | GUI display                            | Fullname              |
+| --------------------- | ------------------------------------------------------ | -------------------------------------- | --------------------- |
+| y                     | Original series                                        | Main Results > Table                   | y                     |
+| y_f                   | Forecasts of original series                           | Main Results > Table                   | y_f(?)                |
+| y_ef                  | Forecasts errors of original series                    | Main Results > Table                   | y_ef(?)               |
+| y_b                   | Backcasts of original series                           | Main Results > Table                   | y_b(?)                |
+| y_eb                  | Backcasts errors of original series                    | Main Results > Table                   | y_eb(?)               |
+| sa                    | Seasonally adjusted series                             | Main Results > Table                   | sa                    |
+| sa_f                  | Forecasts of seasonally adjusted series                | Main Results > Table                   | sa_f                  |
+| t                     | Trend component                                        | Main Results > Table                   | t                     |
+| t_f                   | Forecasts of trend                                     | Main Results > Table                   | t_f                   |
+| s                     | Seasonal component                                     | Main Results > Table                   | s                     |
+| s_f                   | Forecasts of seasonal component                        | Main Results > Table                   | s_f                   |
+| i                     | Irregular component                                    | Main Results > Table                   | i                     |
+| i_f                   | Forecasts of irregular component                       | Main Results > Table                   | i_f                   |
+| ycal                  | series corrected for calendar effects: y_cal = yc-/cal | Pre-Processing > Pre-adjustment series | ycal                  |
+| ycal_f                | forecasts of the series corrected for calendar effects | Pre-Processing > Pre-adjustment series | ycal_f(?)             |
+| ycal_b                | backcasts of the series corrected for calendar effects | Pre-Processing > Pre-adjustment series | ycal_b(?)             |
+| benchmarking.original | Unbenchmarked sa series                                | No                                     | benchmarking.original |
+| benchmarking.target   | Series used to compute annual targets                  | No                                     | benchmarking.target   |
+| benchmarking.result   | Final benchmarked sa series                            | No                                     | benchmarking.result   |
 
+
+
+#### final series are accessible with X-11 style names 
+
+dfinal table 
+
+| Name        | Description                                     | GUI display                       |
+| ----------- | ----------------------------------------------- | --------------------------------- |
+| finals.d11  | Seasonally adjusted series (=sa)                | Decomposition (X11)>D-Final-Table |
+| finals.d12  | Trend component (=t)                            | Decomposition (X11)>D-Final-Table |
+| finals.d13  | Irregular component (=i)                        | Decomposition (X11)>D-Final-Table |
+| finals.d16  | Seasonal component (=s)                         | Decomposition (X11)>D-Final-Table |
+| finals.d18  | Calendar effects (=cal)                         | Decomposition (X11)>D-Final-Table |
+| finals.d11a | Forecasts of seasonally adjusted series (=sa_f) | Decomposition (X11)>D-Final-Table |
+| finals.d12a | Forecasts of trend (=t_f)                       | Decomposition (X11)>D-Final-Table |
+| finals.d16a | Forecasts of seasonal component (=s_f)          | Decomposition (X11)>D-Final-Table |
+| finals.d18a | Forecasts of the calendar effects (=cal_f)      | Decomposition (X11)>D-Final-Table |
+| finals.d11b | Backcasts of seasonally adjusted series         | Decomposition (X11)>D-Final-Table |
+| finals.d12b | Backcasts of trend                              | Decomposition (X11)>D-Final-Table |
+| finals.d16b | Backcasts seasonal component                    | Decomposition (X11)>D-Final-Table |
+| finals.d18b | Backcasts of the calendar effects (=cal_b)      | Decomposition (X11)>D-Final-Table |
 
 
 #### rjd3x13 output 
