@@ -470,7 +470,7 @@ window.Quarto = {
   <li><a href="#a-bench-high-low-r" id="toc-a-bench-high-low-r" class="nav-link" data-scroll-target="#a-bench-high-low-r">In R with <code>rjd3bench</code></a></li>
   <li><a href="#a-bench-multi" id="toc-a-bench-multi" class="nav-link" data-scroll-target="#a-bench-multi">Reconciliation and multivariate temporal disaggregation</a></li>
   </ul></li>
-  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation</a>
+  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation and Interpolation</a>
   <ul class="collapse">
   <li><a href="#a-bench-tempd-gui" id="toc-a-bench-tempd-gui" class="nav-link" data-scroll-target="#a-bench-tempd-gui">Using the plug-in for GUI (version 3.x)</a></li>
   <li><a href="#a-bench-tempd-r" id="toc-a-bench-tempd-r" class="nav-link" data-scroll-target="#a-bench-tempd-r">In R with <code>rjd3bench</code></a></li>
@@ -565,7 +565,7 @@ window.Quarto = {
 <td>✔</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>TEMPORAL DISAGGREGATION</strong></td>
+<td style="text-align: left;"><strong>TEMPORAL DISAGGREGATION and INTERPOLATION</strong></td>
 <td></td>
 <td></td>
 </tr>
@@ -575,31 +575,26 @@ window.Quarto = {
 <td>✔</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Interpolation</td>
-<td>✖</td>
-<td>✔</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Reverse regression</td>
 <td>✖</td>
 <td>✔</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">ADL (Autoregressive Distributed Lag)</td>
 <td>✖</td>
 <td>✔</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Model-based Denton</td>
 <td>✔</td>
 <td>✔</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>CALENDARIZATION</strong></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Calendarization</td>
 <td>✖</td>
 <td>✔</td>
@@ -739,7 +734,7 @@ window.Quarto = {
 <li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
 <li><p><strong>Rho</strong>: value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is the coefficient of an AR(<span class="math inline">\(1\)</span>) model that follows the error term. The default value is <span class="math inline">\(1\)</span>, equivalent to applying Denton.</p></li>
 <li><p><strong>Lambda</strong>: value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. It is the adjustment model parameter. Typical choices include lambda = 1 for proportional benchmarking, lambda = 0 for additive benchmarking, and lambda = 0.5 with rho = 0 for the naive pro-rating method.</p></li>
-<li><p><strong>Bias correction</strong>: Bias-correction factor (None, Additive, Multiplicative) is expected discrepancy between the benchmarks and the high-frequency preliminary series.</p></li>
+<li><p><strong>Bias correction</strong>: Bias-correction factor (None, Additive, Multiplicative) is expected discrepancy between the benchmarks and the high-frequency preliminary series. It mainly affects out of sample estimates and serves to adjust for expected bias between the benchmarks and the preliminary data.</p></li>
 </ol>
 </section>
 <section id="cubic-splines" class="level4">
@@ -889,8 +884,8 @@ window.Quarto = {
 </section>
 </section>
 <section id="a-bench-tempd" class="level2">
-<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation</h2>
-<p>These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Regression model and Model-based Denton. Temporal disaggregation methods available in R include Regression models (Temporal disaggregation, Interpolation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.</p>
+<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation and Interpolation</h2>
+<p>These methods are used to disaggregate and interpolate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Regression model and Model-based Denton. Temporal disaggregation and interpolation methods available in R include Regression models (Temporal disaggregation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.</p>
 <p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series.</p>
 <section id="a-bench-tempd-gui" class="level3">
 <h3 class="anchored" data-anchor-id="a-bench-tempd-gui">Using the plug-in for GUI (version 3.x)</h3>
@@ -1060,7 +1055,7 @@ window.Quarto = {
 </div>
 <ol type="1">
 <li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
-<li><p><strong>Shocks</strong>: A list specifying the shocks and their magnitude (variance). For each shock, specify the Position (“YYYY-MM-DD”) and the Variance (with 1 indicating the normal situation).</p></li>
+<li><p><strong>Shocks</strong>: A list specifying the shocks and their magnitude (variance). For each shock, specify the Position (“YYYY-MM-DD”) and the Variance (with 1 indicating the normal situation). This is useful for accounting for shocks or outliers - namely, level shift(s) in the Benchmark to Indicator ratio – in the disaggregated series that could otherwise induce undesirable wave effects. To model a clear break, you can assign a sufficiently large variance (e.g., 100).</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

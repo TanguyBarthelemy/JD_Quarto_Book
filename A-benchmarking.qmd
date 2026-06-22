@@ -16,7 +16,7 @@ The sections below provide guidance on how to implement algorithms on:
 
 -   [Reconciliation and multivariate temporal disaggregation](#a-bench-multi): in [R](#a-bench-multi-r) ,
 
--   [Temporal Disaggregation](#a-bench-tempd): in [GUI](#a-bench-tempd-gui) and [R](#a-bench-tempd-r) ,
+-   [Temporal Disaggregation and Interpolation](#a-bench-tempd): in [GUI](#a-bench-tempd-gui) and [R](#a-bench-tempd-r) ,
 
 -   [Calendarization](#a-calendarization): in [R](#a-calendarization-r) ,
 
@@ -34,9 +34,8 @@ using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or
 | GRP (Growth Rate Preservation)           | ✔      | ✔    |
 | **RECONCILIATION AND MULTIVARIATE TEMPORAL DISAGGREGATION** |        |      |
 | Cholette Multivariate                   | ✖      | ✔    |
-| **TEMPORAL DISAGGREGATION**              |        |      |
+| **TEMPORAL DISAGGREGATION and INTERPOLATION**              |        |      |
 | Regression Models*                       | ✔      | ✔    |
-| Interpolation                            | ✖      | ✔    |
 | Reverse regression                       | ✖      | ✔    |
 | ADL (Autoregressive Distributed Lag)     | ✖      | ✔    |
 | Model-based Denton                       | ✔      | ✔    |
@@ -225,7 +224,9 @@ See below for a description of the available options on Cholette method:
     method.
 
 4.  **Bias correction**:  Bias-correction factor (None, Additive, Multiplicative) is 
-expected discrepancy between the benchmarks and the high-frequency preliminary series.
+expected discrepancy between the benchmarks and the high-frequency preliminary series. 
+It mainly affects out of sample estimates and serves to adjust for expected bias 
+between the benchmarks and the preliminary data.
 
 #### Cubic splines
 
@@ -273,7 +274,7 @@ Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and
 see its documentation pages. Browse its documentation on this [GitHub
 page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the
+To get started and learn more about the different methods, browse the
 [vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
 
 More information on R packages for JDemetra+ and installation procedures
@@ -389,11 +390,14 @@ output <- rjd3bench::multivariatecholette(
 )
 ```
 
-## Temporal Disaggregation {#a-bench-tempd}
+To get started and learn more about this method, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
 
-These methods are used to disaggregate a series from low frequency to
+## Temporal Disaggregation and Interpolation {#a-bench-tempd}
+
+These methods are used to disaggregate and interpolate a series from low frequency to
 high frequency. Temporal disaggregation methods developed in the plug-in
-are Regression model and Model-based Denton. Temporal disaggregation methods available in R include Regression models (Temporal disaggregation, Interpolation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.
+are Regression model and Model-based Denton. Temporal disaggregation and interpolation methods available in R include Regression models (Temporal disaggregation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.
 
 When there are high frequency related indicators, these methods provide
 high frequency estimations for a series whose sums, averages, first or
@@ -520,11 +524,11 @@ See below for a description of the available options on Model-based Denton metho
     forces the low-frequency series to match the aggregation function
     selected of the high frequency series.
 
-2.  **Shocks**: A list specifying the shocks and their magnitude (variance). For each shock,     specify the Position ("YYYY-MM-DD") and the Variance (with 1 indicating the normal situation).
+2.  **Shocks**: A list specifying the shocks and their magnitude (variance). For each shock, specify the Position ("YYYY-MM-DD") and the Variance (with 1 indicating the normal situation). This is useful for accounting for shocks or outliers - namely, level shift(s) in the Benchmark to Indicator ratio – in the disaggregated series that could otherwise induce undesirable wave effects. To model a clear break, you can assign a sufficiently large variance (e.g., 100).
 
 ![Model-based Denton Specifications (Shocks)](All_images/Image_MBD_shocks.png)
 
-3.  **Fixed bi-ratios**: A list specifying the periods for which the Benchmark‑to‑Indicator     (BI) ratios should be fixed. For each fixed BI ratio, specify the Position                  ("YYYY-MM-DD") and the Value to be fixed.
+3.  **Fixed bi-ratios**: A list specifying the periods for which the Benchmark‑to‑Indicator     (BI) ratios should be fixed. For each fixed BI ratio, specify the Position ("YYYY-MM-DD") and the Value to be fixed.
 
 ![Model-based Denton Specifications (Fixed bi-ratios)](All_images/Image_MBD_fixed.png)
 
@@ -549,7 +553,7 @@ Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and
 see its documentation pages. Browse its documentation on this [GitHub
 page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the
+To get started and learn more about the different methods, browse the
 [vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
 
 More information on R packages for JDemetra+ and installation procedures
@@ -732,3 +736,6 @@ output <- rjd3bench::calendarization(
   stde = FALSE
 )
 ```
+
+To get started and learn more about this method, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
