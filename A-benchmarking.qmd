@@ -4,140 +4,141 @@ editor:
     wrap: 72
 ---
 
-# Benchmarking and temporal disagreggation {#a-bench .unnumbered}
+# Benchmarking and Temporal Disagreggation {#a-bench .unnumbered} 
 
 ## In this chapter
 
-The sections below provide guidance on how to implement algorithms on
+The sections below provide guidance on how to implement algorithms on:
 
--   Benchmarking of [seasonally adjusted data](#a-bench-sa)
+-   [Benchmarking seasonally adjusted data](#a-bench-sa): in [GUI](#a-bench-sa-gui) and [R](#a-bench-sa-r) ,
 
--   Benchmarking [high to low frequency](#a-bench-high-low) data
+-   [Benchmarking with different frequencies](#a-bench-high-low) : in [GUI](#a-bench-td-plugin) and [R](#a-bench-high-low-r) , 
 
--   [Temporal Disaggregation](#a-bench-tempd)
+-   [Reconciliation and multivariate temporal disaggregation](#a-bench-multi): in [R](#a-bench-multi-r) ,
 
-Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or
+-   [Temporal Disaggregation and Interpolation](#a-bench-tempd): in [GUI](#a-bench-tempd-gui) and [R](#a-bench-tempd-r) ,
+
+-   [Calendarization](#a-calendarization): in [R](#a-calendarization-r) ,
+
+using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or
 [rjd3bench package](#t-r-packs) package.
 
 ## Algorithms overview{#a-b-td-overview}
 
-### Benchmarking {#t-plug-ins-bench}
+| METHODS                                   | In GUI | In R |
+|:------------------------------------------|--------|------|
+| **BENCHMARKING**                         |        |      |
+| Denton                                   | ✔      | ✔    |
+| Cholette                                 | ✔      | ✔    |
+| Cubic Splines                            | ✔      | ✔    |
+| GRP (Growth Rate Preservation)           | ✔      | ✔    |
+| **RECONCILIATION AND MULTIVARIATE TEMPORAL DISAGGREGATION** |        |      |
+| Cholette Multivariate                   | ✖      | ✔    |
+| **TEMPORAL DISAGGREGATION and INTERPOLATION**              |        |      |
+| Regression Models*                       | ✔      | ✔    |
+| Reverse regression                       | ✖      | ✔    |
+| ADL (Autoregressive Distributed Lag)     | ✖      | ✔    |
+| Model-based Denton                       | ✔      | ✔    |
+| **CALENDARIZATION**                      |        |      |
+| Calendarization                          | ✖      | ✔    |
 
-| Method                         | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
-|-----------------------|-----------------|-----------------|-----------------|
-| Denton                         | ✔                     | ✔                     | ✔              |
-| Cholette                       | ✔                     | ✔                     | ✔              |
-| Cholette Multi-variate         | ✔                     | ✖                     | ✔              |
-| Cubic Splines                  | ✖                     | ✔                     | ✔              |
-| GRP (Growth Rate Preservation) | ✖                     | ✔                     | ✔              |
-| Calendarization                | ✔                     | ✖                     | ✔              |
+\*Regression models: several structures of residuals:
 
-### Temporal Disaggregation
+-   Ar1: Chow-Lin,
 
-| Method                                      | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
-|---------------------------|---------------|---------------|---------------|
-| Regression Models\*                         | ✔️                    | ✔️                    | ✔              |
-| Model-based Denton                          | ✖                     | ✔                     | ✔              |
-| ADL (Autoregressive Distributed Lag Models) | ✖                     | ✖                     | ✔              |
+-   Rw: Fernandez,
 
-\*Regression models: several structures of residuals
+-   RwAr1: Litterman.
 
--   Ar1: Chow-Lin
-
--   Rw: Fernandez
-
--   RwAr1: Litterman
 
 ## Benchmarking seasonally adjusted data {#a-bench-sa}
 
 The goal here is to enforce identical annual totals on the seasonally
 adjusted series as on the raw or calendar adjusted series.
 
-### Using the GUI
+### Using the GUI (version 3.x) {#a-bench-sa-gui}
 
-When running a seasonal adjustment process
+When running a seasonal adjustment process with the pre-defined 
+specifications the benchmarking functionality
+is not applied by default following the *ESS Guidelines on Seasonal
+Adjustment* (2024) recommendations. It means that once the user has
+seasonally adjusted the series with a pre-defined specification the
+*Benchmarking* node is empty. To execute benchmarking click on the
+*Specifications* button and activate the checkbox in the
+*Benchmarking* section.
 
-1.  With the pre-defined specifications the benchmarking functionality
-    is not applied by default following the *ESS Guidelines on Seasonal
-    Adjustment* (2024) recommendations. It means that once the user has
-    seasonally adjusted the series with a pre-defined specification the
-    *Benchmarking* node is empty. To execute benchmarking click on the
-    *Specifications* button and activate the checkbox in the
-    *Benchmarking* section.
+![**Benchmarking option -- a default view**](All_images/UDimage1.png)
 
-    ![**Benchmarking option -- a default
-    view**](All_images/UDimage1.jpg)
+Four parameters can be set here. *Target* specifies the target
+variable for the benchmarking procedure. It can be either the
+*Original* (the raw time series) or the *Calendar Adjusted* (the
+time series adjusted for calendar effects). *Use forecasts* indicates if 
+the forecasts of the seasonally adjusted series and of the target variable 
+(target) are used in the benchmarking computation so that the benchmarking 
+constrain is also applied to the forecasting period. *Rho* is a value of the
+AR(1) parameter (set between 0 and 1). By default it is set to 1.
+Finally, *Lambda* is a parameter that relates to the weights in the
+regression equation. It is typically equal to 0 (for an additive
+decomposition), 0.5 (for a proportional decomposition) or 1 (for a
+multiplicative decomposition). The default value is 1.
 
-2.  Three parameters can be set here. *Target* specifies the target
-    variable for the benchmarking procedure. It can be either the
-    *Original* (the raw time series) or the *Calendar Adjusted* (the
-    time series adjusted for calendar effects). *Rho* is a value of the
-    AR(1) parameter (set between 0 and 1). By default it is set to 1.
-    Finally, *Lambda* is a parameter that relates to the weights in the
-    regression equation. It is typically equal to 0 (for an additive
-    decomposition), 0.5 (for a proportional decomposition) or 1 (for a
-    multiplicative decomposition). The default value is 1.
+To launch the benchmarking procedure click on the **Apply** button.
+The results are displayed in four panels. The top-left one compares
+the seasonally adjusted series with the
+benchmarked seasonally adjusted series. The
+bottom-left panel highlights the differences between these two
+results. The outcomes are also presented in a table in the top-right
+panel. The relevant statistics concerning relative differences are
+presented in the bottom-right panel.
 
-3.  To launch the benchmarking procedure click on the **Apply** button.
-    The results are displayed in four panels. The top-left one compares
-    the original output from the seasonal adjustment procedure with the
-    result from applying a benchmarking to the seasonal adjustment. The
-    bottom-left panel highlights the differences between these two
-    results. The outcomes are also presented in a table in the top-right
-    panel. The relevant statistics concerning relative differences are
-    presented in the bottom-right panel.
+![**The results of the benchmarking procedure**](All_images/UDimage2.png)
 
-    ![**The results of the benchmarking
-    procedure**](All_images/UDimage2.jpg)
+Both pictures and the table can be copied the usual way. 
 
-4.  Both pictures and the table can be copied the usual way 
+![**Options for benchmarking results**](All_images/UDimage3.png)
 
-    ![**Options for benchmarking results**](All_images/UDimage3.jpg)
+To export the result of the benchmarking procedure
+(*benchmarking.result*) and the target data (*benchmarking.target*)
+one needs to execute the seasonal adjustment with benchmarking.
 
-5.  To export the result of the benchmarking procedure
-    (*benchmarking.result*) and the target data (*benchmarking.target*)
-    one needs to once execute the seasonal adjustment with benchmarking
+![**The *SAProcessing* menu**](All_images/UG_SSA_image28.png)
 
-    ![**The *SAProcessing* menu**](All_images/UG_SSA_image28.jpg)
-
-6.  Expand the "+" menu and choose an appropriate data format (here
-    Excel has been chosen). It is possible to save the results in `.txt`,
-    `.xls`, `.csv`, and `.csv` matrix formats. Note that the available content
-    of the output depends on the output type.
+Expand the "+" menu and choose an appropriate data format (here
+Excel has been chosen). It is possible to save the results in `.txt`,
+`.xls`, `.csv`, and `.csv` matrix formats. Note that the available content
+of the output depends on the output type.
     <!-- link to add ? -->
 
-    ![**Exporting data to an Excel
-    file**](All_images/UG_SSA_image29.jpg)
+![**Exporting data to an Excel file**](All_images/UG_SSA_image29.png)
 
-7.  Chose the output items that refer to the results from the
-    benchmarking procedure, move them to the window on the right and
-    click **OK**.
+Chose the output items that refer to the results from the
+benchmarking procedure, move them to the window on the right and
+click **OK**.
 
-    ![**Exporting the results of the benchmarking
-    procedure**](All_images/UDimage4.jpg)
+![**Exporting the results of the benchmarking procedure**](All_images/UDimage4.png)
 
-### In R with `rjd3x13` and `rjd3tramoseats`
+### In R with `rjd3x13` and `rjd3tramoseats` {#a-bench-sa-r}
 
 When performing seasonal adjustment with `rjd3x13` and `rjd3tramoseats`,
 the current (or default) specification has to be customized using the
 function `rjd3toolkit::set_benchmarking` documented on this [GitHub
-page](https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html)
+page](https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html).
 
 ```{r, echo=TRUE, eval=FALSE}
-init_spec <- rjd3x13::spec_x13("RSA5c")
+init_spec <- rjd3x13::x13_spec("rsa5c")
 new_spec <- set_benchmarking(
-    init_spec,
-    enabled = TRUE,
-    target = "Normal",
-    rho = 0.8,
-    lambda = 0.5,
-    forecast = FALSE,
-    bias = "None"
+    x = init_spec,
+    enabled = NA,
+    target = c(NA, "CalendarAdjusted", "Original"),
+    rho = NA,
+    lambda = NA,
+    forecast = NA,
+    bias = c("None", "Additive", "Multiplicative")
 )
 ```
 
 More information on R packages for JDemetra+ and installation procedures
-is provided in [this chapter](#t-r-packs)
+is provided in [this chapter](#t-r-packs).
 
 ## Benchmarking with different frequencies {#a-bench-high-low}
 
@@ -148,45 +149,42 @@ example of the relation to be fulfilled could be that the low frequency
 series (quarterly frequency) coincides with the quarterly sum of the
 high frequency series (monthly frequency).
 
-Multivariate benchmarking also forces contemporary linear relations
-between high frequency series. If these relations do not exist,
-benchmarking could be carried out for each series separately. Normally
-contemporary relations are linear and the relations of aggregation are
-also linear and the same for all series, so the contemporary relations
-between low frequency series are fulfilled.
+The benchmarking methods available in the benchmarking and temporal
+disaggregation plug-in and in R are: Denton, Cholette, Cubic Splines, and GRP. 
 
-The benchmarking methods available in the benchmarking and time
-disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
-
-### Using the plug-in for GUI (version 2.x) {#a-bench-td-plugin}
+### Using the plug-in for GUI (version 3.x) {#a-bench-td-plugin} 
 
 Download the plug-in for GUI as explained [here](#t-plug-ins-bench) and
-install it as detailed [here](#t-plug-ins-inst)
+install it as detailed [here](#t-plug-ins-inst).
 
 Once the plugin is installed, two more options appear in the Workspace
 window: Benchmarking and Temporal Disaggregation.
 
-![Text](All_images/Image1_Bench.jpg)
+![**Workspace after instaling the plug-in -- a default view**](All_images/Image1_Bench.png)
 
-#### Univariate: Denton and Cholette
+#### Univariate: Denton, Cholette, Cubic Spline, Grp
 
-To run Denton univariate case select:
+To run univariate methods select:
 
-Statistical **Methods** $\rightarrow$ Benchmarking $\rightarrow$ Denton
-or Cholette
+Statistical Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton, Cholette, CubicSpline or Grp
 
 ![**Benchmarking tab**](All_images/Image2_Bench.png)
 
-In both cases, a new window is displayed to launch one of the methods
-with the series selected. In the upper left side, drag the high
-frequency series from the Providers window and drop it in **Drop Series
-here** and the low frequency series in **Drop Constraint here**.
+In all cases, a new window is displayed to launch one of the methods
+with the series selected. In the upper left side, drag the low
+frequency series from the Providers window and drop it in **Drop Low-freq series here** 
+and the high frequency series in **Drop High-freq series here**.
+
+In the top right of the screen, select the **Specifications** button to
+set the specifications to apply each method. 
 
 #### Denton
 
-In the top right of the screen, select the **Specifications** button to
-set the specifications to apply each method. See below for a description
-of the available options on Denton method:
+Denton is a benchmarking method that relies on the principle of movement preservation.
+
+See below for a description of the available options on Denton method:
+
+![Denton Specifications](All_images/Image3_Bench.png)
 
 1.  **Type**: Aggregation function (Sum, Average, Last or First). This
     forces the low-frequency series to match the aggregation function
@@ -202,156 +200,238 @@ of the available options on Denton method:
 
 4.  **Differencing**: Number of regular differences. By default 1.
 
-5.  **Default frequency**: periodicity of the low frequency data. The
-    options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly
-    and Monthly.
-
-![Denton Specifications](All_images/Image3_Bench.png)
+5.  **Default frequency**: it is the frequency of the output data.
 
 #### Cholette {#a-bench-high-low-cholette}
 
+Cholette is a generalized method relying on the principle of movement preservation that encompasses other benchmarking methods. 
+
 See below for a description of the available options on Cholette method:
+
+![Cholette Specifications](All_images/Image4_Bench.png)
 
 1.  **Type**: Aggregation function (Sum, Average, Last or First). This
     forces the low-frequency series to match the aggregation function
     selected of the high frequency series.
 
-2.  **Aggregation frequency**: periodicity of the low frequency data.
-    The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly,
-    Bimonthly and Monthly.
-
-3.  **Rho**: value between $-1$ and $1$. It is the coefficient of an
+2.  **Rho**: value between $-1$ and $1$. It is the coefficient of an
     AR($1$) model that follows the error term. The default value is $1$,
     equivalent to applying Denton.
 
-4.  **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$
-    of the following function to be minimized in Cholette method:
+3.  **Lambda**: value between $0$ and $1$. It is the adjustment model parameter. 
+    Typical choices include lambda = 1 for proportional benchmarking, lambda = 0 
+    for additive benchmarking, and lambda = 0.5 with rho = 0 for the naive pro-rating 
+    method.
 
-    $$
-     \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
-     $$
+4.  **Bias correction**:  Bias-correction factor (None, Additive, Multiplicative) is 
+expected discrepancy between the benchmarks and the high-frequency preliminary series. 
+It mainly affects out of sample estimates and serves to adjust for expected bias 
+between the benchmarks and the preliminary data.
 
-    Usually lambda is $0$ or $1$ equivalent to applying additive
-    benchmarking and proportional benchmarking method respectively.
+#### Cubic splines
 
-![Cholette Specifications](All_images/Image4_Bench.png)
+Cubic splines are piecewise cubic functions that are linked together in a way to guarantee smoothness at data points. 
 
-In both cases, Denton and Cholette methods, the output is a graph with
+See below for a description of the available options on Cubic splines method:
+
+![Cubic splines Specifications](All_images/Image_CubicSplines.png)
+
+1.  **Type**: Aggregation function (Sum, Average, Last or First). This
+    forces the low-frequency series to match the aggregation function
+    selected of the high frequency series.
+
+#### Growth rate preservation (GRP)
+
+GRP is a method which explicitly preserves the period-to-period growth rates of the preliminary series. 
+
+See below for a description of the available options on GRP method:
+
+![GRP Specifications](All_images/Image_GRP.png)
+
+1.  **Type**: Aggregation function (Sum, Average, Last or First). This
+    forces the low-frequency series to match the aggregation function
+    selected of the high frequency series.
+    
+2.  **Denton initialization**: Indicates how the starting values for the GRP 
+    optimization procedure are obtained. If selected, the modified Denton PFD 
+    method is used. Otherwise, they are derived from the aggregation constraint. 
+
+3.  **Precision**: A numeric value specifying the convergence tolerance. The default is         1e-12.
+
+4.  **iterations**: An integer giving the maximum number of iterations allowed 
+    in the BFGS algorithm. The default is 500.
+
+In all cases, the output is a graph with
 the original series and the benchmarked series. There is no table with
 the results, but it is very easy to create one from the graph. Select
 the graph and select copy, then paste the values in excel (control-V).
 
-![Denton output](All_images/Image5_Bench.png)
+![GRP output](All_images/Image_GRP_graph.png)
 
-#### Multi-variate Cholette
+### In R with `rjd3bench` {#a-bench-high-low-r} 
 
-The only multi-variate benchmarking method available for the version 2 plugin, is
-multi-variate Cholette.
-
-The input for this method are a set of time series with different
-frequencies and a set of constraints, both contemporary and
-intertemporal. The output is a new set of time series, that corresponds
-to the former, now fulfilling the constraints.
-
-To run multi-variate Cholette select *Statistical methods*
-$\rightarrow$ *Benchmarking* $\rightarrow$ *Multi-variate Cholette*.
-Then, a box appears, where we can drop time series.
-
-![Multi-variate Cholette input](All_images/CholetteMulti.png)
-
-The specification properties can be set by selecting  *Window* $\rightarrow$ 
-*Properties*. There are only three elements in the form: *Rho*, *Lambda* and
-*Constraints*. The two first are analogous to their [univariate Cholette](#a-bench-high-low-cholette)
-counterparts. The third one allows to set constraints, both contemporary and
-intertemporal.
-
-![Multi-variate Cholette specification](All_images/PropCholetteMulti.png)
-
-Clicking the three dots button from *Constraints*, opens the constraints list
-box.
-
-![Constraints list](All_images/Constraints.png)
-
-From this box, the set of constraints can be added, just typing the constraint
-inside item and clicking *Add* button. The constraints must be written as
-follows:
-
-- $y = a_1 * x_1 + \dots + a_n * x_n$ where $y, x_1, \dots, x_n$ are same
-frequency time series and $a_1, \dots, a_n$ are constant.
-- $c = a_1 * x_1 + \dots + a_n * x_n$ where $x_1, \dots, x_n$ are same frequency
-time series and $c, a_1, \dots, a_n$ are constant.
-- $c = x_1 + \dots + x_n$ can be shortened as $c = x?$.
-- $S = \mathrm{sum}(s)$ where $S$ is low-frequency and $s$ is high-frequency.
-
-Note that any time series put on the left hand side can't appear on the right
-hand side of any other constraint. This is because left hand side quantities
-are fixed while right hand side quantities are adjusted so the equality holds.
-
-The output are the benchmarked high-frequency time series, that can be found
-in *Details* $\rightarrow$ *Benchmarked series*.
-
-![Output multi-variate Cholette](All_images/OutCholetteMulti.png)
-
-
-### Using the plug-in for GUI (version 3.x)
-
-Practical use of the plug-in for v 3.x is quasi identical to the one in v2.x described
-[above](#a-bench-td-plugin). Some methods are not available yet in v 3.x but the latter which contains Model
-
-Based Denton not included in v2.x, as stated [here](#a-b-td-overview)
-
-
-### In R with `rjd3bench`
-
-Use the \[rjd3bench\](https://github.com/rjdverse/rjd3bench) package and
+Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and
 see its documentation pages. Browse its documentation on this [GitHub
 page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the
-[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html)
+To get started and learn more about the different methods, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
 
 More information on R packages for JDemetra+ and installation procedures
-is provided in [this chapter](#t-r-packs)
+is provided in [this chapter](#t-r-packs).
 
-## Temporal Disaggregation {#a-bench-tempd}
+#### Denton
 
-These methods are used to disaggregate a series from low frequency to
+To perform Denton method use the function `rjd3bench::denton` documented on this [GitHub
+page](https://rjdverse.github.io/rjd3bench/reference/denton.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::denton(
+  s = NULL,
+  t,
+  d = 1L,
+  mul = TRUE,
+  nfreq = 4L,
+  modified = TRUE,
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  obsposition = 1L,
+  nbcsts = 0L,
+  nfcsts = 0L
+)
+```
+
+#### Denton for an Atypical Frequency Series
+
+The `rjd3bench::denton_raw` function extends `rjd3bench::denton` by allowing benchmarking for any frequency ratio.
+
+To perform Denton method for an Atypical Frequency Series use the function `rjd3bench::denton_raw` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/denton_raw.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::denton_raw(
+  s = NULL,
+  t,
+  freqratio,
+  d = 1L,
+  mul = TRUE,
+  modified = TRUE,
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  obsposition = 1L,
+  startoffset = 0L,
+  nbcsts = 0L,
+  nfcsts = 0L
+)
+```
+
+#### Cholette
+
+To perform Cholette method use the function `rjd3bench::cholette` documented on this [GitHub
+page](https://rjdverse.github.io/rjd3bench/reference/cholette.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::cholette(
+  s,
+  t,
+  rho = 1,
+  lambda = 1,
+  bias = c("None", "Additive", "Multiplicative"),
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  obsposition = 1L
+)
+```
+
+#### Cubic Splines
+
+To perform Cubic Splines method use the function `rjd3bench::cubicspline` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/cubicspline.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::cubicspline(
+  s = NULL,
+  t,
+  nfreq = 4L,
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  obsposition = 1L
+)
+```
+
+#### GRP
+
+To perform Growth rate preservation method use the function `rjd3bench::grp` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/grp.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::grp(
+  s,
+  t,
+  objective = c("Forward", "Backward", "Symmetric", "Log"),
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  obsposition = 1L,
+  eps = 1e-12,
+  iter = 500L,
+  dentoninitialization = TRUE
+)
+```
+
+### Reconciliation and multivariate temporal disaggregation {#a-bench-multi}  
+
+While standard benchmarking methods consider one target series at a time, reconciliation techniques aim to restore consistency in a system of time series with regards to both contemporaneous and temporal constraints. Reconciliation techniques are typically needed when the total and its components are estimated independently (the so-called direct approach). 
+ 
+#### In R with `rjd3bench` {#a-bench-multi-r}
+
+This is a multivariate extension of the Cholette benchmarking method which can be used for the purpose of reconciliation. 
+
+To perform Cholette Multi-variate method use the function `rjd3bench::multivariatecholette` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/multivariatecholette.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::multivariatecholette(
+  xlist,
+  tcvector = NULL,
+  ccvector = NULL,
+  rho = 0.8,
+  lambda = 0.5
+)
+```
+
+To get started and learn more about this method, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
+
+## Temporal Disaggregation and Interpolation {#a-bench-tempd}
+
+These methods are used to disaggregate and interpolate a series from low frequency to
 high frequency. Temporal disaggregation methods developed in the plug-in
-are Chow-Lin, Fernández and Litterman.
+are Regression model and Model-based Denton. Temporal disaggregation and interpolation methods available in R include Regression models (Temporal disaggregation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.
 
 When there are high frequency related indicators, these methods provide
 high frequency estimations for a series whose sums, averages, first or
-last values are consistent with the observed low frequency series,
-applying a regression model where it is assumed that the high frequency
-series to be estimated follows a multiple regression with p related
-series (indicators).
+last values are consistent with the observed low frequency series.
 
-See Methods$\rightarrow$Temporal disaggregation for more theoretical
-detail.
-
-### Using the plug-in for GUI
+### Using the plug-in for GUI (version 3.x) {#a-bench-tempd-gui}
 
 Temporal disaggregation in the GUI is available with the same
-[plug-in](#a-bench-td-plugin) as benchmarking (described in the sections
-above)
+[plug-in](#t-plug-ins-bench) as benchmarking (described in the sections
+above).
 
-To run Temporal Disaggregation methods select Temporal
-disaggregation$\rightarrow$ Regression Model:
+To run Temporal Disaggregation methods select:
 
-![Temporal Disggregation](All_images/Image6_TD.png)
+Statistical methods $\rightarrow$ Temporal disaggregation $\rightarrow$ Regression Model or Model-based Denton
+
+![Temporal Disaggregation tab](All_images/Image6_TD.png)
 
 A new window is displayed to launch one of the methods with the series
 selected. In the upper left side drag the low frequency series from the
 Providers window and drop it in **Y box** and the proxy series or
 indicator with high frequency series in **X box**.
 
-![Temporal Disggregation](All_images/Image7_TD.png)
+![Temporal Disaggregation procedure](All_images/Image7_TD.png)
 
 In the top right of the screen, select **Specifications** to set the
-specifications to apply each method. Here is a description of the
-available options on Temporal Disaggregation methods:
+specifications to apply each method. 
 
-![Temporal Disggregation](All_images/Image8_TD.png)
+#### Regression Model
+
+The implemented regression models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms. These methods are all expressed with the same equation, but with different models for the error term.
+
+See below for a description of the available options on Regression Model method:
+
+![Regression Model Specifications](All_images/Image8_TD.png)
 
 1.  **Estimation span**: Specifies the span (data interval) of the time
     series to be used in the temporal disaggregation process. The user
@@ -365,8 +445,7 @@ available options on Temporal Disaggregation methods:
 | Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
 | First             | number of observtions from the beginning of the series included (dynamic) (integer)                                                                                         |     |
 | Last              | number of observations from the end of the series (dynamic)(integer)                                                                                                        |     |
-| Excluding         | excluding N first observation and P last observation from the computation,dynamic) (integer)                                                                                |     |
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
+| Excluding         | excluding N first observation and P last observation from the computation, dynamic) (integer)                                                                                |     |
 
 2.  **Error**: determines the method to be applied and it refers to the
     model that follows the error term.
@@ -384,142 +463,279 @@ available options on Temporal Disaggregation methods:
     has a value between -1 and 1. This parameter exists only if RWar1 or
     Ar1 is selected in the error parameter.
 
-4.  **Constant**: a constant is included in the model if it is selected.
+4.  **Constant**: A constant is included in the model if it is selected.
 
-5.  **Trend**: a linear trend is included in the model if it is
+5.  **Trend**: A linear trend is included in the model if it is
     selected.
 
-6.  **Type**: Aggregation function (Sum, Average, Last or First). This
-    forces the low-frequency series to match the aggregation function
-    selected of the high frequency series.
+6.  **Average**: The average conversion is used if selected; otherwise, the additive conversion is applied.
 
-7.  **Default frequency**: it is the frequency of the output series.
+7.  **Default frequency**: It is the frequency of the output series.
 
 8.  **Advanced options**: These parameters are related to state space
     model and the algorithm used to obtain the estimations.
 
-    8.1. **Diffuse regression coefficient**: Indicates if the
-    coefficients of the regression model are diffuse (T) or fixed
-    unknown (F, default).
+    8.1. **Precision**: A numeric value specifying the convergence tolerance. The default is         1e-6.
+    
+    8.2. **Zero initialization**: if the checkbox is selected, the initial values of the        autoregressive model are set to zero.
+    
+    8.3. **Truncated rho**: A numeric value defining the lower bound 
+    of the admissible range for rho. 
+    
+    8.4. **Diffuse regression coefficient**: if the checkbox is selected, the
+    coefficients of the regression model are diffused. Otherwise, fixed
+    unknown are applied.
 
 Here are the results:
 
-![Temporal Disaggregation](All_images/Image9_TD.png)
+![The summary of the Regression Model](All_images/Image9_TD.png)
 
-Select **Model**$\rightarrow$Summary to see the estimation of $rho$
+Select Model$\rightarrow$Summary to see the estimation of $rho$
 (coefficient of the AR(1) model) and the coefficient of the regression
 model. Additionally the BIC, AIC and AICC. It is also showed the
 variance decomposition in Indicators and Smoothing. Ideally, if the
 indicator adequately approximates the aggregate in the observable domain
 (low frequency model), the residuals of the low frequency model will be
-small and the indicator term will dominate. \\
+small and the indicator term will dominate.
 
 To confirm that the model works well, select
-**Model**$\rightarrow$Residuals$\rightarrow$Statistics and see the tests
+Model$\rightarrow$Residuals$\rightarrow$Statistics and see the tests
 on the residuals of the model:
 
-![Temporal Disggregation](All_images/Image10_TD.png)
+![Tests on the residuals of the Regression Model](All_images/Image10_TD.png)
 
 Select MainResults$\rightarrow$Table to obtain the disaggregated series
-and standard deviation.
+and standard errors.
 
-![Temporal Disggregation](All_images/Image11_TD.png)
+![The results of the regression model](All_images/Image11_TD.png)
 
-Select **MainResults**$\rightarrow$Chart to see a graph of the
+Select MainResults$\rightarrow$Chart to see a graph of the
 disaggregated series and the confidence interval.
 
-### In R with `rjd3bench`
+#### Model-based Denton
 
-Use the \[rjd3bench\](https://github.com/rjdverse/rjd3bench) package and
+The Denton proportional first difference (PFD) method can be expressed as a statistical model in a state-space representation. The approach allows the disaggregated series to be constrained (or 'frozen') at specific periods or prior to a given date by fixing the corresponding high‑frequency BI ratios.
+
+See below for a description of the available options on Model-based Denton method:
+
+![Model-based Denton Specifications](All_images/Image_MBD_specif.png)
+
+1.  **Type**: Aggregation function (Sum, Average, Last or First). This
+    forces the low-frequency series to match the aggregation function
+    selected of the high frequency series.
+
+2.  **Shocks**: A list specifying the shocks and their magnitude (variance). For each shock, specify the Position ("YYYY-MM-DD") and the Variance (with 1 indicating the normal situation). This is useful for accounting for shocks or outliers - namely, level shift(s) in the Benchmark to Indicator ratio – in the disaggregated series that could otherwise induce undesirable wave effects. To model a clear break, you can assign a sufficiently large variance (e.g., 100).
+
+![Model-based Denton Specifications (Shocks)](All_images/Image_MBD_shocks.png)
+
+3.  **Fixed bi-ratios**: A list specifying the periods for which the Benchmark‑to‑Indicator     (BI) ratios should be fixed. For each fixed BI ratio, specify the Position ("YYYY-MM-DD") and the Value to be fixed.
+
+![Model-based Denton Specifications (Fixed bi-ratios)](All_images/Image_MBD_fixed.png)
+
+Here are the results:
+
+To visually inspect disaggregated series and their confidence intervals, select MainResults$\rightarrow$Chart.
+
+Select MainResults$\rightarrow$Table to obtain the disaggregated series
+and their standard errors.
+
+![The results of the Model-based Denton](All_images/Image_MBD_results.png)
+
+In order to view the graph of the BI-ratios and their confidence intervals select BI-ratios$\rightarrow$Chart.
+
+Select BI-ratio$\rightarrow$Table to obtain the BI-ratios and their standard errors.
+
+![BI ratios and confidence intervals](All_images/Image_MBD_BI.png)
+
+### In R with `rjd3bench` {#a-bench-tempd-r}
+
+Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and
 see its documentation pages. Browse its documentation on this [GitHub
 page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the
-[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html)
+To get started and learn more about the different methods, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
 
 More information on R packages for JDemetra+ and installation procedures
-is provided in [this chapter](#t-r-packs)
+is provided in [this chapter](#t-r-packs).
 
-#### Temporal Disaggregation
+#### Regression models
 
-To perform Temporal Disaggregation methods use the function
-**temporaldisaggregation**:
+To perform temporal disaggregation of low-frequency to high-frequency time series by regression models use the function `rjd3bench::temporal_disaggregation` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/temporal_disaggregation.html).
+The implemented models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms.
 
 ```{r, echo = TRUE, eval = FALSE}
-output <- rjd3bench::temporaldisaggregation(
-    series = y, indicators = x, model = "Rw", freq = 12,
-    conversion = "Average", diffuse.algorithm = "Diffuse"
+output <- rjd3bench::temporal_disaggregation(
+  series,
+  constant = TRUE,
+  trend = FALSE,
+  indicators = NULL,
+  model = c("Ar1", "Rw", "RwAr1"),
+  freq = 4L,
+  average = FALSE,
+  rho = 0,
+  rho.fixed = FALSE,
+  rho.truncated = 0,
+  zeroinitialization = FALSE,
+  diffuse.algorithm = c("SqrtDiffuse", "Diffuse", "Augmented"),
+  diffuse.regressors = FALSE,
+  nbcsts = 0L,
+  nfcsts = 0L
 )
 ```
 
-The input parameters are the same as in the GUI, see the R Documentation
-of the rjd3bench package for the description.
+#### Temporal Disaggregation for an Atypical Frequency Series
 
-The output is a list containing 3 elements:
+The `rjd3bench::temporal_disaggregation_raw` function extends `rjd3bench::temporal_disaggregation` by allowing temporal disaggregation for any frequency ratio. 
 
-1.  **Regression**: contains information about:
+To perform temporal disaggregation method for an Atypical Frequency Series use the function `rjd3bench::temporal_disaggregation_raw` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/temporal_disaggregation_raw.html).
 
-    -   Type of method applied:
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::temporal_disaggregation_raw(
+  series,
+  constant = TRUE,
+  trend = FALSE,
+  indicators = NULL,
+  startoffset = 0L,
+  model = c("Ar1", "Rw", "RwAr1"),
+  freqratio,
+  average = FALSE,
+  rho = 0,
+  rho.fixed = FALSE,
+  rho.truncated = 0,
+  zeroinitialization = FALSE,
+  diffuse.algorithm = c("SqrtDiffuse", "Diffuse", "Augmented"),
+  diffuse.regressors = FALSE,
+  nbcsts = 0L,
+  nfcsts = 0L
+)
+```
 
-    ```{r,eval=FALSE, include=TRUE}
-output$regression$type
-    ```
+#### Temporal Interpolation
 
-    -   The model (coefficient estimation, standard deviation and
-        T-statistic):
+To perform temporal interpolation of low-frequency to high-frequency time series by regression models use the function `rjd3bench::temporal_interpolation` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/temporal_interpolation.html).
 
-    ```{r,eval=FALSE, include=TRUE}
-output$regression$model
-    ```
+The implemented models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms.
 
-    -   Conversion:Aggregation function (Sum, Average, Last or First):
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::temporal_interpolation(
+  series,
+  constant = TRUE,
+  trend = FALSE,
+  indicators = NULL,
+  model = c("Ar1", "Rw", "RwAr1"),
+  freq = 4L,
+  obsposition = -1L,
+  rho = 0,
+  rho.fixed = FALSE,
+  rho.truncated = 0,
+  zeroinitialization = FALSE,
+  diffuse.algorithm = c("SqrtDiffuse", "Diffuse", "Augmented"),
+  diffuse.regressors = FALSE,
+  nbcsts = 0L,
+  nfcsts = 0L
+)
+```
 
-    ```{r,eval=FALSE, include=TRUE}
-output$regression$conversion
-    ```
+#### Temporal Interpolation for an Atypical Frequency Series
 
-2.  **Estimation**: contains information about:
+The `rjd3bench::temporal_interpolation_raw` function extends `rjd3bench::temporal_interpolation` by allowing temporal interpolation for any frequency ratio. 
 
-    -   The disaggregated series:
+To perform temporal interpolation method for an Atypical Frequency Series use the function `rjd3bench::temporal_interpolation_raw` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/temporal_interpolation_raw.html).
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$disagg
-    ```
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::temporal_interpolation_raw(
+  series,
+  constant = TRUE,
+  trend = FALSE,
+  indicators = NULL,
+  startoffset = 0L,
+  model = c("Ar1", "Rw", "RwAr1"),
+  freqratio,
+  obsposition = -1L,
+  rho = 0,
+  rho.fixed = FALSE,
+  rho.truncated = 0,
+  zeroinitialization = FALSE,
+  diffuse.algorithm = c("SqrtDiffuse", "Diffuse", "Augmented"),
+  diffuse.regressors = FALSE,
+  nbcsts = 0L,
+  nfcsts = 0L
+)
+```
 
-    -   The standard deviation of the disaggregated series:
+#### Reverse Regression Model
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$edisagg
-    ```
+Unlike the usual regression-based models, this approach treats a high-frequency indicator as the dependent variable and the unknown target series as the independent variable.
 
-    -   The regressor effect:
+To perform reverse regression method use the function `rjd3bench::temporaldisaggregationI` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/temporaldisaggregationI.html).
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$regeffect
-    ```
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::temporaldisaggregationI(
+  series,
+  indicator,
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  conversion.obsposition = 1L,
+  rho = 0,
+  rho.fixed = FALSE,
+  rho.truncated = 0
+)
+```
 
-    -   The smoothing part:
+#### Denton Model-Based
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$smoothingpart
-    ```
+To perform Denton Model-Based method use the function `rjd3bench::denton_modelbased` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/denton_modelbased.html).
 
-    -   The $rho$ estimation (coefficient of the AR(1) model): This
-        parameter exists only if RWar1 or Ar1 is selected in the model.
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::denton_modelbased(
+  series,
+  indicator,
+  differencing = 1L,
+  conversion = c("Sum", "Average", "Last", "First", "UserDefined"),
+  conversion.obsposition = 1L,
+  outliers = NULL,
+  fixedBIratios = NULL
+)
+```
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$parameter
-    ```
+#### Autoregressive Distributed Lag (ADL) Models
 
-    -   The standard deviation of the AR(1) coefficient:
+To perform temporal disagreggation of low-frequency to high-frequency series using an AUtoregressive Distributed Lag regression model use the function `rjd3bench::adl_disaggregation` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/adl_disaggregation.html).
 
-    ```{r,eval=FALSE, include=TRUE}
-output$estimation$eparameter
-    ```
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::adl_disaggregation(
+  series,
+  constant = TRUE,
+  trend = FALSE,
+  indicators = NULL,
+  average = FALSE,
+  phi = 0,
+  phi.fixed = FALSE,
+  phi.truncated = 0,
+  xar = c("FREE", "SAME", "NONE"),
+  diffuse = FALSE
+)
+```
 
-3.  **Likelihood**: Contains information about the loglikelihood(ll),
-    sum of squares of the residuals of the model (ssq), number of
-    observations (nobs), number of parameters to be estimated (nparams),
-    degrees of freedom (df), Akaike Information Criteria (aic), Akaike
-    Information Criteria Corrected (aicc), Bayesian Information Criteria
-    (bic), Bayesian Information Criteria Corrected (bic2).
+
+### Calendarization {#a-calendarization}
+
+Calendarization is the process of transforming the values of a flow time series observed over varying time intervals into values that cover given calendar intervals such as month, quarter or year. The process involves two steps. At first, a state-space representation of the Denton proportional first difference (PFD) method is considered to perform a temporal disaggregation of the observed data into daily values. After that, the resulting daily values are aggregated into the desired calendar reference periods.
+
+#### In R with `rjd3bench` {#a-calendarization-r}
+
+To perform Calendarization method use the function `rjd3bench::calendarization` documented on this [GitHub page](https://rjdverse.github.io/rjd3bench/reference/calendarization.html).
+
+```{r, echo = TRUE, eval = FALSE}
+output <- rjd3bench::calendarization(
+  calendarobs,
+  freq,
+  start = NULL,
+  end = NULL,
+  dailyweights = NULL,
+  stde = FALSE
+)
+```
+
+To get started and learn more about this method, browse the
+[vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html).
