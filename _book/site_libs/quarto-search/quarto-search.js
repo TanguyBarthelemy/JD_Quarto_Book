@@ -55,7 +55,12 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
 
   // highlight matches on the page
   if (query && mainEl) {
+<<<<<<< HEAD
     highlight(query, mainEl);
+=======
+    // perform any highlighting
+    highlight(escapeRegExp(query), mainEl);
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 
     // Activate tabs on pageshow — after tabsets.js restores localStorage state.
     // tabsets.js registers its pageshow handler during module execution (before

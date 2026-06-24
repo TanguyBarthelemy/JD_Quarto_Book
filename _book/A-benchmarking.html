@@ -2,12 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
+<<<<<<< HEAD
 <meta name="generator" content="quarto-1.9.37">
+=======
+<meta name="generator" content="quarto-1.7.32">
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
+<<<<<<< HEAD
 <title>Benchmarking and temporal disagreggation – JDemetra+ documentation</title>
+=======
+<title>Benchmarking and Temporal Disagreggation – JDemetra+ documentation</title>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,10 +84,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<<<<<<< HEAD
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-b0134dbb9ead57b6540d0cf440a7ea85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+=======
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-31d8ef72841916967b1943a12315f623.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,6 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<<<<<<< HEAD
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -137,6 +153,36 @@ window.Quarto = {
   typesetMath
 };
 </script>
+=======
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -150,7 +196,11 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+<<<<<<< HEAD
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and temporal disagreggation</a></li></ol></nav>
+=======
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and Temporal Disagreggation</a></li></ol></nav>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -309,7 +359,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
+ <span class="menu-text">Benchmarking and Temporal Disagreggation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -387,8 +437,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
+<<<<<<< HEAD
             <a href="./P-Output.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Output description</span></a>
+=======
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -484,26 +539,23 @@ window.Quarto = {
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#a-b-td-overview" id="toc-a-b-td-overview" class="nav-link" data-scroll-target="#a-b-td-overview">Algorithms overview</a>
-  <ul class="collapse">
-  <li><a href="#t-plug-ins-bench" id="toc-t-plug-ins-bench" class="nav-link" data-scroll-target="#t-plug-ins-bench">Benchmarking</a></li>
-  <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
-  </ul></li>
+  <li><a href="#a-b-td-overview" id="toc-a-b-td-overview" class="nav-link" data-scroll-target="#a-b-td-overview">Algorithms overview</a></li>
   <li><a href="#a-bench-sa" id="toc-a-bench-sa" class="nav-link" data-scroll-target="#a-bench-sa">Benchmarking seasonally adjusted data</a>
   <ul class="collapse">
-  <li><a href="#using-the-gui" id="toc-using-the-gui" class="nav-link" data-scroll-target="#using-the-gui">Using the GUI</a></li>
-  <li><a href="#in-r-with-rjd3x13-and-rjd3tramoseats" id="toc-in-r-with-rjd3x13-and-rjd3tramoseats" class="nav-link" data-scroll-target="#in-r-with-rjd3x13-and-rjd3tramoseats">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></a></li>
+  <li><a href="#a-bench-sa-gui" id="toc-a-bench-sa-gui" class="nav-link" data-scroll-target="#a-bench-sa-gui">Using the GUI (version 3.x)</a></li>
+  <li><a href="#a-bench-sa-r" id="toc-a-bench-sa-r" class="nav-link" data-scroll-target="#a-bench-sa-r">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></a></li>
   </ul></li>
   <li><a href="#a-bench-high-low" id="toc-a-bench-high-low" class="nav-link" data-scroll-target="#a-bench-high-low">Benchmarking with different frequencies</a>
   <ul class="collapse">
-  <li><a href="#a-bench-td-plugin" id="toc-a-bench-td-plugin" class="nav-link" data-scroll-target="#a-bench-td-plugin">Using the plug-in for GUI (version 2.x)</a></li>
-  <li><a href="#using-the-plug-in-for-gui-version-3.x" id="toc-using-the-plug-in-for-gui-version-3.x" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</a></li>
-  <li><a href="#in-r-with-rjd3bench" id="toc-in-r-with-rjd3bench" class="nav-link" data-scroll-target="#in-r-with-rjd3bench">In R with <code>rjd3bench</code></a></li>
+  <li><a href="#a-bench-td-plugin" id="toc-a-bench-td-plugin" class="nav-link" data-scroll-target="#a-bench-td-plugin">Using the plug-in for GUI (version 3.x)</a></li>
+  <li><a href="#a-bench-high-low-r" id="toc-a-bench-high-low-r" class="nav-link" data-scroll-target="#a-bench-high-low-r">In R with <code>rjd3bench</code></a></li>
+  <li><a href="#a-bench-multi" id="toc-a-bench-multi" class="nav-link" data-scroll-target="#a-bench-multi">Reconciliation and multivariate temporal disaggregation</a></li>
   </ul></li>
-  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation</a>
+  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation and Interpolation</a>
   <ul class="collapse">
-  <li><a href="#using-the-plug-in-for-gui" id="toc-using-the-plug-in-for-gui" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui">Using the plug-in for GUI</a></li>
-  <li><a href="#in-r-with-rjd3bench-1" id="toc-in-r-with-rjd3bench-1" class="nav-link" data-scroll-target="#in-r-with-rjd3bench-1">In R with <code>rjd3bench</code></a></li>
+  <li><a href="#a-bench-tempd-gui" id="toc-a-bench-tempd-gui" class="nav-link" data-scroll-target="#a-bench-tempd-gui">Using the plug-in for GUI (version 3.x)</a></li>
+  <li><a href="#a-bench-tempd-r" id="toc-a-bench-tempd-r" class="nav-link" data-scroll-target="#a-bench-tempd-r">In R with <code>rjd3bench</code></a></li>
+  <li><a href="#a-calendarization" id="toc-a-calendarization" class="nav-link" data-scroll-target="#a-calendarization">Calendarization</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/A-benchmarking.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -511,9 +563,13 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<<<<<<< HEAD
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and temporal disagreggation</a></li></ol></nav>
+=======
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and Temporal Disagreggation</a></li></ol></nav>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <div class="quarto-title">
-<h1 class="title"><span id="a-bench" class="quarto-section-identifier">Benchmarking and temporal disagreggation</span></h1>
+<h1 class="title"><span id="a-bench" class="quarto-section-identifier">Benchmarking and Temporal Disagreggation</span></h1>
 </div>
 
 
@@ -532,72 +588,110 @@ window.Quarto = {
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The sections below provide guidance on how to implement algorithms on</p>
+<p>The sections below provide guidance on how to implement algorithms on:</p>
 <ul>
-<li><p>Benchmarking of <a href="#a-bench-sa">seasonally adjusted data</a></p></li>
-<li><p>Benchmarking <a href="#a-bench-high-low">high to low frequency</a> data</p></li>
-<li><p><a href="#a-bench-tempd">Temporal Disaggregation</a></p></li>
+<li><p><a href="#a-bench-sa">Benchmarking seasonally adjusted data</a>: in <a href="#a-bench-sa-gui">GUI</a> and <a href="#a-bench-sa-r">R</a> ,</p></li>
+<li><p><a href="#a-bench-high-low">Benchmarking with different frequencies</a> : in <a href="#a-bench-td-plugin">GUI</a> and <a href="#a-bench-high-low-r">R</a> ,</p></li>
+<li><p><a href="#a-bench-multi">Reconciliation and multivariate temporal disaggregation</a>: in <a href="#a-bench-multi-r">R</a> ,</p></li>
+<li><p><a href="#a-bench-tempd">Temporal Disaggregation</a>: in <a href="#a-bench-tempd-gui">GUI</a> and <a href="#a-bench-tempd-r">R</a> ,</p></li>
+<li><p><a href="#a-calendarization">Calendarization</a>: in <a href="#a-calendarization-r">R</a> ,</p></li>
 </ul>
-<p>Using the <a href="T-GUI-Overview.html">GUI</a> with a <a href="T-plug-ins.html">plug-in</a> or <a href="T-r-packages.html">rjd3bench package</a> package.</p>
+<p>using the <a href="T-GUI-Overview.html">GUI</a> with a <a href="T-plug-ins.html">plug-in</a> or <a href="T-r-packages.html">rjd3bench package</a> package.</p>
 </section>
 <section id="a-b-td-overview" class="level2">
 <h2 class="anchored" data-anchor-id="a-b-td-overview">Algorithms overview</h2>
+<<<<<<< HEAD
 <section id="t-plug-ins-bench" class="level3">
 <h3 class="anchored" data-anchor-id="t-plug-ins-bench">Benchmarking</h3>
+=======
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <table class="caption-top table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 22%">
-<col style="width: 22%">
-<col style="width: 22%">
+<col style="width: 75%">
+<col style="width: 14%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Method</th>
-<th>GUI Plug-in for V 2.x</th>
-<th>GUI Plug-in for V 3.x</th>
-<th>In R rjd3bench</th>
+<th style="text-align: left;">METHODS</th>
+<th>In GUI</th>
+<th>In R</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Denton</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
+<td style="text-align: left;"><strong>BENCHMARKING</strong></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>Cholette</td>
-<td>✔</td>
+<td style="text-align: left;">Denton</td>
 <td>✔</td>
 <td>✔</td>
 </tr>
 <tr class="odd">
-<td>Cholette Multi-variate</td>
+<td style="text-align: left;">Cholette</td>
 <td>✔</td>
-<td>✖</td>
 <td>✔</td>
 </tr>
 <tr class="even">
-<td>Cubic Splines</td>
-<td>✖</td>
+<td style="text-align: left;">Cubic Splines</td>
 <td>✔</td>
 <td>✔</td>
 </tr>
 <tr class="odd">
-<td>GRP (Growth Rate Preservation)</td>
-<td>✖</td>
+<td style="text-align: left;">GRP (Growth Rate Preservation)</td>
 <td>✔</td>
 <td>✔</td>
 </tr>
 <tr class="even">
-<td>Calendarization</td>
+<td style="text-align: left;"><strong>RECONCILIATION AND MULTIVARIATE TEMPORAL DISAGGREGATION</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cholette Multivariate</td>
+<td>✖</td>
 <td>✔</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>TEMPORAL DISAGGREGATION and INTERPOLATION</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Regression Models*</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reverse regression</td>
+<td>✖</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ADL (Autoregressive Distributed Lag)</td>
+<td>✖</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Model-based Denton</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>CALENDARIZATION</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Calendarization</td>
 <td>✖</td>
 <td>✔</td>
 </tr>
 </tbody>
 </table>
+<<<<<<< HEAD
 </section>
 <section id="temporal-disaggregation" class="level3">
 <h3 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h3>
@@ -638,16 +732,19 @@ window.Quarto = {
 </tbody>
 </table>
 <p>*Regression models: several structures of residuals</p>
+=======
+<p>*Regression models: several structures of residuals:</p>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <ul>
-<li><p>Ar1: Chow-Lin</p></li>
-<li><p>Rw: Fernandez</p></li>
-<li><p>RwAr1: Litterman</p></li>
+<li><p>Ar1: Chow-Lin,</p></li>
+<li><p>Rw: Fernandez,</p></li>
+<li><p>RwAr1: Litterman.</p></li>
 </ul>
-</section>
 </section>
 <section id="a-bench-sa" class="level2">
 <h2 class="anchored" data-anchor-id="a-bench-sa">Benchmarking seasonally adjusted data</h2>
 <p>The goal here is to enforce identical annual totals on the seasonally adjusted series as on the raw or calendar adjusted series.</p>
+<<<<<<< HEAD
 <section id="using-the-gui" class="level3">
 <h3 class="anchored" data-anchor-id="using-the-gui">Using the GUI</h3>
 <p>When running a seasonal adjustment process</p>
@@ -696,11 +793,59 @@ window.Quarto = {
 </figure>
 </div></li>
 </ol>
+=======
+<section id="a-bench-sa-gui" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-sa-gui">Using the GUI (version 3.x)</h3>
+<p>When running a seasonal adjustment process with the pre-defined specifications the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2024) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage1.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Benchmarking option – a default view</strong></figcaption>
+</figure>
+</div>
+<p>Four parameters can be set here. <em>Target</em> specifies the target variable for the benchmarking procedure. It can be either the <em>Original</em> (the raw time series) or the <em>Calendar Adjusted</em> (the time series adjusted for calendar effects). <em>Use forecasts</em> indicates if the forecasts of the seasonally adjusted series and of the target variable (target) are used in the benchmarking computation so that the benchmarking constrain is also applied to the forecasting period. <em>Rho</em> is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, <em>Lambda</em> is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.</p>
+<p>To launch the benchmarking procedure click on the <strong>Apply</strong> button. The results are displayed in four panels. The top-left one compares the seasonally adjusted series with the benchmarked seasonally adjusted series. The bottom-left panel highlights the differences between these two results. The outcomes are also presented in a table in the top-right panel. The relevant statistics concerning relative differences are presented in the bottom-right panel.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage2.png" class="img-fluid figure-img"></p>
+<figcaption><strong>The results of the benchmarking procedure</strong></figcaption>
+</figure>
+</div>
+<p>Both pictures and the table can be copied the usual way.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage3.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Options for benchmarking results</strong></figcaption>
+</figure>
+</div>
+<p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to execute the seasonal adjustment with benchmarking.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_SSA_image28.png" class="img-fluid figure-img"></p>
+<figcaption><strong>The <em>SAProcessing</em> menu</strong></figcaption>
+</figure>
+</div>
+<p>Expand the “+” menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in <code>.txt</code>, <code>.xls</code>, <code>.csv</code>, and <code>.csv</code> matrix formats. Note that the available content of the output depends on the output type. <!-- link to add ? --></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_SSA_image29.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Exporting data to an Excel file</strong></figcaption>
+</figure>
+</div>
+<p>Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click <strong>OK</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage4.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Exporting the results of the benchmarking procedure</strong></figcaption>
+</figure>
+</div>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </section>
-<section id="in-r-with-rjd3x13-and-rjd3tramoseats" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-with-rjd3x13-and-rjd3tramoseats">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></h3>
-<p>When performing seasonal adjustment with <code>rjd3x13</code> and <code>rjd3tramoseats</code>, the current (or default) specification has to be customized using the function <code>rjd3toolkit::set_benchmarking</code> documented on this <a href="https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html">GitHub page</a></p>
+<section id="a-bench-sa-r" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-sa-r">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></h3>
+<p>When performing seasonal adjustment with <code>rjd3x13</code> and <code>rjd3tramoseats</code>, the current (or default) specification has to be customized using the function <code>rjd3toolkit::set_benchmarking</code> documented on this <a href="https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html">GitHub page</a>.</p>
 <div class="cell">
+<<<<<<< HEAD
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">set_benchmarking</span>(</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    init_spec,</span>
@@ -711,71 +856,90 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">forecast =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">bias =</span> <span class="st">"None"</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+=======
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">x13_spec</span>(<span class="st">"rsa5c"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">set_benchmarking</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> init_spec,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">enabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">target =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"CalendarAdjusted"</span>, <span class="st">"Original"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rho =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">forecast =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">bias =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Additive"</span>, <span class="st">"Multiplicative"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </div>
-<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a>.</p>
 </section>
 </section>
 <section id="a-bench-high-low" class="level2">
 <h2 class="anchored" data-anchor-id="a-bench-high-low">Benchmarking with different frequencies</h2>
 <p>These methods provide a high-frequency series (input series) modified so that it fulfils a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).</p>
-<p>Multivariate benchmarking also forces contemporary linear relations between high frequency series. If these relations do not exist, benchmarking could be carried out for each series separately. Normally contemporary relations are linear and the relations of aggregation are also linear and the same for all series, so the contemporary relations between low frequency series are fulfilled.</p>
-<p>The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.</p>
+<p>The benchmarking methods available in the benchmarking and temporal disaggregation plug-in and in R are: Denton, Cholette, Cubic Splines, and GRP.</p>
 <section id="a-bench-td-plugin" class="level3">
-<h3 class="anchored" data-anchor-id="a-bench-td-plugin">Using the plug-in for GUI (version 2.x)</h3>
-<p>Download the plug-in for GUI as explained <a href="#t-plug-ins-bench">here</a> and install it as detailed <a href="T-plug-ins.html#t-plug-ins-inst">here</a></p>
+<h3 class="anchored" data-anchor-id="a-bench-td-plugin">Using the plug-in for GUI (version 3.x)</h3>
+<p>Download the plug-in for GUI as explained <a href="T-plug-ins.html#t-plug-ins-bench">here</a> and install it as detailed <a href="T-plug-ins.html#t-plug-ins-inst">here</a>.</p>
 <p>Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
+<<<<<<< HEAD
 <p><img src="All_images/Image1_Bench.jpg" class="img-fluid figure-img"></p>
 <figcaption>Text</figcaption>
+=======
+<p><img src="All_images/Image1_Bench.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Workspace after instaling the plug-in – a default view</strong></figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<section id="univariate-denton-and-cholette" class="level4">
-<h4 class="anchored" data-anchor-id="univariate-denton-and-cholette">Univariate: Denton and Cholette</h4>
-<p>To run Denton univariate case select:</p>
-<p>Statistical <strong>Methods</strong> <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton or Cholette</p>
+<section id="univariate-denton-cholette-cubic-spline-grp" class="level4">
+<h4 class="anchored" data-anchor-id="univariate-denton-cholette-cubic-spline-grp">Univariate: Denton, Cholette, Cubic Spline, Grp</h4>
+<p>To run univariate methods select:</p>
+<p>Statistical Methods <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton, Cholette, CubicSpline or Grp</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
 <figcaption><strong>Benchmarking tab</strong></figcaption>
 </figure>
 </div>
-<p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
+<p>In all cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the low frequency series from the Providers window and drop it in <strong>Drop Low-freq series here</strong> and the high frequency series in <strong>Drop High-freq series here</strong>.</p>
+<p>In the top right of the screen, select the <strong>Specifications</strong> button to set the specifications to apply each method.</p>
 </section>
 <section id="denton" class="level4">
 <h4 class="anchored" data-anchor-id="denton">Denton</h4>
-<p>In the top right of the screen, select the <strong>Specifications</strong> button to set the specifications to apply each method. See below for a description of the available options on Denton method:</p>
-<ol type="1">
-<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
-<li><p><strong>Multiplicative</strong>: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.</p></li>
-<li><p><strong>Modified Denton</strong>: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.</p></li>
-<li><p><strong>Differencing</strong>: Number of regular differences. By default 1.</p></li>
-<li><p><strong>Default frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
-</ol>
+<p>Denton is a benchmarking method that relies on the principle of movement preservation.</p>
+<p>See below for a description of the available options on Denton method:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image3_Bench.png" class="img-fluid figure-img"></p>
 <figcaption>Denton Specifications</figcaption>
 </figure>
 </div>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Multiplicative</strong>: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.</p></li>
+<li><p><strong>Modified Denton</strong>: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.</p></li>
+<li><p><strong>Differencing</strong>: Number of regular differences. By default 1.</p></li>
+<li><p><strong>Default frequency</strong>: it is the frequency of the output data.</p></li>
+</ol>
+<<<<<<< HEAD
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image3_Bench.png" class="img-fluid figure-img"></p>
+<figcaption>Denton Specifications</figcaption>
+</figure>
+</div>
+=======
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </section>
 <section id="a-bench-high-low-cholette" class="level4">
 <h4 class="anchored" data-anchor-id="a-bench-high-low-cholette">Cholette</h4>
+<p>Cholette is a generalized method relying on the principle of movement preservation that encompasses other benchmarking methods.</p>
 <p>See below for a description of the available options on Cholette method:</p>
-<ol type="1">
-<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
-<li><p><strong>Aggregation frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
-<li><p><strong>Rho</strong>: value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is the coefficient of an AR(<span class="math inline">\(1\)</span>) model that follows the error term. The default value is <span class="math inline">\(1\)</span>, equivalent to applying Denton.</p></li>
-<li><p><strong>Lambda</strong>: value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. It is the parameter <span class="math inline">\(\lambda\)</span> of the following function to be minimized in Cholette method:</p>
-<p><span class="math display">\[
-\sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
-\]</span></p>
-<p>Usually lambda is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> equivalent to applying additive benchmarking and proportional benchmarking method respectively.</p></li>
-</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image4_Bench.png" class="img-fluid figure-img"></p>
 <figcaption>Cholette Specifications</figcaption>
+<<<<<<< HEAD
 </figure>
 </div>
 <p>In both cases, Denton and Cholette methods, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).</p>
@@ -783,30 +947,61 @@ window.Quarto = {
 <figure class="figure">
 <p><img src="All_images/Image5_Bench.png" class="img-fluid figure-img"></p>
 <figcaption>Denton output</figcaption>
+=======
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Rho</strong>: value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is the coefficient of an AR(<span class="math inline">\(1\)</span>) model that follows the error term. The default value is <span class="math inline">\(1\)</span>, equivalent to applying Denton.</p></li>
+<li><p><strong>Lambda</strong>: value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. It is the adjustment model parameter. Typical choices include lambda = 1 for proportional benchmarking, lambda = 0 for additive benchmarking, and lambda = 0.5 with rho = 0 for the naive pro-rating method.</p></li>
+<li><p><strong>Bias correction</strong>: Bias-correction factor (None, Additive, Multiplicative) is expected discrepancy between the benchmarks and the high-frequency preliminary series. It mainly affects out of sample estimates and serves to adjust for expected bias between the benchmarks and the preliminary data.</p></li>
+</ol>
 </section>
-<section id="multi-variate-cholette" class="level4">
-<h4 class="anchored" data-anchor-id="multi-variate-cholette">Multi-variate Cholette</h4>
-<p>The only multi-variate benchmarking method available for the version 2 plugin, is multi-variate Cholette.</p>
-<p>The input for this method are a set of time series with different frequencies and a set of constraints, both contemporary and intertemporal. The output is a new set of time series, that corresponds to the former, now fulfilling the constraints.</p>
-<p>To run multi-variate Cholette select <em>Statistical methods</em> <span class="math inline">\(\rightarrow\)</span> <em>Benchmarking</em> <span class="math inline">\(\rightarrow\)</span> <em>Multi-variate Cholette</em>. Then, a box appears, where we can drop time series.</p>
+<section id="cubic-splines" class="level4">
+<h4 class="anchored" data-anchor-id="cubic-splines">Cubic splines</h4>
+<p>Cubic splines are piecewise cubic functions that are linked together in a way to guarantee smoothness at data points.</p>
+<p>See below for a description of the available options on Cubic splines method:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
+<<<<<<< HEAD
 <p><img src="All_images/CholetteMulti.png" class="img-fluid figure-img"></p>
 <figcaption>Multi-variate Cholette input</figcaption>
+=======
+<p><img src="All_images/Image_CubicSplines.png" class="img-fluid figure-img"></p>
+<figcaption>Cubic splines Specifications</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>The specification properties can be set by selecting <em>Window</em> <span class="math inline">\(\rightarrow\)</span> <em>Properties</em>. There are only three elements in the form: <em>Rho</em>, <em>Lambda</em> and <em>Constraints</em>. The two first are analogous to their <a href="#a-bench-high-low-cholette">univariate Cholette</a> counterparts. The third one allows to set constraints, both contemporary and intertemporal.</p>
+<ol type="1">
+<li><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</li>
+</ol>
+</section>
+<section id="growth-rate-preservation-grp" class="level4">
+<h4 class="anchored" data-anchor-id="growth-rate-preservation-grp">Growth rate preservation (GRP)</h4>
+<p>GRP is a method which explicitly preserves the period-to-period growth rates of the preliminary series.</p>
+<p>See below for a description of the available options on GRP method:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
+<<<<<<< HEAD
 <p><img src="All_images/PropCholetteMulti.png" class="img-fluid figure-img"></p>
 <figcaption>Multi-variate Cholette specification</figcaption>
+=======
+<p><img src="All_images/Image_GRP.png" class="img-fluid figure-img"></p>
+<figcaption>GRP Specifications</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>Clicking the three dots button from <em>Constraints</em>, opens the constraints list box.</p>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Denton initialization</strong>: Indicates how the starting values for the GRP optimization procedure are obtained. If selected, the modified Denton PFD method is used. Otherwise, they are derived from the aggregation constraint.</p></li>
+<li><p><strong>Precision</strong>: A numeric value specifying the convergence tolerance. The default is 1e-12.</p></li>
+<li><p><strong>iterations</strong>: An integer giving the maximum number of iterations allowed in the BFGS algorithm. The default is 500.</p></li>
+</ol>
+<p>In all cases, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
+<<<<<<< HEAD
 <p><img src="All_images/Constraints.png" class="img-fluid figure-img"></p>
 <figcaption>Constraints list</figcaption>
 </figure>
@@ -824,49 +1019,164 @@ window.Quarto = {
 <figure class="figure">
 <p><img src="All_images/OutCholetteMulti.png" class="img-fluid figure-img"></p>
 <figcaption>Output multi-variate Cholette</figcaption>
+=======
+<p><img src="All_images/Image_GRP_graph.png" class="img-fluid figure-img"></p>
+<figcaption>GRP output</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
 </section>
 </section>
-<section id="using-the-plug-in-for-gui-version-3.x" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</h3>
-<p>Practical use of the plug-in for v 3.x is quasi identical to the one in v2.x described <a href="#a-bench-td-plugin">above</a>. Some methods are not available yet in v 3.x but the latter which contains Model</p>
-<p>Based Denton not included in v2.x, as stated <a href="#a-b-td-overview">here</a></p>
+<section id="a-bench-high-low-r" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-high-low-r">In R with <code>rjd3bench</code></h3>
+<p>Use the <a href="https://github.com/rjdverse/rjd3bench">rjd3bench</a> package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a>.</p>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a>.</p>
+<section id="denton-1" class="level4">
+<h4 class="anchored" data-anchor-id="denton-1">Denton</h4>
+<p>To perform Denton method use the function <code>rjd3bench::denton</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/denton.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">denton</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  t,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">d =</span> <span class="dv">1</span>L,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mul =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfreq =</span> <span class="dv">4</span>L,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">modified =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="dv">1</span>L,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="in-r-with-rjd3bench" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-with-rjd3bench">In R with <code>rjd3bench</code></h3>
-<p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
-<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
-<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
+<section id="denton-for-an-atypical-frequency-series" class="level4">
+<h4 class="anchored" data-anchor-id="denton-for-an-atypical-frequency-series">Denton for an Atypical Frequency Series</h4>
+<p>The <code>rjd3bench::denton_raw</code> function extends <code>rjd3bench::denton</code> by allowing benchmarking for any frequency ratio.</p>
+<p>To perform Denton method for an Atypical Frequency Series use the function <code>rjd3bench::denton_raw</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/denton_raw.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">denton_raw</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  t,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  freqratio,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">d =</span> <span class="dv">1</span>L,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">mul =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">modified =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="dv">1</span>L,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">startoffset =</span> <span class="dv">0</span>L,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cholette" class="level4">
+<h4 class="anchored" data-anchor-id="cholette">Cholette</h4>
+<p>To perform Cholette method use the function <code>rjd3bench::cholette</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/cholette.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">cholette</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  s,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  t,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">1</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="dv">1</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">bias =</span> <span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Additive"</span>, <span class="st">"Multiplicative"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="dv">1</span>L</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cubic-splines-1" class="level4">
+<h4 class="anchored" data-anchor-id="cubic-splines-1">Cubic Splines</h4>
+<p>To perform Cubic Splines method use the function <code>rjd3bench::cubicspline</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/cubicspline.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">cubicspline</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">s =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  t,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfreq =</span> <span class="dv">4</span>L,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="dv">1</span>L</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="grp" class="level4">
+<h4 class="anchored" data-anchor-id="grp">GRP</h4>
+<p>To perform Growth rate preservation method use the function <code>rjd3bench::grp</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/grp.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">grp</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  s,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  t,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">objective =</span> <span class="fu">c</span>(<span class="st">"Forward"</span>, <span class="st">"Backward"</span>, <span class="st">"Symmetric"</span>, <span class="st">"Log"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="dv">1</span>L,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fl">1e-12</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">500</span>L,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dentoninitialization =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-bench-multi" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-multi">Reconciliation and multivariate temporal disaggregation</h3>
+<p>While standard benchmarking methods consider one target series at a time, reconciliation techniques aim to restore consistency in a system of time series with regards to both contemporaneous and temporal constraints. Reconciliation techniques are typically needed when the total and its components are estimated independently (the so-called direct approach).</p>
+<section id="a-bench-multi-r" class="level4">
+<h4 class="anchored" data-anchor-id="a-bench-multi-r">In R with <code>rjd3bench</code></h4>
+<p>This is a multivariate extension of the Cholette benchmarking method which can be used for the purpose of reconciliation.</p>
+<p>To perform Cholette Multi-variate method use the function <code>rjd3bench::multivariatecholette</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/multivariatecholette.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">multivariatecholette</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  xlist,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tcvector =</span> <span class="cn">NULL</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ccvector =</span> <span class="cn">NULL</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="fl">0.8</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="fl">0.5</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 </section>
 </section>
 <section id="a-bench-tempd" class="level2">
-<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation</h2>
-<p>These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.</p>
-<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).</p>
-<p>See Methods<span class="math inline">\(\rightarrow\)</span>Temporal disaggregation for more theoretical detail.</p>
-<section id="using-the-plug-in-for-gui" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui">Using the plug-in for GUI</h3>
-<p>Temporal disaggregation in the GUI is available with the same <a href="#a-bench-td-plugin">plug-in</a> as benchmarking (described in the sections above)</p>
-<p>To run Temporal Disaggregation methods select Temporal disaggregation<span class="math inline">\(\rightarrow\)</span> Regression Model:</p>
+<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation and Interpolation</h2>
+<p>These methods are used to disaggregate and interpolate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Regression model and Model-based Denton. Temporal disaggregation and interpolation methods available in R include Regression models (Temporal disaggregation, Reverse regression, Autoregressive distributed lag (ADL)) and Model-based Denton method.</p>
+<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series.</p>
+<section id="a-bench-tempd-gui" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-tempd-gui">Using the plug-in for GUI (version 3.x)</h3>
+<p>Temporal disaggregation in the GUI is available with the same <a href="T-plug-ins.html#t-plug-ins-bench">plug-in</a> as benchmarking (described in the sections above).</p>
+<p>To run Temporal Disaggregation methods select:</p>
+<p>Statistical methods <span class="math inline">\(\rightarrow\)</span> Temporal disaggregation <span class="math inline">\(\rightarrow\)</span> Regression Model or Model-based Denton</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image6_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disggregation</figcaption>
+=======
+<figcaption>Temporal Disaggregation tab</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
 <p>A new window is displayed to launch one of the methods with the series selected. In the upper left side drag the low frequency series from the Providers window and drop it in <strong>Y box</strong> and the proxy series or indicator with high frequency series in <strong>X box</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image7_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disggregation</figcaption>
+=======
+<figcaption>Temporal Disaggregation procedure</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>In the top right of the screen, select <strong>Specifications</strong> to set the specifications to apply each method. Here is a description of the available options on Temporal Disaggregation methods:</p>
+<p>In the top right of the screen, select <strong>Specifications</strong> to set the specifications to apply each method.</p>
+<section id="regression-model" class="level4">
+<h4 class="anchored" data-anchor-id="regression-model">Regression Model</h4>
+<p>The implemented regression models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms. These methods are all expressed with the same equation, but with different models for the error term.</p>
+<p>See below for a description of the available options on Regression Model method:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image8_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disggregation</figcaption>
+=======
+<figcaption>Regression Model Specifications</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
 <ol type="1">
@@ -918,12 +1228,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td>Excluding</td>
-<td>excluding N first observation and P last observation from the computation,dynamic) (integer)</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Preliminary check</td>
-<td>check to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
+<td>excluding N first observation and P last observation from the computation, dynamic) (integer)</td>
 <td></td>
 </tr>
 </tbody>
@@ -967,37 +1272,53 @@ window.Quarto = {
 </table>
 <ol start="3" type="1">
 <li><p><strong>Parameter</strong>: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.</p></li>
-<li><p><strong>Constant</strong>: a constant is included in the model if it is selected.</p></li>
-<li><p><strong>Trend</strong>: a linear trend is included in the model if it is selected.</p></li>
-<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
-<li><p><strong>Default frequency</strong>: it is the frequency of the output series.</p></li>
+<li><p><strong>Constant</strong>: A constant is included in the model if it is selected.</p></li>
+<li><p><strong>Trend</strong>: A linear trend is included in the model if it is selected.</p></li>
+<li><p><strong>Average</strong>: The average conversion is used if selected; otherwise, the additive conversion is applied.</p></li>
+<li><p><strong>Default frequency</strong>: It is the frequency of the output series.</p></li>
 <li><p><strong>Advanced options</strong>: These parameters are related to state space model and the algorithm used to obtain the estimations.</p>
-<p>8.1. <strong>Diffuse regression coefficient</strong>: Indicates if the coefficients of the regression model are diffuse (T) or fixed unknown (F, default).</p></li>
+<p>8.1. <strong>Precision</strong>: A numeric value specifying the convergence tolerance. The default is 1e-6.</p>
+<p>8.2. <strong>Zero initialization</strong>: if the checkbox is selected, the initial values of the autoregressive model are set to zero.</p>
+<p>8.3. <strong>Truncated rho</strong>: A numeric value defining the lower bound of the admissible range for rho.</p>
+<p>8.4. <strong>Diffuse regression coefficient</strong>: if the checkbox is selected, the coefficients of the regression model are diffused. Otherwise, fixed unknown are applied.</p></li>
 </ol>
 <p>Here are the results:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image9_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disaggregation</figcaption>
+=======
+<figcaption>The summary of the Regression Model</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>Select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Summary to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \</p>
-<p>To confirm that the model works well, select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics and see the tests on the residuals of the model:</p>
+<p>Select Model<span class="math inline">\(\rightarrow\)</span>Summary to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate.</p>
+<p>To confirm that the model works well, select Model<span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics and see the tests on the residuals of the model:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image10_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disggregation</figcaption>
+=======
+<figcaption>Tests on the residuals of the Regression Model</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Table to obtain the disaggregated series and standard deviation.</p>
+<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Table to obtain the disaggregated series and standard errors.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image11_TD.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption>Temporal Disggregation</figcaption>
+=======
+<figcaption>The results of the regression model</figcaption>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </figure>
 </div>
-<p>Select <strong>MainResults</strong><span class="math inline">\(\rightarrow\)</span>Chart to see a graph of the disaggregated series and the confidence interval.</p>
+<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Chart to see a graph of the disaggregated series and the confidence interval.</p>
 </section>
+<<<<<<< HEAD
 <section id="in-r-with-rjd3bench-1" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-with-rjd3bench-1">In R with <code>rjd3bench</code></h3>
 <p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
@@ -1011,10 +1332,20 @@ window.Quarto = {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">series =</span> y, <span class="at">indicators =</span> x, <span class="at">model =</span> <span class="st">"Rw"</span>, <span class="at">freq =</span> <span class="dv">12</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion =</span> <span class="st">"Average"</span>, <span class="at">diffuse.algorithm =</span> <span class="st">"Diffuse"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+=======
+<section id="model-based-denton" class="level4">
+<h4 class="anchored" data-anchor-id="model-based-denton">Model-based Denton</h4>
+<p>The Denton proportional first difference (PFD) method can be expressed as a statistical model in a state-space representation. The approach allows the disaggregated series to be constrained (or ‘frozen’) at specific periods or prior to a given date by fixing the corresponding high‑frequency BI ratios.</p>
+<p>See below for a description of the available options on Model-based Denton method:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image_MBD_specif.png" class="img-fluid figure-img"></p>
+<figcaption>Model-based Denton Specifications</figcaption>
+</figure>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </div>
-<p>The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.</p>
-<p>The output is a list containing 3 elements:</p>
 <ol type="1">
+<<<<<<< HEAD
 <li><p><strong>Regression</strong>: contains information about:</p>
 <ul>
 <li>Type of method applied:</li>
@@ -1072,7 +1403,213 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>eparameter</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p><strong>Likelihood</strong>: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).</p></li>
+=======
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Shocks</strong>: A list specifying the shocks and their magnitude (variance). For each shock, specify the Position (“YYYY-MM-DD”) and the Variance (with 1 indicating the normal situation). This is useful for accounting for shocks or outliers - namely, level shift(s) in the Benchmark to Indicator ratio – in the disaggregated series that could otherwise induce undesirable wave effects. To model a clear break, you can assign a sufficiently large variance (e.g., 100).</p></li>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image_MBD_shocks.png" class="img-fluid figure-img"></p>
+<figcaption>Model-based Denton Specifications (Shocks)</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><strong>Fixed bi-ratios</strong>: A list specifying the periods for which the Benchmark‑to‑Indicator (BI) ratios should be fixed. For each fixed BI ratio, specify the Position (“YYYY-MM-DD”) and the Value to be fixed.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image_MBD_fixed.png" class="img-fluid figure-img"></p>
+<figcaption>Model-based Denton Specifications (Fixed bi-ratios)</figcaption>
+</figure>
+</div>
+<p>Here are the results:</p>
+<p>To visually inspect disaggregated series and their confidence intervals, select MainResults<span class="math inline">\(\rightarrow\)</span>Chart.</p>
+<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Table to obtain the disaggregated series and their standard errors.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image_MBD_results.png" class="img-fluid figure-img"></p>
+<figcaption>The results of the Model-based Denton</figcaption>
+</figure>
+</div>
+<p>In order to view the graph of the BI-ratios and their confidence intervals select BI-ratios<span class="math inline">\(\rightarrow\)</span>Chart.</p>
+<p>Select BI-ratio<span class="math inline">\(\rightarrow\)</span>Table to obtain the BI-ratios and their standard errors.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image_MBD_BI.png" class="img-fluid figure-img"></p>
+<figcaption>BI ratios and confidence intervals</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="a-bench-tempd-r" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-tempd-r">In R with <code>rjd3bench</code></h3>
+<p>Use the <a href="https://github.com/rjdverse/rjd3bench">rjd3bench</a> package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a>.</p>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a>.</p>
+<section id="regression-models" class="level4">
+<h4 class="anchored" data-anchor-id="regression-models">Regression models</h4>
+<p>To perform temporal disaggregation of low-frequency to high-frequency time series by regression models use the function <code>rjd3bench::temporal_disaggregation</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/temporal_disaggregation.html">GitHub page</a>. The implemented models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporal_disaggregation</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">constant =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicators =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"Ar1"</span>, <span class="st">"Rw"</span>, <span class="st">"RwAr1"</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">freq =</span> <span class="dv">4</span>L,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">average =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">0</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.truncated =</span> <span class="dv">0</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">zeroinitialization =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.algorithm =</span> <span class="fu">c</span>(<span class="st">"SqrtDiffuse"</span>, <span class="st">"Diffuse"</span>, <span class="st">"Augmented"</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.regressors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="temporal-disaggregation-for-an-atypical-frequency-series" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-disaggregation-for-an-atypical-frequency-series">Temporal Disaggregation for an Atypical Frequency Series</h4>
+<p>The <code>rjd3bench::temporal_disaggregation_raw</code> function extends <code>rjd3bench::temporal_disaggregation</code> by allowing temporal disaggregation for any frequency ratio.</p>
+<p>To perform temporal disaggregation method for an Atypical Frequency Series use the function <code>rjd3bench::temporal_disaggregation_raw</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/temporal_disaggregation_raw.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporal_disaggregation_raw</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">constant =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicators =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">startoffset =</span> <span class="dv">0</span>L,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"Ar1"</span>, <span class="st">"Rw"</span>, <span class="st">"RwAr1"</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  freqratio,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">average =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">0</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.truncated =</span> <span class="dv">0</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">zeroinitialization =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.algorithm =</span> <span class="fu">c</span>(<span class="st">"SqrtDiffuse"</span>, <span class="st">"Diffuse"</span>, <span class="st">"Augmented"</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.regressors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="temporal-interpolation" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-interpolation">Temporal Interpolation</h4>
+<p>To perform temporal interpolation of low-frequency to high-frequency time series by regression models use the function <code>rjd3bench::temporal_interpolation</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/temporal_interpolation.html">GitHub page</a>.</p>
+<p>The implemented models include Chow-Lin, Fernandez, Litterman and some variants of those algorithms.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporal_interpolation</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">constant =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicators =</span> <span class="cn">NULL</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"Ar1"</span>, <span class="st">"Rw"</span>, <span class="st">"RwAr1"</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">freq =</span> <span class="dv">4</span>L,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="sc">-</span><span class="dv">1</span>L,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">0</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.truncated =</span> <span class="dv">0</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">zeroinitialization =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.algorithm =</span> <span class="fu">c</span>(<span class="st">"SqrtDiffuse"</span>, <span class="st">"Diffuse"</span>, <span class="st">"Augmented"</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.regressors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="temporal-interpolation-for-an-atypical-frequency-series" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-interpolation-for-an-atypical-frequency-series">Temporal Interpolation for an Atypical Frequency Series</h4>
+<p>The <code>rjd3bench::temporal_interpolation_raw</code> function extends <code>rjd3bench::temporal_interpolation</code> by allowing temporal interpolation for any frequency ratio.</p>
+<p>To perform temporal interpolation method for an Atypical Frequency Series use the function <code>rjd3bench::temporal_interpolation_raw</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/temporal_interpolation_raw.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporal_interpolation_raw</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">constant =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicators =</span> <span class="cn">NULL</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">startoffset =</span> <span class="dv">0</span>L,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="fu">c</span>(<span class="st">"Ar1"</span>, <span class="st">"Rw"</span>, <span class="st">"RwAr1"</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  freqratio,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">obsposition =</span> <span class="sc">-</span><span class="dv">1</span>L,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">0</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.truncated =</span> <span class="dv">0</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">zeroinitialization =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.algorithm =</span> <span class="fu">c</span>(<span class="st">"SqrtDiffuse"</span>, <span class="st">"Diffuse"</span>, <span class="st">"Augmented"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse.regressors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcsts =</span> <span class="dv">0</span>L,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">nfcsts =</span> <span class="dv">0</span>L</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reverse-regression-model" class="level4">
+<h4 class="anchored" data-anchor-id="reverse-regression-model">Reverse Regression Model</h4>
+<p>Unlike the usual regression-based models, this approach treats a high-frequency indicator as the dependent variable and the unknown target series as the independent variable.</p>
+<p>To perform reverse regression method use the function <code>rjd3bench::temporaldisaggregationI</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/temporaldisaggregationI.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporaldisaggregationI</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  indicator,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion.obsposition =</span> <span class="dv">1</span>L,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho =</span> <span class="dv">0</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">rho.truncated =</span> <span class="dv">0</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="denton-model-based" class="level4">
+<h4 class="anchored" data-anchor-id="denton-model-based">Denton Model-Based</h4>
+<p>To perform Denton Model-Based method use the function <code>rjd3bench::denton_modelbased</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/denton_modelbased.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">denton_modelbased</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  indicator,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">differencing =</span> <span class="dv">1</span>L,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion =</span> <span class="fu">c</span>(<span class="st">"Sum"</span>, <span class="st">"Average"</span>, <span class="st">"Last"</span>, <span class="st">"First"</span>, <span class="st">"UserDefined"</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">conversion.obsposition =</span> <span class="dv">1</span>L,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">outliers =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">fixedBIratios =</span> <span class="cn">NULL</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="autoregressive-distributed-lag-adl-models" class="level4">
+<h4 class="anchored" data-anchor-id="autoregressive-distributed-lag-adl-models">Autoregressive Distributed Lag (ADL) Models</h4>
+<p>To perform temporal disagreggation of low-frequency to high-frequency series using an AUtoregressive Distributed Lag regression model use the function <code>rjd3bench::adl_disaggregation</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/adl_disaggregation.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">adl_disaggregation</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  series,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">constant =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicators =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">average =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">phi =</span> <span class="dv">0</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">phi.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">phi.truncated =</span> <span class="dv">0</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">xar =</span> <span class="fu">c</span>(<span class="st">"FREE"</span>, <span class="st">"SAME"</span>, <span class="st">"NONE"</span>),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffuse =</span> <span class="cn">FALSE</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-calendarization" class="level3">
+<h3 class="anchored" data-anchor-id="a-calendarization">Calendarization</h3>
+<p>Calendarization is the process of transforming the values of a flow time series observed over varying time intervals into values that cover given calendar intervals such as month, quarter or year. The process involves two steps. At first, a state-space representation of the Denton proportional first difference (PFD) method is considered to perform a temporal disaggregation of the observed data into daily values. After that, the resulting daily values are aggregated into the desired calendar reference periods.</p>
+<section id="a-calendarization-r" class="level4">
+<h4 class="anchored" data-anchor-id="a-calendarization-r">In R with <code>rjd3bench</code></h4>
+<p>To perform Calendarization method use the function <code>rjd3bench::calendarization</code> documented on this <a href="https://rjdverse.github.io/rjd3bench/reference/calendarization.html">GitHub page</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">calendarization</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  calendarobs,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  freq,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">dailyweights =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">stde =</span> <span class="cn">FALSE</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
@@ -1096,6 +1633,7 @@ window.Quarto = {
         }
       }
       return false;
+<<<<<<< HEAD
     }
     const onCopySuccess = function(e) {
       // button target
@@ -1168,6 +1706,79 @@ window.Quarto = {
             link.href = link.dataset.originalHref;
           }
         }
+=======
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/doc\.jdemetra\.org\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {

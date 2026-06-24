@@ -2,7 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
+<<<<<<< HEAD
 <meta name="generator" content="quarto-1.9.37">
+=======
+<meta name="generator" content="quarto-1.7.32">
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,10 +80,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<<<<<<< HEAD
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-b0134dbb9ead57b6540d0cf440a7ea85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+=======
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-31d8ef72841916967b1943a12315f623.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -109,6 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<<<<<<< HEAD
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -123,6 +135,36 @@ const typesetMath = (el) => {
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
       if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+=======
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -387,8 +429,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
+<<<<<<< HEAD
             <a href="./P-Output.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Output description</span></a>
+=======
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -799,14 +846,14 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision =</span> <span class="fl">1e-9</span>, <span class="at">approximateHessian =</span> <span class="cn">TRUE</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="T-r-packages.html">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
+<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="#t-r-packs">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
 </section>
 </section>
 <section id="decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 <section id="extended-x-11" class="level3">
 <h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
-<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
+<p>X-11 is the decomposition module of <a href="#sa-overview">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
 <p><span class="math display">\[
 \begin{array}{lll}
 B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                
@@ -930,6 +977,7 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
         }
       }
       return false;
+<<<<<<< HEAD
     }
     const onCopySuccess = function(e) {
       // button target
@@ -1002,6 +1050,79 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
             link.href = link.dataset.originalHref;
           }
         }
+=======
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/doc\.jdemetra\.org\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+>>>>>>> 415ad08b56a48be890a5c20dda6fa57a662f7490
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
