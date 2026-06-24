@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Output from X13-Arima – JDemetra+ documentation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./P_Methods.html" rel="next">
+<link href="./O-Output-Description.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b0134dbb9ead57b6540d0cf440a7ea85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P-Output.html">Output description</a></li><li class="breadcrumb-item"><a href="./O-X13-ARIMA-Output.html">Output from X13-Arima</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jdemetra/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is JDemetra+?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ History</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">wrap: 72</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Seats Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and external regressors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar correction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cruncher and quality report</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output description</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./O-Output-Description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output description</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./O-X13-ARIMA-Output.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Output from X13-Arima</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-ARIMA models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X11 decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seats decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#how-to-generate-output" id="toc-how-to-generate-output" class="nav-link" data-scroll-target="#how-to-generate-output">How to generate output ?</a>
+  <ul class="collapse">
+  <li><a href="#from-graphical-user-interface" id="toc-from-graphical-user-interface" class="nav-link" data-scroll-target="#from-graphical-user-interface">From Graphical User Interface</a></li>
+  <li><a href="#using-the-cruncher" id="toc-using-the-cruncher" class="nav-link" data-scroll-target="#using-the-cruncher">Using the Cruncher</a></li>
+  <li><a href="#with-rjd3x13" id="toc-with-rjd3x13" class="nav-link" data-scroll-target="#with-rjd3x13">With rjd3x13</a></li>
+  <li><a href="#description-details" id="toc-description-details" class="nav-link" data-scroll-target="#description-details">Description details</a></li>
+  </ul></li>
+  <li><a href="#series" id="toc-series" class="nav-link" data-scroll-target="#series">Series</a>
+  <ul class="collapse">
+  <li><a href="#final-series-from-seasonal-adjustment-process" id="toc-final-series-from-seasonal-adjustment-process" class="nav-link" data-scroll-target="#final-series-from-seasonal-adjustment-process">Final series from Seasonal Adjustment Process</a></li>
+  <li><a href="#pre-processing-series" id="toc-pre-processing-series" class="nav-link" data-scroll-target="#pre-processing-series">Pre-processing series</a></li>
+  </ul></li>
+  <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a>
+  <ul class="collapse">
+  <li><a href="#tests-on-residuals" id="toc-tests-on-residuals" class="nav-link" data-scroll-target="#tests-on-residuals">Tests on residuals</a></li>
+  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests">Seasonality tests</a></li>
+  </ul></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/O-X13-ARIMA-Output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P-Output.html">Output description</a></li><li class="breadcrumb-item"><a href="./O-X13-ARIMA-Output.html">Output from X13-Arima</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="output-chap" class="quarto-section-identifier">Output from X13-Arima</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="in-this-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>The output of X13-Arima procedure is detailed (Reg-Arima pre-processing, and X11 Decomposition).</p>
+<p>(pre-processing or pre-adjustment or pre-treatment are used interchangeably)</p>
+<p>This presentation is broken down by categories to make navigation easier</p>
+<ul>
+<li>series</li>
+</ul>
+<p>here you will find:</p>
+<pre><code>- final series resulting from a complete SA process, typically final series include re-allocated pre-adjustment effects
+
+- pre-adjustment series 
+
+- decomposition series (based on the linearized series without pre-adjustment effects)</code></pre>
+<ul>
+<li><p>parameters</p>
+<ul>
+<li><p>pre-processing</p></li>
+<li><p>decompostion</p></li>
+</ul></li>
+<li><p>diagnostics</p>
+<ul>
+<li><p>pre-processing (eg: tests on Reg-arima model residuals)</p></li>
+<li><p>decompostion (M Statistics)</p></li>
+<li><p>SA process: tests for residual, seasonality, residual Trading Days effects…</p></li>
+</ul></li>
+</ul>
+<!-- NAME =...if different to be signaled -->
+<!-- IN TBLES  GUI display :if all the same place: indicate above the table -->
+<!-- Table structure ! -->
+<!-- as pb of width tables broken in 2 parts  -->
+<!-- where are auxiliary excel files  -->
+<!-- auxiliary R code  -->
+<!-- all in "Documents/JD_Quarto_Book_AUX" -->
+<!-- - part 1: GUI + cruncher  -->
+<!-- name -->
+<!-- description  -->
+<!-- - part 2: R with code avec $ sign -->
+</section>
+<section id="how-to-generate-output" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-generate-output">How to generate output ?</h2>
+<section id="from-graphical-user-interface" class="level3">
+<h3 class="anchored" data-anchor-id="from-graphical-user-interface">From Graphical User Interface</h3>
+</section>
+<section id="using-the-cruncher" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-cruncher">Using the Cruncher</h3>
+</section>
+<section id="with-rjd3x13" class="level3">
+<h3 class="anchored" data-anchor-id="with-rjd3x13">With rjd3x13</h3>
+</section>
+<section id="description-details" class="level3">
+<h3 class="anchored" data-anchor-id="description-details">Description details</h3>
+<p>Name: name: is name in… unless difference is signalled</p>
+<p>Fullname and how to parametrize (?)</p>
+<!-- in R (ex rjd3) x13: here user defined output -->
+<!-- - how to generate it -->
+<!-- also visible in print / summary -->
+<!-- and in default output in the model see: estimation object documentation (str) -->
+</section>
+</section>
+<section id="series" class="level2">
+<h2 class="anchored" data-anchor-id="series">Series</h2>
+<section id="final-series-from-seasonal-adjustment-process" class="level3">
+<h3 class="anchored" data-anchor-id="final-series-from-seasonal-adjustment-process">Final series from Seasonal Adjustment Process</h3>
+<!-- contain effects from preadjustment  -->
+<!-- link to allocation part  -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 40%">
+<col style="width: 28%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>GUI display</th>
+<th>Fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>y</td>
+<td>Original series</td>
+<td>Main Results &gt; Table</td>
+<td>y</td>
+</tr>
+<tr class="even">
+<td>y_f</td>
+<td>Forecasts of original series</td>
+<td>Main Results &gt; Table</td>
+<td>y_f(?)</td>
+</tr>
+<tr class="odd">
+<td>y_ef</td>
+<td>Forecasts errors of original series</td>
+<td>Main Results &gt; Table</td>
+<td>y_ef(?)</td>
+</tr>
+<tr class="even">
+<td>y_b</td>
+<td>Backcasts of original series</td>
+<td>Main Results &gt; Table</td>
+<td>y_b(?)</td>
+</tr>
+<tr class="odd">
+<td>y_eb</td>
+<td>Backcasts errors of original series</td>
+<td>Main Results &gt; Table</td>
+<td>y_eb(?)</td>
+</tr>
+<tr class="even">
+<td>sa</td>
+<td>Seasonally adjusted series</td>
+<td>Main Results &gt; Table</td>
+<td>sa</td>
+</tr>
+<tr class="odd">
+<td>sa_f</td>
+<td>Forecasts of seasonally adjusted series</td>
+<td>Main Results &gt; Table</td>
+<td>sa_f</td>
+</tr>
+<tr class="even">
+<td>t</td>
+<td>Trend component</td>
+<td>Main Results &gt; Table</td>
+<td>t</td>
+</tr>
+<tr class="odd">
+<td>t_f</td>
+<td>Forecasts of trend</td>
+<td>Main Results &gt; Table</td>
+<td>t_f</td>
+</tr>
+<tr class="even">
+<td>s</td>
+<td>Seasonal component</td>
+<td>Main Results &gt; Table</td>
+<td>s</td>
+</tr>
+<tr class="odd">
+<td>s_f</td>
+<td>Forecasts of seasonal component</td>
+<td>Main Results &gt; Table</td>
+<td>s_f</td>
+</tr>
+<tr class="even">
+<td>i</td>
+<td>Irregular component</td>
+<td>Main Results &gt; Table</td>
+<td>i</td>
+</tr>
+<tr class="odd">
+<td>i_f</td>
+<td>Forecasts of irregular component</td>
+<td>Main Results &gt; Table</td>
+<td>i_f</td>
+</tr>
+<tr class="even">
+<td>ycal</td>
+<td>series corrected for calendar effects: y_cal = yc-/cal</td>
+<td>Pre-Processing &gt; Pre-adjustment series</td>
+<td>ycal</td>
+</tr>
+<tr class="odd">
+<td>ycal_f</td>
+<td>forecasts of the series corrected for calendar effects</td>
+<td>Pre-Processing &gt; Pre-adjustment series</td>
+<td>ycal_f(?)</td>
+</tr>
+<tr class="even">
+<td>ycal_b</td>
+<td>backcasts of the series corrected for calendar effects</td>
+<td>Pre-Processing &gt; Pre-adjustment series</td>
+<td>ycal_b(?)</td>
+</tr>
+<tr class="odd">
+<td>benchmarking.original</td>
+<td>Unbenchmarked sa series</td>
+<td>No</td>
+<td>benchmarking.original</td>
+</tr>
+<tr class="even">
+<td>benchmarking.target</td>
+<td>Series used to compute annual targets</td>
+<td>No</td>
+<td>benchmarking.target</td>
+</tr>
+<tr class="odd">
+<td>benchmarking.result</td>
+<td>Final benchmarked sa series</td>
+<td>No</td>
+<td>benchmarking.result</td>
+</tr>
+</tbody>
+</table>
+<section id="with-x-11-style-names" class="level4">
+<h4 class="anchored" data-anchor-id="with-x-11-style-names">With X-11 style names</h4>
+<p>Backcasts of final series can be retrieved only from this table.</p>
+<!-- suppress GUI display colum, illustration under the table with image -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 51%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>GUI display</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>finals.d11</td>
+<td>Seasonally adjusted series (=sa)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d12</td>
+<td>Trend component (=t)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d13</td>
+<td>Irregular component (=i)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d16</td>
+<td>Seasonal component (=s)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d18</td>
+<td>Calendar effects (=cal)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d11a</td>
+<td>Forecasts of seasonally adjusted series (=sa_f)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d12a</td>
+<td>Forecasts of trend (=t_f)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d16a</td>
+<td>Forecasts of seasonal component (=s_f)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d18a</td>
+<td>Forecasts of the calendar effects (=cal_f)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d11b</td>
+<td>Backcasts of seasonally adjusted series</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d12b</td>
+<td>Backcasts of trend</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="even">
+<td>finals.d16b</td>
+<td>Backcasts seasonal component</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.d18b</td>
+<td>Backcasts of the calendar effects (=cal_b)</td>
+<td>Decomposition (X11)&gt;D-Final-Table</td>
+</tr>
+</tbody>
+</table>
+<!-- #### rjd3x13 output  -->
+<!-- here user defined output -->
+<!-- generated as  -->
+<!-- also available in  -->
+</section>
+<section id="robustified-final-series" class="level4">
+<h4 class="anchored" data-anchor-id="robustified-final-series">Robustified final series</h4>
+<!-- suppress GUI display colum, illustration under the table with image -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 64%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>GUI display</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>finals.e1</td>
+<td>Original series corrected for most important outliers</td>
+<td>Decomposition (X11)&gt; E-Table</td>
+</tr>
+<tr class="even">
+<td>finals.e2</td>
+<td>Final seasonally adjusted series corrected for most important outliers</td>
+<td>Decomposition (X11)&gt; E-Table</td>
+</tr>
+<tr class="odd">
+<td>finals.e3</td>
+<td>Final Irregular corrected for most important outliers</td>
+<td>Decomposition (X11)&gt; E-Table</td>
+</tr>
+<tr class="even">
+<td>finals.e11</td>
+<td>Robust estimation of final seasonally adjusted series</td>
+<td>Decomposition (X11)&gt; E-Table</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pre-processing-series" class="level3">
+<h3 class="anchored" data-anchor-id="pre-processing-series">Pre-processing series</h3>
+<!-- repaste with updated names (backcasts, foreacast) + update Java dico -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 86%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>Fullname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>yc</td>
+<td>interpolated series. Untransformed</td>
+<td>yc</td>
+</tr>
+<tr class="even">
+<td>yc_f</td>
+<td>forecasts of the interpolated series</td>
+<td>yc_f(?)</td>
+</tr>
+<tr class="odd">
+<td>yc_b</td>
+<td>backcasts of the interpolated series</td>
+<td>yc_b(?)</td>
+</tr>
+<tr class="even">
+<td>ylin</td>
+<td>linearized series (series without pre-processing and regression effects). l=yc-/det. Untransformed</td>
+<td>ylin</td>
+</tr>
+<tr class="odd">
+<td>ylin_f</td>
+<td>forcasts of the linearized series. Untransformed</td>
+<td>ylin_f(?)</td>
+</tr>
+<tr class="even">
+<td>ylin_b</td>
+<td>backcasts of the linearized series. Untransformed</td>
+<td>ylin_b(?)</td>
+</tr>
+<tr class="odd">
+<td>det</td>
+<td>all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed</td>
+<td>det</td>
+</tr>
+<tr class="even">
+<td>det_f</td>
+<td>forcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed</td>
+<td>det_f(?)</td>
+</tr>
+<tr class="odd">
+<td>det_b</td>
+<td>backcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed</td>
+<td>det_b(?)</td>
+</tr>
+<tr class="even">
+<td>cal</td>
+<td>all calendar effects (including pre-processings). cal=tde+*mhe. Untransformed</td>
+<td>cal</td>
+</tr>
+<tr class="odd">
+<td>cal_f</td>
+<td>forecasts of all calendar effects. Untransformed</td>
+<td>cal_f(?)</td>
+</tr>
+<tr class="even">
+<td>cal_b</td>
+<td>backcasts of all calendar effects. Untransformed</td>
+<td>cal_b(?)</td>
+</tr>
+<tr class="odd">
+<td>ycal</td>
+<td>series corrected for calendar effects: y_cal = yc-/cal. Untransformed</td>
+<td>ycal</td>
+</tr>
+<tr class="even">
+<td>ycal_f</td>
+<td>forecasts of the series corrected for calendar effects. Untransformed</td>
+<td>ycal_f(?)</td>
+</tr>
+<tr class="odd">
+<td>ycal_b</td>
+<td>backcasts of the series corrected for calendar effects. Untransformed</td>
+<td>ycal_b(?)</td>
+</tr>
+<tr class="even">
+<td>tde</td>
+<td>trading days effects (including leap year/length of period, including pre-processings). Untransformed</td>
+<td>tde</td>
+</tr>
+<tr class="odd">
+<td>tde_f</td>
+<td>forecasts of the trading days effects. Untransformed</td>
+<td>tde_f(?)</td>
+</tr>
+<tr class="even">
+<td>tde_b</td>
+<td>backcasts of the trading days effects. Untransformed</td>
+<td>tde_b(?)</td>
+</tr>
+<tr class="odd">
+<td>ee</td>
+<td>Easter effects. Untransformed</td>
+<td>ee</td>
+</tr>
+<tr class="even">
+<td>ee_f</td>
+<td>forecasts of the Easter effects. Untransformed</td>
+<td>ee_f(?)</td>
+</tr>
+<tr class="odd">
+<td>ee_b</td>
+<td>backcasts of the Easter effects. Untransformed</td>
+<td>ee_b(?)</td>
+</tr>
+<tr class="even">
+<td>omhe</td>
+<td>other mothing holidays effects. Untransformed</td>
+<td>omhe</td>
+</tr>
+<tr class="odd">
+<td>omhe_f</td>
+<td>forecasts of the other mothing holidays effects. Untransformed</td>
+<td>omhe_f(?)</td>
+</tr>
+<tr class="even">
+<td>omhe_b</td>
+<td>backcasts of the other mothing holidays effects. Untransformed</td>
+<td>omhe_b(?)</td>
+</tr>
+<tr class="odd">
+<td>mhe</td>
+<td>all moving holidays effects. mhe=ee+*rmde+*omhe. Untransformed</td>
+<td>mhe</td>
+</tr>
+<tr class="even">
+<td>mhe_f</td>
+<td>forecats of all moving holidays effects. mhe=ee+*rmde+*omhe. Untransformed</td>
+<td>mhe_f(?)</td>
+</tr>
+<tr class="odd">
+<td>mhe_b</td>
+<td>backcasts of all moving holidays effects. mhe=ee+*rmde+*omhe. Untransformed</td>
+<td>mhe_b(?)</td>
+</tr>
+<tr class="even">
+<td>out</td>
+<td>all outliers effects. Untransformed</td>
+<td>out</td>
+</tr>
+<tr class="odd">
+<td>out_f</td>
+<td>forecasts of all outliers effects. Untransformed</td>
+<td>out_f(?)</td>
+</tr>
+<tr class="even">
+<td>out_b</td>
+<td>backcasts of all outliers effects. Untransformed</td>
+<td>out_b(?)</td>
+</tr>
+<tr class="odd">
+<td>reg</td>
+<td>all other regression effects (outside outliers and calendars). Untransformed</td>
+<td>reg</td>
+</tr>
+<tr class="even">
+<td>reg_f</td>
+<td>forecasts of all other regression effects (outside outliers and calendars). Untransformed</td>
+<td>reg_f(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_b</td>
+<td>backcasts of all other regression effects (outside outliers and calendars). Untransformed</td>
+<td>reg_b(?)</td>
+</tr>
+<tr class="even">
+<td>l</td>
+<td>linearized series (transformed series without pre-processing and regression effects). Transformed)</td>
+<td>l</td>
+</tr>
+<tr class="odd">
+<td>l_f</td>
+<td>forecasts of the linearized series. Transformed)</td>
+<td>l_f(?)</td>
+</tr>
+<tr class="even">
+<td>l_b</td>
+<td>backcasts of the linearized series. Transformed)</td>
+<td>l_b(?)</td>
+</tr>
+<tr class="odd">
+<td>full_res</td>
+<td>full residuals</td>
+<td>full_res</td>
+</tr>
+<tr class="even">
+<td>out_t</td>
+<td>outliers effects associated to the trend</td>
+<td>out_t</td>
+</tr>
+<tr class="odd">
+<td>out_s</td>
+<td>outliers effects associated to the seasonal</td>
+<td>out_s</td>
+</tr>
+<tr class="even">
+<td>out_i</td>
+<td>outliers effects associated to the irregular</td>
+<td>out_i</td>
+</tr>
+<tr class="odd">
+<td>reg_t</td>
+<td>other regression effects associated to the trend</td>
+<td>reg_t</td>
+</tr>
+<tr class="even">
+<td>reg_s</td>
+<td>other regression effects associated to the seasonal</td>
+<td>reg_s</td>
+</tr>
+<tr class="odd">
+<td>reg_i</td>
+<td>other regression effects associated to the irregular</td>
+<td>reg_i</td>
+</tr>
+<tr class="even">
+<td>reg_sa</td>
+<td>other regression effects associated to the sa</td>
+<td>reg_sa</td>
+</tr>
+<tr class="odd">
+<td>reg_u</td>
+<td>other undefined regression effects (split between the components</td>
+<td>reg_u</td>
+</tr>
+<tr class="even">
+<td>reg_y</td>
+<td>other regression effects removed from the series (not in the components</td>
+<td>reg_y</td>
+</tr>
+<tr class="odd">
+<td>det_t</td>
+<td>all regression effects associated to the trend</td>
+<td>det_t</td>
+</tr>
+<tr class="even">
+<td>det_s</td>
+<td>all regression effects associated to the seasonal</td>
+<td>det_s</td>
+</tr>
+<tr class="odd">
+<td>det_i</td>
+<td>all regression effects associated to the irregular</td>
+<td>det_i</td>
+</tr>
+<tr class="even">
+<td>out_t_f</td>
+<td>outliers effects associated to the trend</td>
+<td>out_t_f(?)</td>
+</tr>
+<tr class="odd">
+<td>out_s_f</td>
+<td>outliers effects associated to the seasonal</td>
+<td>out_s_f(?)</td>
+</tr>
+<tr class="even">
+<td>out_i_f</td>
+<td>outliers effects associated to the irregular</td>
+<td>out_i_f(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_t_f</td>
+<td>other regression effects associated to the trend</td>
+<td>reg_t_f(?)</td>
+</tr>
+<tr class="even">
+<td>reg_s_f</td>
+<td>other regression effects associated to the seasonal</td>
+<td>reg_s_f(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_i_f</td>
+<td>other regression effects associated to the irregular</td>
+<td>reg_i_f(?)</td>
+</tr>
+<tr class="even">
+<td>reg_sa_f</td>
+<td>other regression effects associated to the sa</td>
+<td>reg_sa_f(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_u_f</td>
+<td>other undefined regression effects (split between the components</td>
+<td>reg_u_f(?)</td>
+</tr>
+<tr class="even">
+<td>reg_y_f</td>
+<td>other regression effects removed from the series (not in the components</td>
+<td>reg_y_f(?)</td>
+</tr>
+<tr class="odd">
+<td>det_t_f</td>
+<td>all regression effects associated to the trend</td>
+<td>det_t_f(?)</td>
+</tr>
+<tr class="even">
+<td>det_s_f</td>
+<td>all regression effects associated to the seasonal</td>
+<td>det_s_f(?)</td>
+</tr>
+<tr class="odd">
+<td>det_i_f</td>
+<td>all regression effects associated to the irregular</td>
+<td>det_i_f(?)</td>
+</tr>
+<tr class="even">
+<td>out_t_b</td>
+<td>outliers effects associated to the trend</td>
+<td>out_t_b(?)</td>
+</tr>
+<tr class="odd">
+<td>out_s_b</td>
+<td>outliers effects associated to the seasonal</td>
+<td>out_s_b(?)</td>
+</tr>
+<tr class="even">
+<td>out_i_b</td>
+<td>outliers effects associated to the irregular</td>
+<td>out_i_b(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_t_b</td>
+<td>other regression effects associated to the trend</td>
+<td>reg_t_b(?)</td>
+</tr>
+<tr class="even">
+<td>reg_s_b</td>
+<td>other regression effects associated to the seasonal</td>
+<td>reg_s_b(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_i_b</td>
+<td>other regression effects associated to the irregular</td>
+<td>reg_i_b(?)</td>
+</tr>
+<tr class="even">
+<td>reg_sa_b</td>
+<td>other regression effects associated to the sa</td>
+<td>reg_sa_b(?)</td>
+</tr>
+<tr class="odd">
+<td>reg_u_b</td>
+<td>other undefined regression effects (split between the components</td>
+<td>reg_u_b(?)</td>
+</tr>
+<tr class="even">
+<td>reg_y_b</td>
+<td>other regression effects removed from the series (not in the components</td>
+<td>reg_y_b(?)</td>
+</tr>
+<tr class="odd">
+<td>det_t_b</td>
+<td>all regression effects associated to the trend</td>
+<td>det_t_b(?)</td>
+</tr>
+<tr class="even">
+<td>det_s_b</td>
+<td>all regression effects associated to the seasonal</td>
+<td>det_s_b(?)</td>
+</tr>
+<tr class="odd">
+<td>det_i_b</td>
+<td>all regression effects associated to the irregular</td>
+<td>det_i_b(?)</td>
+</tr>
+</tbody>
+</table>
+<section id="pre-processing-series-in-x11-a-table" class="level4">
+<h4 class="anchored" data-anchor-id="pre-processing-series-in-x11-a-table">Pre-processing series in X11 A-Table</h4>
+<!-- no GUI display column (show ex of A table)  -->
+</section>
+</section>
+</section>
+<section id="diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
+<p>obj have all the tests used in BQ and displayed in GUI</p>
+<p>stand alone tests: - in GUI - in R (rjd3toolkit)</p>
+<section id="tests-on-residuals" class="level3">
+<h3 class="anchored" data-anchor-id="tests-on-residuals">Tests on residuals</h3>
+<p>ONE TEST example : LB TEST, link to M chap what do we describe here</p>
+</section>
+<section id="seasonality-tests" class="level3">
+<h3 class="anchored" data-anchor-id="seasonality-tests">Seasonality tests</h3>
+<p>ONE TEST example : Friedman TEST, link to M chap what do we describe here</p>
+</section>
+</section>
+<section id="parameters" class="level2">
+<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
+<p>last</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/doc\.jdemetra\.org\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./O-Output-Description.html" class="pagination-link" aria-label="Output description">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Output description</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./P_Methods.html" class="pagination-link" aria-label="Methods">
+        <span class="nav-page-text">Methods</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jdemetra/JD_Quarto_Book/edit/main/O-X13-ARIMA-Output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jdemetra/JD_Quarto_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<li>
+<a href="https://github.com/jdemetra/JD_Quarto_Book" target="blank">Code source</a>
+</li>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

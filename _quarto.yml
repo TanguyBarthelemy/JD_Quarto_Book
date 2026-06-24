@@ -106,10 +106,10 @@ book:
         - T-plug-ins.qmd ##(#t-plug-ins)
         - T-Production-tools-cruncher-QR.qmd ##(#t-prod)
         - T-r-packages.qmd ##(#t-r-packs)
-    - part: P-Output.qmd ##(#part-Out)
-      chapters:
-        - O-Output-Description.qmd ##(#output-chap)
-        - O-X13-ARIMA-Output.qmd
+    # - part: P-Output.qmd ##(#part-Out)
+    #   chapters:
+    #     - O-Output-Description.qmd ##(#output-chap)
+    #     - O-X13-ARIMA-Output.qmd
     # - O_Output_Description_Internal.qmd ## do not publish
     - part: P_Methods.qmd ##(#part-T)
       chapters:
