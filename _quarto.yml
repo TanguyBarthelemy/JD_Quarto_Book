@@ -70,7 +70,14 @@ book:
           city: Madrid
           url: "https://www.ine.es/"
       role: "Collaborator"
-  date: "05/21/2026"
+    - name: Nikolina Rizanovska
+      affiliations:
+        - name: Surs
+          country: Slovenia
+          city: Ljubljana
+          url: "https://www.stat.si/"
+      role: "Collaborator"
+  date: "06/24/2026"
   page-navigation: true
   chapters:
     - index.qmd
