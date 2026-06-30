@@ -2,158 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://doc.jdemetra.org/index.html</loc>
-    <lastmod>2026-06-19T20:41:51.283Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.412Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/G-how-to-use-this-book.html</loc>
-    <lastmod>2026-06-19T20:41:50.287Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.434Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/G-news-v3-vs-v2.html</loc>
-    <lastmod>2026-06-19T20:41:50.311Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.461Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/G-jd-history.html</loc>
-    <lastmod>2026-06-19T20:41:50.287Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.476Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/P_Algorithms.html</loc>
-    <lastmod>2026-06-19T20:41:50.392Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.497Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-RegArima-Tramo-Modelling-Overview.html</loc>
-    <lastmod>2026-06-19T20:41:48.745Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.532Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-overview.html</loc>
-    <lastmod>2026-06-19T20:41:48.761Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.551Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-pre-treatment.html</loc>
-    <lastmod>2026-06-19T20:41:48.747Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.640Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-X11-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:48.759Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.693Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-seats-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:48.769Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.733Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-rev-policies.html</loc>
-    <lastmod>2026-06-19T20:41:48.757Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.760Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-hf.html</loc>
-    <lastmod>2026-06-19T20:41:48.761Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.805Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-x12.html</loc>
-    <lastmod>2026-06-19T20:41:48.770Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.823Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-stl-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:48.770Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.837Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-sa-bsm.html</loc>
-    <lastmod>2026-06-19T20:41:48.761Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.850Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-outlier-detection.html</loc>
-    <lastmod>2026-06-19T20:41:48.754Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.889Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-calendar-correction.html</loc>
-    <lastmod>2026-06-19T20:41:48.752Z</lastmod>
+    <lastmod>2026-06-30T13:57:23.951Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-benchmarking.html</loc>
-    <lastmod>2026-06-24T12:21:53.395Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.038Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-trend-cycle-estimation.html</loc>
-    <lastmod>2026-06-19T20:41:48.774Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.067Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-revision-analysis.html</loc>
-    <lastmod>2026-06-19T20:41:48.757Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.084Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/A-nowcasting.html</loc>
-    <lastmod>2026-06-19T20:41:48.753Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.111Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/P_Tools.html</loc>
-    <lastmod>2026-06-19T20:41:50.392Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.188Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-GUI-Overview.html</loc>
-    <lastmod>2026-06-19T20:41:50.401Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.247Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-GUI-Data-Viz-TS-Tools.html</loc>
-    <lastmod>2026-06-19T20:41:50.399Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.282Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-GUI-SA-Modelling-Features.html</loc>
-    <lastmod>2026-06-19T20:41:50.405Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.307Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-GUI-Output.html</loc>
-    <lastmod>2026-06-19T20:41:50.401Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.326Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-plug-ins.html</loc>
-    <lastmod>2026-06-19T20:41:50.409Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.374Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-Production-tools-cruncher-QR.html</loc>
-    <lastmod>2026-06-19T20:41:50.405Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.409Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/T-r-packages.html</loc>
-    <lastmod>2026-06-19T20:41:50.411Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.452Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/P_Methods.html</loc>
-    <lastmod>2026-06-19T20:41:50.392Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.464Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-spectral-analysis.html</loc>
-    <lastmod>2026-06-19T20:41:50.336Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.524Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-reg-arima-modelling.html</loc>
-    <lastmod>2026-06-19T20:41:50.336Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.532Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-X11-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:50.336Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.580Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-SEATS-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:50.313Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.632Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-sa-hf.html</loc>
-    <lastmod>2026-06-19T20:41:50.336Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.660Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-tests.html</loc>
-    <lastmod>2026-06-19T20:41:50.345Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.699Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-STL-decomposition.html</loc>
-    <lastmod>2026-06-19T20:41:50.333Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.712Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-Temp-Disagg-Bench.html</loc>
-    <lastmod>2026-06-19T20:41:50.333Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.733Z</lastmod>
   </url>
   <url>
     <loc>https://doc.jdemetra.org/M-revision-analysis.html</loc>
-    <lastmod>2026-06-19T20:41:50.336Z</lastmod>
+    <lastmod>2026-06-30T13:57:24.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://doc.jdemetra.org/JDemetra+-documentation.pdf</loc>
+    <lastmod>2026-06-30T13:57:21.194Z</lastmod>
   </url>
 </urlset>
