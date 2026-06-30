@@ -4,7 +4,7 @@
 A pdf version of this documentation is available [here](https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf)
 
 
-![](All_images/JD+-Eurostat-COSA.png)
+![](All_images/logo_COSA-TSA_ligne.png)
 
 
 ## Main Features
