@@ -13,3 +13,5 @@ Aux_R_code.R
 
 TO_DO
 .positai
+
+**/*.quarto_ipynb
