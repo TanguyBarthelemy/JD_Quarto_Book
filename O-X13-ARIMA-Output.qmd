@@ -6,33 +6,32 @@ The output of X13-Arima procedure is detailed (Reg-Arima pre-processing, and X11
 
 (pre-processing or pre-adjustment or pre-treatment are used interchangeably)
 
-This presentation is broken down by categories to make navigation easier 
+This presentation is broken down by categories to make navigation easier
 
-- series 
+- series
 
-here you will find:
-    
-    - final series resulting from a complete SA process, typically final series include re-allocated pre-adjustment effects
-    
-    - pre-adjustment series 
-    
-    - decomposition series (based on the linearized series without pre-adjustment effects)
+  - final series resulting from a complete SA process, typically final series include re-allocated pre-adjustment effects
 
-- parameters
+  - pre-adjustment series
 
-    - pre-processing 
-    
-    - decompostion 
+  - decomposition series (based on the linearized series without pre-adjustment effects)
 
-- diagnostics
+- parameters from
 
-    - pre-processing (eg: tests on Reg-arima model residuals)
-    
-    - decompostion (M Statistics)
-    
-    - SA process: tests for residual, seasonality, residual Trading Days effects...
+  - pre-processing
+
+  - decomposition
+
+- diagnostics on
+
+  - pre-processing (eg: tests on Reg-arima model residuals)
+
+  - decomposition (M Statistics)
+
+  - SA process: tests for residual, seasonality, residual Trading Days effects...
 
 <!-- NAME =...if different to be signaled -->
+
 <!-- IN TBLES  GUI display :if all the same place: indicate above the table -->
 
 <!-- Table structure ! -->
@@ -55,14 +54,13 @@ here you will find:
 
 ## How to generate output ?
 
-### From Graphical User Interface 
+### From Graphical User Interface
 
-### Using the Cruncher 
+### Using the Cruncher
 
 ### With rjd3x13
 
-
-### Description details 
+### Description details
 
 Name: name: is name in... unless difference is signalled
 
@@ -76,8 +74,13 @@ Fullname and how to parametrize (?)
 
 <!-- and in default output in the model see: estimation object documentation (str) -->
 
-
 ## Series
+
+<!-- tables enhancing -->
+
+<!-- - vertical lines ? -->
+
+<!-- - spacing in tables, next line -->
 
 ### Final series from Seasonal Adjustment Process
 
@@ -85,165 +88,185 @@ Fullname and how to parametrize (?)
 
 <!-- link to allocation part  -->
 
-| Name                  | Description                                            | GUI display                            | Fullname              |
-| --------------------- | ------------------------------------------------------ | -------------------------------------- | --------------------- |
-| y                     | Original series                                        | Main Results > Table                   | y                     |
-| y_f                   | Forecasts of original series                           | Main Results > Table                   | y_f(?)                |
-| y_ef                  | Forecasts errors of original series                    | Main Results > Table                   | y_ef(?)               |
-| y_b                   | Backcasts of original series                           | Main Results > Table                   | y_b(?)                |
-| y_eb                  | Backcasts errors of original series                    | Main Results > Table                   | y_eb(?)               |
-| sa                    | Seasonally adjusted series                             | Main Results > Table                   | sa                    |
-| sa_f                  | Forecasts of seasonally adjusted series                | Main Results > Table                   | sa_f                  |
-| t                     | Trend component                                        | Main Results > Table                   | t                     |
-| t_f                   | Forecasts of trend                                     | Main Results > Table                   | t_f                   |
-| s                     | Seasonal component                                     | Main Results > Table                   | s                     |
-| s_f                   | Forecasts of seasonal component                        | Main Results > Table                   | s_f                   |
-| i                     | Irregular component                                    | Main Results > Table                   | i                     |
-| i_f                   | Forecasts of irregular component                       | Main Results > Table                   | i_f                   |
-| ycal                  | series corrected for calendar effects: y_cal = yc-/cal | Pre-Processing > Pre-adjustment series | ycal                  |
-| ycal_f                | forecasts of the series corrected for calendar effects | Pre-Processing > Pre-adjustment series | ycal_f(?)             |
-| ycal_b                | backcasts of the series corrected for calendar effects | Pre-Processing > Pre-adjustment series | ycal_b(?)             |
-| benchmarking.original | Unbenchmarked sa series                                | No                                     | benchmarking.original |
-| benchmarking.target   | Series used to compute annual targets                  | No                                     | benchmarking.target   |
-| benchmarking.result   | Final benchmarked sa series                            | No                                     | benchmarking.result   |
+| Name | Description | GUI display | Fullname |
+|-----------------|-----------------------|-----------------|-----------------|
+| y | Original series | Main Results \> Table | y |
+| y_f | Forecasts of original series | Main Results \> Table | y_f(?) |
+| y_ef | Forecasts errors of original series | Main Results \> Table | y_ef(?) |
+| y_b | Backcasts of original series | Main Results \> Table | y_b(?) |
+| y_eb | Backcasts errors of original series | Main Results \> Table | y_eb(?) |
+| sa | Seasonally adjusted series | Main Results \> Table | sa |
+| sa_f | Forecasts of seasonally adjusted series | Main Results \> Table | sa_f |
+| t | Trend component | Main Results \> Table | t |
+| t_f | Forecasts of trend | Main Results \> Table | t_f |
+| s | Seasonal component | Main Results \> Table | s |
+| s_f | Forecasts of seasonal component | Main Results \> Table | s_f |
+| i | Irregular component | Main Results \> Table | i |
+| i_f | Forecasts of irregular component | Main Results \> Table | i_f |
+| ycal | series corrected for calendar effects: y_cal = yc-/cal | Pre-Processing \> Pre-adjustment series | ycal |
+| ycal_f | forecasts of the series corrected for calendar effects | Pre-Processing \> Pre-adjustment series | ycal_f(?) |
+| ycal_b | backcasts of the series corrected for calendar effects | Pre-Processing \> Pre-adjustment series | ycal_b(?) |
+| benchmarking.original | Unbenchmarked sa series | No | benchmarking.original |
+| benchmarking.target | Series used to compute annual targets | No | benchmarking.target |
+| benchmarking.result | Final benchmarked sa series | No | benchmarking.result |
 
-
-
-#### With X-11 style names 
+### Final series with X-11 style names
 
 Backcasts of final series can be retrieved only from this table.
 
+GUI display: Decomposition (X11)\>D-Final-Table
+
 <!-- suppress GUI display colum, illustration under the table with image -->
 
-
-
-| Name        | Description                                     | GUI display                       |
-| ----------- | ----------------------------------------------- | --------------------------------- |
-| finals.d11  | Seasonally adjusted series (=sa)                | Decomposition (X11)>D-Final-Table |
-| finals.d12  | Trend component (=t)                            | Decomposition (X11)>D-Final-Table |
-| finals.d13  | Irregular component (=i)                        | Decomposition (X11)>D-Final-Table |
-| finals.d16  | Seasonal component (=s)                         | Decomposition (X11)>D-Final-Table |
-| finals.d18  | Calendar effects (=cal)                         | Decomposition (X11)>D-Final-Table |
-| finals.d11a | Forecasts of seasonally adjusted series (=sa_f) | Decomposition (X11)>D-Final-Table |
-| finals.d12a | Forecasts of trend (=t_f)                       | Decomposition (X11)>D-Final-Table |
-| finals.d16a | Forecasts of seasonal component (=s_f)          | Decomposition (X11)>D-Final-Table |
-| finals.d18a | Forecasts of the calendar effects (=cal_f)      | Decomposition (X11)>D-Final-Table |
-| finals.d11b | Backcasts of seasonally adjusted series         | Decomposition (X11)>D-Final-Table |
-| finals.d12b | Backcasts of trend                              | Decomposition (X11)>D-Final-Table |
-| finals.d16b | Backcasts seasonal component                    | Decomposition (X11)>D-Final-Table |
-| finals.d18b | Backcasts of the calendar effects (=cal_b)      | Decomposition (X11)>D-Final-Table |
-
+| Name        | Description                                     |
+|-------------|-------------------------------------------------|
+| finals.d11  | Seasonally adjusted series (=sa)                |
+| finals.d12  | Trend component (=t)                            |
+| finals.d13  | Irregular component (=i)                        |
+| finals.d16  | Seasonal component (=s)                         |
+| finals.d18  | Calendar effects (=cal)                         |
+| finals.d11a | Forecasts of seasonally adjusted series (=sa_f) |
+| finals.d12a | Forecasts of trend (=t_f)                       |
+| finals.d16a | Forecasts of seasonal component (=s_f)          |
+| finals.d18a | Forecasts of the calendar effects (=cal_f)      |
+| finals.d11b | Backcasts of seasonally adjusted series         |
+| finals.d12b | Backcasts of trend                              |
+| finals.d16b | Backcasts seasonal component                    |
+| finals.d18b | Backcasts of the calendar effects (=cal_b)      |
 
 <!-- #### rjd3x13 output  -->
 
 <!-- here user defined output -->
+
 <!-- generated as  -->
 
 <!-- also available in  -->
 
-#### Robustified final series 
+### Robustified final series
 
 <!-- suppress GUI display colum, illustration under the table with image -->
 
-| Name       | Description                                                            | GUI display                  |
-| ---------- | ---------------------------------------------------------------------- | ---------------------------- |
-| finals.e1  | Original series corrected for most important outliers                  | Decomposition (X11)> E-Table |
-| finals.e2  | Final seasonally adjusted series corrected for most important outliers | Decomposition (X11)> E-Table |
-| finals.e3  | Final Irregular corrected for most important outliers                  | Decomposition (X11)> E-Table |
-| finals.e11 | Robust estimation of final seasonally adjusted series                  | Decomposition (X11)> E-Table |
+GUI display: Decomposition (X11)\> E-Table
 
+| Name | Description |
+|-------------------|-----------------------------------------------------|
+| finals.e1 | Original series corrected for most important outliers |
+| finals.e2 | Final seasonally adjusted series corrected for most important outliers |
+| finals.e3 | Final Irregular corrected for most important outliers |
+| finals.e11 | Robust estimation of final seasonally adjusted series |
 
 ### Pre-processing series
 
 <!-- repaste with updated names (backcasts, foreacast) + update Java dico -->
 
-| Name     | Description                                                                                                           | Fullname    |
-| -------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| yc       | interpolated series. Untransformed                                                                                    | yc          |
-| yc_f     | forecasts of the interpolated series                                                                                  | yc_f(?)     |
-| yc_b     | backcasts of the interpolated series                                                                                  | yc_b(?)     |
-| ylin     | linearized series (series without pre-processing and regression effects). l=yc-/det. Untransformed                    | ylin        |
-| ylin_f   | forcasts of the linearized series. Untransformed                                                                      | ylin_f(?)   |
-| ylin_b   | backcasts of the linearized series. Untransformed                                                                     | ylin_b(?)   |
-| det      | all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed              | det         |
-| det_f    | forcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed  | det_f(?)    |
-| det_b    | backcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed | det_b(?)    |
-| cal      | all calendar effects (including pre-processings). cal=tde+\*mhe. Untransformed                                        | cal         |
-| cal_f    | forecasts of all calendar effects. Untransformed                                                                      | cal_f(?)    |
-| cal_b    | backcasts of all calendar effects. Untransformed                                                                      | cal_b(?)    |
-| ycal     | series corrected for calendar effects: y_cal = yc-/cal. Untransformed                                                 | ycal        |
-| ycal_f   | forecasts of the series corrected for calendar effects. Untransformed                                                 | ycal_f(?)   |
-| ycal_b   | backcasts of the series corrected for calendar effects. Untransformed                                                 | ycal_b(?)   |
-| tde      | trading days effects (including leap year/length of period, including pre-processings). Untransformed                 | tde         |
-| tde_f    | forecasts of the trading days effects. Untransformed                                                                  | tde_f(?)    |
-| tde_b    | backcasts of the trading days effects. Untransformed                                                                  | tde_b(?)    |
-| ee       | Easter effects. Untransformed                                                                                         | ee          |
-| ee_f     | forecasts of the Easter effects. Untransformed                                                                        | ee_f(?)     |
-| ee_b     | backcasts of the Easter effects. Untransformed                                                                        | ee_b(?)     |
-| omhe     | other mothing holidays effects. Untransformed                                                                         | omhe        |
-| omhe_f   | forecasts of the other mothing holidays effects. Untransformed                                                        | omhe_f(?)   |
-| omhe_b   | backcasts of the other mothing holidays effects. Untransformed                                                        | omhe_b(?)   |
-| mhe      | all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed                                                      | mhe         |
-| mhe_f    | forecats of all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed                                          | mhe_f(?)    |
-| mhe_b    | backcasts of all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed                                         | mhe_b(?)    |
-| out      | all outliers effects. Untransformed                                                                                   | out         |
-| out_f    | forecasts of all outliers effects. Untransformed                                                                      | out_f(?)    |
-| out_b    | backcasts of all outliers effects. Untransformed                                                                      | out_b(?)    |
-| reg      | all other regression effects (outside outliers and calendars). Untransformed                                          | reg         |
-| reg_f    | forecasts of all other regression effects (outside outliers and calendars). Untransformed                             | reg_f(?)    |
-| reg_b    | backcasts of all other regression effects (outside outliers and calendars). Untransformed                             | reg_b(?)    |
-| l        | linearized series (transformed series without pre-processing and regression effects). Transformed)                    | l           |
-| l_f      | forecasts of the linearized series. Transformed)                                                                      | l_f(?)      |
-| l_b      | backcasts of the linearized series. Transformed)                                                                      | l_b(?)      |
-| full_res | full residuals                                                                                                        | full_res    |
-| out_t    | outliers effects associated to the trend                                                                              | out_t       |
-| out_s    | outliers effects associated to the seasonal                                                                           | out_s       |
-| out_i    | outliers effects associated to the irregular                                                                          | out_i       |
-| reg_t    | other regression effects associated to the trend                                                                      | reg_t       |
-| reg_s    | other regression effects associated to the seasonal                                                                   | reg_s       |
-| reg_i    | other regression effects associated to the irregular                                                                  | reg_i       |
-| reg_sa   | other regression effects associated to the sa                                                                         | reg_sa      |
-| reg_u    | other undefined regression effects (split between the components                                                      | reg_u       |
-| reg_y    | other regression effects removed from the series (not in the components                                               | reg_y       |
-| det_t    | all regression effects associated to the trend                                                                        | det_t       |
-| det_s    | all regression effects associated to the seasonal                                                                     | det_s       |
-| det_i    | all regression effects associated to the irregular                                                                    | det_i       |
-| out_t_f  | outliers effects associated to the trend                                                                              | out_t_f(?)  |
-| out_s_f  | outliers effects associated to the seasonal                                                                           | out_s_f(?)  |
-| out_i_f  | outliers effects associated to the irregular                                                                          | out_i_f(?)  |
-| reg_t_f  | other regression effects associated to the trend                                                                      | reg_t_f(?)  |
-| reg_s_f  | other regression effects associated to the seasonal                                                                   | reg_s_f(?)  |
-| reg_i_f  | other regression effects associated to the irregular                                                                  | reg_i_f(?)  |
-| reg_sa_f | other regression effects associated to the sa                                                                         | reg_sa_f(?) |
-| reg_u_f  | other undefined regression effects (split between the components                                                      | reg_u_f(?)  |
-| reg_y_f  | other regression effects removed from the series (not in the components                                               | reg_y_f(?)  |
-| det_t_f  | all regression effects associated to the trend                                                                        | det_t_f(?)  |
-| det_s_f  | all regression effects associated to the seasonal                                                                     | det_s_f(?)  |
-| det_i_f  | all regression effects associated to the irregular                                                                    | det_i_f(?)  |
-| out_t_b  | outliers effects associated to the trend                                                                              | out_t_b(?)  |
-| out_s_b  | outliers effects associated to the seasonal                                                                           | out_s_b(?)  |
-| out_i_b  | outliers effects associated to the irregular                                                                          | out_i_b(?)  |
-| reg_t_b  | other regression effects associated to the trend                                                                      | reg_t_b(?)  |
-| reg_s_b  | other regression effects associated to the seasonal                                                                   | reg_s_b(?)  |
-| reg_i_b  | other regression effects associated to the irregular                                                                  | reg_i_b(?)  |
-| reg_sa_b | other regression effects associated to the sa                                                                         | reg_sa_b(?) |
-| reg_u_b  | other undefined regression effects (split between the components                                                      | reg_u_b(?)  |
-| reg_y_b  | other regression effects removed from the series (not in the components                                               | reg_y_b(?)  |
-| det_t_b  | all regression effects associated to the trend                                                                        | det_t_b(?)  |
-| det_s_b  | all regression effects associated to the seasonal                                                                     | det_s_b(?)  |
-| det_i_b  | all regression effects associated to the irregular                                                                    | det_i_b(?)  |
+GUI display: Pre-Processing \> Pre-adjustment series
 
+attention couper à la fin series not displaed in GUI ? generable in GUI output ?
 
-#### Pre-processing series in X11 A-Table
+| Name | Description | Fullname |
+|-------------|---------------------------------------------|-------------|
+| yc | interpolated series. Untransformed | yc |
+| yc_f | forecasts of the interpolated series | yc_f(?) |
+| yc_b | backcasts of the interpolated series | yc_b(?) |
+| ylin | linearized series (series without pre-processing and regression effects). l=yc-/det. Untransformed | ylin |
+| ylin_f | forcasts of the linearized series. Untransformed | ylin_f(?) |
+| ylin_b | backcasts of the linearized series. Untransformed | ylin_b(?) |
+| det | all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed | det |
+| det_f | forcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed | det_f(?) |
+| det_b | backcasts of all deterministic effects (including pre-processing, but without trend polynomial effect). Untransformed | det_b(?) |
+| cal | all calendar effects (including pre-processings). cal=tde+\*mhe. Untransformed | cal |
+| cal_f | forecasts of all calendar effects. Untransformed | cal_f(?) |
+| cal_b | backcasts of all calendar effects. Untransformed | cal_b(?) |
+| ycal | series corrected for calendar effects: y_cal = yc-/cal. Untransformed | ycal |
+| ycal_f | forecasts of the series corrected for calendar effects. Untransformed | ycal_f(?) |
+| ycal_b | backcasts of the series corrected for calendar effects. Untransformed | ycal_b(?) |
+| tde | trading days effects (including leap year/length of period, including pre-processings). Untransformed | tde |
+| tde_f | forecasts of the trading days effects. Untransformed | tde_f(?) |
+| tde_b | backcasts of the trading days effects. Untransformed | tde_b(?) |
+| ee | Easter effects. Untransformed | ee |
+| ee_f | forecasts of the Easter effects. Untransformed | ee_f(?) |
+| ee_b | backcasts of the Easter effects. Untransformed | ee_b(?) |
+| omhe | other mothing holidays effects. Untransformed | omhe |
+| omhe_f | forecasts of the other mothing holidays effects. Untransformed | omhe_f(?) |
+| omhe_b | backcasts of the other mothing holidays effects. Untransformed | omhe_b(?) |
+| mhe | all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed | mhe |
+| mhe_f | forecats of all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed | mhe_f(?) |
+| mhe_b | backcasts of all moving holidays effects. mhe=ee+\*rmde+\*omhe. Untransformed | mhe_b(?) |
+| out | all outliers effects. Untransformed | out |
+| out_f | forecasts of all outliers effects. Untransformed | out_f(?) |
+| out_b | backcasts of all outliers effects. Untransformed | out_b(?) |
+| reg | all other regression effects (outside outliers and calendars). Untransformed | reg |
+| reg_f | forecasts of all other regression effects (outside outliers and calendars). Untransformed | reg_f(?) |
+| reg_b | backcasts of all other regression effects (outside outliers and calendars). Untransformed | reg_b(?) |
+| l | linearized series (transformed series without pre-processing and regression effects). Transformed) | l |
+| l_f | forecasts of the linearized series. Transformed) | l_f(?) |
+| l_b | backcasts of the linearized series. Transformed) | l_b(?) |
+| full_res | full residuals | full_res |
+| out_t | outliers effects associated to the trend | out_t |
+| out_s | outliers effects associated to the seasonal | out_s |
+| out_i | outliers effects associated to the irregular | out_i |
+| reg_t | other regression effects associated to the trend | reg_t |
+| reg_s | other regression effects associated to the seasonal | reg_s |
+| reg_i | other regression effects associated to the irregular | reg_i |
+| reg_sa | other regression effects associated to the sa | reg_sa |
+| reg_u | other undefined regression effects (split between the components | reg_u |
+| reg_y | other regression effects removed from the series (not in the components | reg_y |
+| det_t | all regression effects associated to the trend | det_t |
+| det_s | all regression effects associated to the seasonal | det_s |
+| det_i | all regression effects associated to the irregular | det_i |
+| out_t_f | outliers effects associated to the trend | out_t_f(?) |
+| out_s_f | outliers effects associated to the seasonal | out_s_f(?) |
+| out_i_f | outliers effects associated to the irregular | out_i_f(?) |
+| reg_t_f | other regression effects associated to the trend | reg_t_f(?) |
+| reg_s_f | other regression effects associated to the seasonal | reg_s_f(?) |
+| reg_i_f | other regression effects associated to the irregular | reg_i_f(?) |
+| reg_sa_f | other regression effects associated to the sa | reg_sa_f(?) |
+| reg_u_f | other undefined regression effects (split between the components | reg_u_f(?) |
+| reg_y_f | other regression effects removed from the series (not in the components | reg_y_f(?) |
+| det_t_f | all regression effects associated to the trend | det_t_f(?) |
+| det_s_f | all regression effects associated to the seasonal | det_s_f(?) |
+| det_i_f | all regression effects associated to the irregular | det_i_f(?) |
+| out_t_b | outliers effects associated to the trend | out_t_b(?) |
+| out_s_b | outliers effects associated to the seasonal | out_s_b(?) |
+| out_i_b | outliers effects associated to the irregular | out_i_b(?) |
+| reg_t_b | other regression effects associated to the trend | reg_t_b(?) |
+| reg_s_b | other regression effects associated to the seasonal | reg_s_b(?) |
+| reg_i_b | other regression effects associated to the irregular | reg_i_b(?) |
+| reg_sa_b | other regression effects associated to the sa | reg_sa_b(?) |
+| reg_u_b | other undefined regression effects (split between the components | reg_u_b(?) |
+| reg_y_b | other regression effects removed from the series (not in the components | reg_y_b(?) |
+| det_t_b | all regression effects associated to the trend | det_t_b(?) |
+| det_s_b | all regression effects associated to the seasonal | det_s_b(?) |
+| det_i_b | all regression effects associated to the irregular | det_i_b(?) |
 
-<!-- no GUI display column (show ex of A table)  -->
+### Pre-processing series in X11 A-Table
 
+GUI display: Decomposition (X11)\>A-Table
+
+| Name | Description | GUI dsiplay |
+|----------------|----------------------------------------|-----------|
+| preadjustment.a1 | original series | yes |
+| preadjustment.a1a | forecasts of the original series (=y_f) | yes |
+| preadjustment.a1b | backcasts of the original series (=y_b) | no |
+| preadjustment.a6 | trading days effects (=tde) | yes |
+| preadjustment.a7 | moving holidays effects (including easter) (=tde+ee) | yes |
+| preadjustment.a8 | outliers effects (=out) | yes |
+| preadjustment.a8t | outliers effects associated to the trend (=out_t) | yes |
+| preadjustment.a8i | outliers effects associated to the irregular (=out_i) | yes |
+| preadjustment.a8s | outliers effects associated to the seasonal (=out_s) | yes |
+| preadjustment.a9 | other regression effects (=reg) | yes |
+| preadjustment.a9cal | other regression effects, associated to the calendar component | yes |
+| preadjustment.a9u | other regression effects, split in the different components (allocation = "undefined") | yes |
+| preadjustment.a9sa | other regression effects, associated to the SA series (allocation= "sa") | yes |
+| preadjustment.a9ser | other regression effects, removed from the series and not integrated in the final components (allocation ="series") | yes |
+
+- allocation: brief explanation and link
 
 ## Diagnostics
 
-obj have all the tests used in BQ and displayed in GUI
+<!-- obj have all the tests used in BQ and displayed in GUI -->
 
-stand alone tests: - in GUI - in R (rjd3toolkit)
+remark: stand alone tests: - in GUI - in R (rjd3toolkit)
 
 ### Tests on residuals
 
@@ -253,6 +276,18 @@ ONE TEST example : LB TEST, link to M chap what do we describe here
 
 ONE TEST example : Friedman TEST, link to M chap what do we describe here
 
-## Parameters
+## Parameters and other estimation results
 
-last
+### char
+
+| Name                     | Description                                                                 | GUI display                     |
+| ------------------------ | --------------------------------------------------------------------------- | ------------------------------- |
+| period                   | number of observations per year                                             |                                 |
+| span.start               | start date of SA estimation                                                 |                                 |
+| span.end                 | end date of SA estimation                                                   |                                 |
+| span.n                   | number of observations in the original series                               |                                 |
+| span.missing             | number of missing values in the original series                             |                                 |
+| regression.espan.start   | start date of pre-processing model estimation                               | Main Results and Pre-processing |
+| regression.espan.end     | end date of pre-processing model estimation                                 | Main Results and Pre-processing |
+| regression.espan.n       | number of observations in pre-processing model estimation                   | Main Results and Pre-processing |
+| regression.espan.missing | number of missing values in series used for pre-processing model estimation |                                 |
