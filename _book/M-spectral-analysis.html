@@ -404,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#spectral-density-of-a-stationnary-process" id="toc-spectral-density-of-a-stationnary-process" class="nav-link" data-scroll-target="#spectral-density-of-a-stationnary-process">Spectral density of a stationnary process</a></li>
+  <li><a href="#spectral-density-of-a-stationary-process" id="toc-spectral-density-of-a-stationary-process" class="nav-link" data-scroll-target="#spectral-density-of-a-stationary-process">Spectral density of a stationary process</a></li>
   <li><a href="#estimation-of-the-spectral-density" id="toc-estimation-of-the-spectral-density" class="nav-link" data-scroll-target="#estimation-of-the-spectral-density">Estimation of the Spectral density</a>
   <ul class="collapse">
   <li><a href="#m-spectral-analysis-m-spectrum-periodogram" id="toc-m-spectral-analysis-m-spectrum-periodogram" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-periodogram">Method 1: Periodogram</a></li>
@@ -413,7 +413,6 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#m-spectral-analysis-m-spectrum-id-peaks" id="toc-m-spectral-analysis-m-spectrum-id-peaks" class="nav-link" data-scroll-target="#m-spectral-analysis-m-spectrum-id-peaks">Identification of spectral peaks</a>
   <ul class="collapse">
-  <li><a href="#in-a-tukey-spectrum" id="toc-in-a-tukey-spectrum" class="nav-link" data-scroll-target="#in-a-tukey-spectrum">In a Tukey spectrum</a></li>
   <li><a href="#in-ar-spectrum-definition" id="toc-in-ar-spectrum-definition" class="nav-link" data-scroll-target="#in-ar-spectrum-definition">In AR Spectrum definition</a></li>
   <li><a href="#in-a-periodogram" id="toc-in-a-periodogram" class="nav-link" data-scroll-target="#in-a-periodogram">In a Periodogram</a></li>
   </ul></li>
@@ -454,8 +453,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- -   outputs of tests ? -->
 <!-- -   description of spectral graphs in GUI can be found here -->
 </section>
-<section id="spectral-density-of-a-stationnary-process" class="level2">
-<h2 class="anchored" data-anchor-id="spectral-density-of-a-stationnary-process">Spectral density of a stationnary process</h2>
+<section id="spectral-density-of-a-stationary-process" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-density-of-a-stationary-process">Spectral density of a stationary process</h2>
 <p>A stationary time series <span class="math inline">\({x_t: t = 1, \dots T}\)</span> with mean <span class="math inline">\(μ\)</span> and autocovariance <span class="math inline">\(\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi*k}{T}, k: 1 \dots [\frac{T}{2}]\)</span> denotes the (angular) Fourier frequencies.</p>
 <!-- ADD : units  -->
 <!-- equation -->
@@ -684,14 +683,14 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 </section>
 <section id="m-spectral-analysis-m-spectrum-id-peaks" class="level2">
 <h2 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-id-peaks">Identification of spectral peaks</h2>
-<p>The sections below describe the test, their practical implementation in the Graphical User interface can be found <a href="">here</a></p>
+<p>The sections below describe the test, their practical implementation in the Graphical User interface can be found <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-id-p">here</a></p>
 <p>In order to decide whether a series has a seasonal component that is predictable (stable) enough, these tests use visual criteria and formal tests for the periodogram. The periodogram is calculated using complete years, so that the set of Fourier frequencies contains exactly all seasonal frequencies.</p>
 <p>The tests rely on two basic principles:</p>
 <ul>
 <li><p>The peaks associated with seasonal frequencies should be larger than the median spectrum for all frequencies and;</p></li>
 <li><p>The peaks should exceed the spectrum of the two adjacent values by more than a critical value.</p></li>
 </ul>
-<p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and <span class="math inline">\(\frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
+<p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and <span class="math inline">\(\frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depend on the frequency of the time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <table class="table">
 <colgroup>
@@ -744,8 +743,7 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 </figure>
 </div>
 <p>This implies that it may be hard to disentangle both effects using the frequency domain techniques.</p>
-<section id="in-a-tukey-spectrum" class="level3">
-<h3 class="anchored" data-anchor-id="in-a-tukey-spectrum">In a Tukey spectrum</h3>
+<p>### In a Tukey spectrum</p>
 <p>Current JDemetra+ implementation of the seasonality test is based on a <span class="math inline">\(F(d_{1},d_{2})\)</span> approximation that has been originally proposed by Maravall (2012) for Tramo-Seats. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math inline">\(r\)</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math inline">\(\omega_{j}\)</span> when</p>
 <p><span class="math display">\[
 \frac{2 f_{x}(\omega_{j})}{[f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1})]} \ge CV(\omega_{j})
@@ -754,7 +752,6 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 <p>Two significant levels for this test are considered: <span class="math inline">\(\alpha=0.05\)</span> (code “t”) and <span class="math inline">\(\alpha=0.01\)</span> (code “T”).</p>
 <p>As opposed to the AR spectrum test, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
 <p>Practical implementation in GUI is detailed <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-id-p-tuckey">here</a></p>
-</section>
 <section id="in-ar-spectrum-definition" class="level3">
 <h3 class="anchored" data-anchor-id="in-ar-spectrum-definition">In AR Spectrum definition</h3>
 <p>The estimator of the spectral density at frequency <span class="math inline">\(\lambda \in [0,\pi]\)</span> will be given by the assumption that the series will follow an AR(p) process with large <span class="math inline">\(p\)</span>. The spectral density of such model, with an innovation variance <span class="math inline">\(var(x_{t})=\sigma^2_x\)</span>, is expressed as follows:</p>
