@@ -456,6 +456,7 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="T-GUI-SA-Modelling-Features.html">Specific Seasonal Adjustment and Modelling features</a></li>
 <li><a href="T-GUI-Output.html">Output: series, parameters and diagnostics</a></li>
 </ul>
+<p>Data visualization tools (charts, spectral analysis) can be applied to series from the <em>Providers</em> window or from any other JDemetra+ series display table (Main Results, Preadjustment Series…)</p>
 </section>
 <section id="data-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="data-visualization">Data visualization</h2>
@@ -467,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Several containers can be opened at the same time. Each of them may include multiple time series.</p>
-<p><em>Chart</em> plots the time series as a graph. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window into the empty window. More than one series can be displayed on one graph. The chart is automatically rescaled after adding a new series.</p>
+<p><em>Chart</em> plots the time series as a graph. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window, or drag it from any other JDemetra+ series display table, into the empty window. More than one series can be displayed on one graph. The chart is automatically rescaled after adding a new series.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref26.jpg" class="img-fluid figure-img"></p>
@@ -517,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Export image to</strong> – allows the graph to be sent to the printer and saved in the clipboard or as a file in a jpg format.</p></li>
 <li><p><strong>Configure</strong> – enables the user to customize the chart and series display.</p></li>
 </ul>
-<p><em>Grid</em> enables the user to display the selected time series as a table. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window into the empty window. More than one series can be displayed in one table.</p>
+<p><em>Grid</em> enables the user to display the selected time series as a table. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window,or drag it from any other JDemetra+ series display table, into the empty window. More than one series can be displayed in one table.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref30.jpg" class="img-fluid figure-img"></p>
@@ -561,7 +562,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Edit last year</strong> – for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the <a href="#options"><em>Options</em></a> section, if required.</p></li>
 </ul>
 <p>The explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
-<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="T-GUI-Overview.html#providers-window"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
+<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="T-GUI-Overview.html#providers-window"><em>Providers</em></a>, or drag it from any other JDemetra+ series display table, window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref34.jpg" class="img-fluid figure-img"></p>
@@ -578,6 +579,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="t-GUI-tstools-spec-graphs" class="level2">
 <h2 class="anchored" data-anchor-id="t-GUI-tstools-spec-graphs">Spectral Analysis</h2>
+<p>Methodological details on spectral analysis are provided in <a href="M-spectral-analysis.html">this chapter</a></p>
 <p>Spectral graphs are available from: <em>Tools</em> → *Spectral analysis.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -593,7 +595,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="auto-regressive-spectrum" class="level3">
 <h3 class="anchored" data-anchor-id="auto-regressive-spectrum">Auto-regressive spectrum</h3>
-<p>When the first option is chosen JDemetra+ displays an empty <em>Auto-regressive spectrum</em> window. To start an analysis drag a single time series from the <em>Providers</em> window and drop it into the <em>Drop data here</em> area.</p>
+<p>When the first option is chosen JDemetra+ displays an empty <a href="{#m-spectral-analysis-m-spectrum-ar-est}"><em>Auto-regressive spectrum</em></a> window. To start an analysis drag a single time series from the <em>Providers</em> window, or drag it from any other JDemetra+ series display table, and drop it into the <em>Drop data here</em> area.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/image2_342.jpeg" class="img-fluid figure-img"></p>
@@ -620,35 +622,50 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="periodogram" class="level3">
 <h3 class="anchored" data-anchor-id="periodogram">Periodogram</h3>
-<p>Choose <em>Tools</em> →<em>Spectral analysis</em> → <em>Periodogram</em> and drag and drop a series from the <em>Providers</em> window to the empty <em>Periodogram</em> window.</p>
-<pre><code>![Launching a periodogram](All_images/image5_342.jpeg)</code></pre>
+<p>Choose <em>Tools</em> →<em>Spectral analysis</em> → <a href="{#m-spectral-analysis-m-spectrum-periodogram}"><em>Periodogram</em></a> and drag and drop a series from the <em>Providers</em> window,or drag it from any other JDemetra+ series display table, to the empty <em>Periodogram</em> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/image5_342.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Launching a periodogram</strong></figcaption>
+</figure>
+</div>
 <p>The sample size and data transformations can be specified by opening the <em>Window</em> → <em>Properties</em>, in the main menu. The <em>Periodogram- Properties</em> window contains the following options:</p>
 <ul>
 <li><p><strong>Log</strong> - log transformation of a time series;</p></li>
 <li><p><strong>Differencing</strong>-transforms the data by calculating regular (order 1,2..) or seasonal (order 4, 12, depending on the time series frequency) differences;</p></li>
 <li><p><strong>Differencing lag</strong>-the number of lags that you will use to take differences. For example, if <em>Differencing lag=3</em> then the differencing filter does not apply to the first lag (default) but to the third lag.</p></li>
-<li><p><strong>Last years</strong>-the number of years at the end of the time series taken to produce periodogram. By default it is 0, which means that the whole time series is considered.</p>
+<li><p><strong>Last years</strong>-the number of years at the end of the time series taken to produce periodogram. By default it is 0, which means that the whole time series is considered.</p></li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/image7_342.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Example of a periodogram</figcaption>
+<figcaption class="figure-caption"><strong>Example of a periodogram</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/image6_342.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Periodogram’s properties</figcaption>
+<figcaption class="figure-caption"><strong>Periodogram’s properties</strong></figcaption>
 </figure>
-</div></li>
-</ul>
+</div>
 </section>
 <section id="tukey-spectrum" class="level3">
 <h3 class="anchored" data-anchor-id="tukey-spectrum">Tukey spectrum</h3>
-<p>Choose <em>Tools</em> → <em>Spectral analysis</em> → <em>Tukey spectrum</em> and drag and drop a single series from the <em>Providers</em> window to the empty <em>Periodogram</em> window<em>.</em></p>
-<pre><code>![Launching a Tukey spectrum](All_images//image8_342.jpeg)</code></pre>
+<p>Choose <em>Tools</em> → <em>Spectral analysis</em> → <a href="{#m-spectral-analysis-m-spectrum-tuckey}"><em>Tukey spectrum</em></a> and drag and drop a single series from the <em>Providers</em> window,or drag it from any other JDemetra+ series display table, to the empty <em>Tukey spectrum</em> window<em>.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images//image8_342.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Launching a Tukey spectrum</strong></figcaption>
+</figure>
+</div>
 <p>The Tukey spectrum estimates the spectral density by smoothing the periodogram.</p>
-<pre><code>![An example of a Tukey spectrum](All_images/image9_342.jpeg)</code></pre>
-<p>Options for the Tuckey window can be specified by opening the <em>Window</em> → <em>Properties</em> from the main menu. The <em>Periodogram- Properties</em> window contains the following options:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/image9_342.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>An example of a Tukey spectrum</strong></figcaption>
+</figure>
+</div>
+<p>Options for the Tuckey window can be specified by opening the <em>Window</em> → <em>Properties</em> from the main menu. The <em>Tuckey spectrum- Properties</em> window contains the following options:</p>
 <ul>
 <li><p><strong>Log</strong> - log transformation of a time series.</p></li>
 <li><p><strong>Differencing</strong> -transforms the data by calculating regular (order 1, 2..) or seasonal (order 4, 12, depending on the time series frequency) differences.</p></li>
@@ -660,14 +677,20 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/image10_342.jpeg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Tukey spectrum’s properties</figcaption>
+<figcaption class="figure-caption"><strong>Tukey spectrum’s properties</strong></figcaption>
 </figure>
 </div>
 </section>
 </section>
 <section id="aggregation" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation">Aggregation</h2>
-<p><em>Aggregation</em> calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the <em>List</em> functionality. <em>Aggregation</em> opens an empty window. To sum the selected series, drag and drop them from the <em>Providers</em> window into the <em>Aggregation</em> window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option <em>Select by frequency</em>, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user’s choice). The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the <em>List</em> functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in <em>Chart</em> (see <a href="T-GUI-Overview.html#container"><em>Container</em></a>).</p>
+<p><em>Aggregation</em></p>
+<ul>
+<li><p>calculates the sum of the selected series and provides basic information (start, end date, number of observations)</p></li>
+<li><p>plots the total series</p></li>
+</ul>
+<p>In the same way as in the <em>List</em> functionality. <em>Aggregation</em> opens an empty window.</p>
+<p>To sum the selected series, drag and drop them from the <em>Providers</em> window into the <em>Aggregation</em> window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option <em>Select by frequency</em>, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user’s choice). The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the <em>List</em> functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in <em>Chart</em> (see <a href="T-GUI-Overview.html#container"><em>Container</em></a>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref37.jpg" class="img-fluid figure-img"></p>
@@ -677,21 +700,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="differencing" class="level2">
 <h2 class="anchored" data-anchor-id="differencing">Differencing</h2>
-<p>The <em>Differencing</em> window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( <span class="math inline">\(d = 1,D = 1\)</span>)). These settings can be changed through the <em>Properties</em> window (<em>Tools</em> <em>→ Properties</em>). A description of a periodogram and the PACF function can be found <a href="#periodogram">here</a>.</p>
+<p>The <em>Differencing</em> window displays the first regular differences for the selected time series together with the corresponding periodogram and the ACF function.</p>
+<p>By default, the window presents the results for non-seasonally and seasonally differenced series (( <span class="math inline">\(d = 1,D = 1\)</span>)).</p>
+<p>These settings can be changed through the <em>Properties</em> window (<em>Tools</em> <em>→ Properties</em>). A description of a periodogram can be found <a href="#periodogram">here</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/A_Ref38.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/A_Ref38_2.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>The properties of the <em>Differencing</em> tool</strong></figcaption>
 </figure>
 </div>
-<p>Typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the “<em>Local menu options for chart</em>” figure in the <a href="T-GUI-Overview.html#container"><em>Container</em></a> section.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/A_Ref39.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The *Differencing tool</figcaption>
-</figure>
-</div>
-<p>For the <em>Partial autocorrelation</em> and the <em>Periodogram</em> panels the right-button menu offers “a copy series” option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a .jpg file.</p>
+<!-- Improve_IMAGE -->
+<!-- Typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the "*Local menu options for chart*" figure in the [*Container*](#container) section. -->
+<!-- ![The *Differencing tool](All_images/A_Ref39.jpg) -->
+<!-- For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a .jpg file.  -->
 </section>
 <section id="t-GUI-tstools-tests" class="level2">
 <h2 class="anchored" data-anchor-id="t-GUI-tstools-tests">Tests</h2>
@@ -721,8 +742,8 @@ ul.task-list li input[type="checkbox"] {
 <p>If the null hypothesis of no stable seasonality is rejected at the 1% significance level, then the series is considered to be seasonal and the outcome of the test is displayed in green.</p>
 <p>It is also visible in Diagnostics node when an SA processing has been carried out.</p>
 </section>
-<section id="identification-of-spectral-peaks" class="level4">
-<h4 class="anchored" data-anchor-id="identification-of-spectral-peaks">Identification of spectral peaks</h4>
+<section id="t-GUI-tstools-id-p" class="level4">
+<h4 class="anchored" data-anchor-id="t-GUI-tstools-id-p">Identification of spectral peaks</h4>
 <section id="t-GUI-tstools-id-p-tuckey" class="level5">
 <h5 class="anchored" data-anchor-id="t-GUI-tstools-id-p-tuckey">In a Tukey spectrum</h5>
 <p>The test can be applied directly to any series by selecting the option <em>Statistical Methods &gt;&gt; Seasonal Adjustment &gt;&gt; Tools &gt;&gt; Seasonality Tests</em>. This is an example of how results are displayed for the case of a monthly series:</p>

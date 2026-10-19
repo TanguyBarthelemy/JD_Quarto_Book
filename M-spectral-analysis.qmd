@@ -20,7 +20,7 @@ This chapter provides some guidance in order to understand the spectral analysis
 
 <!-- -   description of spectral graphs in GUI can be found here -->
 
-## Spectral density of a stationnary process
+## Spectral density of a stationary process
 
 A stationary time series ${x_t: t = 1, \dots T}$ with mean $μ$ and autocovariance $\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi*k}{T}, k: 1 \dots [\frac{T}{2}]$ denotes the (angular) Fourier frequencies. 
 
@@ -291,7 +291,7 @@ JDemetra+ allows the user to modify all the parameters of this estimator, includ
 
 ## Identification of spectral peaks {#m-spectral-analysis-m-spectrum-id-peaks}
 
-The sections below describe the test, their practical implementation in the Graphical User interface can be found [here]()
+The sections below describe the test, their practical implementation in the Graphical User interface can be found [here](#t-GUI-tstools-id-p)
 
 In order to decide whether a series has a seasonal component that is predictable (stable) enough, these tests use visual criteria and formal tests for the periodogram. The periodogram is calculated using complete years, so that the set of Fourier frequencies contains exactly all seasonal frequencies.
 
@@ -301,7 +301,7 @@ The tests rely on two basic principles:
 
 -   The peaks should exceed the spectrum of the two adjacent values by more than a critical value.
 
-JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e. frequencies $\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}$ and $\frac{5\pi}{6}$ corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol $d$ denotes a default frequency and is described below the table.
+JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e. frequencies $\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}$ and $\frac{5\pi}{6}$ corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depend on the frequency of the time series. They are shown in the table below. The symbol $d$ denotes a default frequency and is described below the table.
 
 **The seasonal and trading day frequencies by time series frequency**
 
@@ -330,7 +330,7 @@ In particular, the calendar frequency in monthly data (marked in red on the figu
 
 This implies that it may be hard to disentangle both effects using the frequency domain techniques.
 
-### In a Tukey spectrum
+ ### In a Tukey spectrum
 
 Current JDemetra+ implementation of the seasonality test is based on a $F(d_{1},d_{2})$ approximation that has been originally proposed by Maravall (2012) for Tramo-Seats. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag $r$ and sample size. Following this approach, we determine visually significant peaks for a frequency $\omega_{j}$ when
 
