@@ -8,7 +8,7 @@ Reg-ARIMA modelling part can be the first of a seasonal adjustment process or ru
 
 More in-depth methodological explanations of the algorithms can be found in [this part](#part-M) of the documentation.
 
-## Pre-treatment principles
+## Pre-treatment principles {#a-sa-pre-t-princip}
 
 The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
 
@@ -261,60 +261,40 @@ user_spec_1 <- tramoseats_spec(
 
 #### Parameters
 
-Transformation test: a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)
+##### Transformation
+A test is performed to choose between an additive decomposition (no transformation, the series is modelled in its original scale) and a multiplicative decomposition (the series is log-transformed, it is modelled on a logarithmic scale).
 
-Settings
+**Function**
 
-Function
+Specifies the transformation applied to the series:
 
-transform {function=}
+- *None*: no transformation.
+- *Log*: logarithmic transformation.
+- *Auto*: automatically selects between level and log specifications using an algorithm-specific procedure.
 
-Transformation of data. 2 The user can choose between:
+The default is `Auto` that enable automatic selection.
 
-None -- no transformation of the data;
+**AIC difference**
 
-Log -- takes logs of the data;
+Only for Reg-ARIMA. Defines the AICC difference threshold used to select between level and log specifications when `Function = Auto`. The default is `-2`. This parameter is active only with automatic selection.
 
-Auto -- the program tests for the log-level specification. This option is recommended for automatic modelling of many series.
+In Tramo **Fct** controls the automatic log/level pre-test. **Fct** \> 1 favours the level specification, while **Fct** \< 1 favours the log specification. The default is `0.95`. This parameter is active only when `Function = Auto`.
 
-The default setting is Auto.
+**Adjustment**
 
-Reg-ARIMA specific settings
+Specifies the **proportional adjustment** applied for calendar-period length effects when `Function = Log`:
 
-AIC difference
+- *None*: no adjustment.
+- *LeapYear*: adjusts for the leap-year effect in monthly or quarterly data.
+- *LengthOfPeriod*: adjusts for the length of the month or quarter.
 
-transform {aicdiff=}
-
-Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation
-
-selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
-
-Adjust
-
-transform {adjust=}
-
-Options for proportional adjustment for the leap year effect. The option is available when Function is set to Log. Adjust can be set to:
-
-LeapYear -- performs a leap year adjustment of monthly or quarterly data;
-
-LengthofPeriod -- performs a length-of-month adjustment on monthly data or length-of-quarter adjustment on quarterly data;
-
-None -- does not include a correction for the length of the period.
-
-The default setting is None
-
-Tramo specific settings
-
-**Fct**\
-*Transformation; fct*
-
-Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favors logs. The default setting is 0.95.
+The default is `None`.
 
 **Set in GUI**
 
 ![Model span setting](All_images/SA_REGA_transfo.png)
 
-**Set and in R**
+**Set in R**
 
 X-13
 
@@ -341,15 +321,15 @@ user_spec_1 <- tramoseats_spec(
 # Retrieve settings: to complete
 ```
 
-### Calendar correction
+### Calendar correction {#a-sa-pre-t-calendar}
 
-Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
+Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows how to retrieve used parameters, regressors as well as results.
 
-JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
+JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with leap-year effect if needed. Those options don't take into account [national calendars](A-calendar-correction.qmd#a-cal-GUI-national) and their specific holidays. There are two ways to change this:
 
-- user-defined regressors (link)
+- [user-defined regressors](A-calendar-correction.qmd).
 
-- customized calendars (link)
+- [customized calendars](A-calendar-correction.qmd).
 
 Overview: what you can do
 
@@ -368,11 +348,11 @@ Need 2: taking national calendar into account Solutions
 ```         
 -    "None": no correction for trading days and working days effects
 
--    "Default": JDemetra + built regressors (xorking days or trading days)
+-    "Default": JDemetra+ built in regressors (working days or trading days)
 
--    "Holidays": same as above but taking into accoutn a national calendar,                  available on ly in GUI, R interface requires direct use of pre-built                   regressors 
+-    "Holidays": same as above but taking into account a national calendar, available only in GUI, R interface requires direct use of pre-built regressors 
 
--     "UserDefined": user-defined trading days regressors (see below)
+-    "UserDefined": user-defined trading days regressors (see below)
 
 -    (if NONE) indicating the day of the month when inventories and other stock are reported (to denote the last day of the month, set the variable to 31). 
 ```
@@ -381,13 +361,21 @@ Need 2: taking national calendar into account Solutions
 
 **Autoadjust**
 
-If enabled, the program corrects automatically for the leap year effect.. When is the option available Modifications of this variable are taken into account only when transform.function is set to "Auto".
+If enabled, the program corrects automatically for the leap year effect. When this option is available, modifications to this variable are taken into account only when `transform.function` is set to `"Auto"`. ***
 
 **Leapyear**
 
-to specify whether or not to include the leap-year effect in the model: - "LeapYear": leap year effect; - "LengthOfPeriod": length of period, - "None" = no effect included.
+We can specify whether or not to include the leap-year effect regressor in the model:
 
-The leap-year effect can be pre-specified in the model only if the input series hasn't been pre-adjusted (transform.adjust set to "None") and if the automatic correction for the leap-year effect isn't selected (tradingdays.autoadjust set to FALSE).
+- "LeapYear": leap year effect is either tested or included.
+
+- "LengthOfPeriod": the correction for the length of months or the length of quarters is either tested or included.
+
+- "None" = no effect included.
+
+The leap-year effect can be pre-specified in the model only if:
+
+- the input series hasn't been pre-adjusted (transform.adjust set to "None") and if the automatic correction for the leap-year effect isn't selected (tradingdays.autoadjust set to FALSE, not checked).
 
 #### Test
 
@@ -587,7 +575,7 @@ Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estima
 
 (to be added: worked example: french calendar in R)
 
-### Outliers
+### Outliers {#a-sa-pre-t-outliers}
 
 The sections below focus on
 
@@ -724,7 +712,7 @@ In main results NODE (same info at top of pre-processing NODE)
 
 (to be added)
 
-### User-defined regressors
+### User-defined regressors {#a-sa-pre-t-ud-regressors}
 
 (to be added)
 
