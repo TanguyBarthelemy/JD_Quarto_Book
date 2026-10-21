@@ -26,7 +26,7 @@ How to generate other types of regressors is described [here](#a-out-reg-ext) an
 
 <!-- up coming content -->
 
-## Rationale for Calendar correction
+## Rationale for Calendar correction {#a-cal-rationale}
 
 A calendar is heterogeneous, it at least composed of:
 
@@ -49,9 +49,9 @@ This second effect is also relevant for daily (and weekly) data.
 An additional easter effect can be modelled, as for some series, variations linked to Easter can be seen over a few days prior or following Easter. For example, flowers and chocolate sales might rise significantly as Easter approaches. (in practice this effect is very rare, it is better to deactivate by default detection)
 
 
-## Modelling calendar effects
+## Modelling calendar effects {#a-cal-modelling}
 
-### Regression Model for type of days
+### Regression Model for type of days {#a-cal-regression-model}
 
 For each period $t$, the days are divided in $K$ groups $\lbrace{D_{t1},\dots, D_{tK}\rbrace}$.
 
@@ -109,7 +109,7 @@ $$
 \beta_K = -\frac{1}{w_K}\sum_{i=1}^{K-1}{\beta_i w_i}
 $$
 
-### Correction for deterministic seasonality
+### Correction for deterministic seasonality {#a-cal-corr-det-seasonality}
 
 In the case of seasonal adjustment, we further impose that the regression variables don't contain deterministic seasonality. That is achieved by removing from each type of period (month, quarter...) its long term average. We write $\bar{D_i^y}$ the long term average of the yearly number of days in the group $i$ and $\bar{D_{i,J}^y}$ the long term average of the number of days in the group $i$ for the periods $J$ (for instance, average number of Mondays in January...).
 
@@ -122,25 +122,25 @@ $$
 How is the long term mean computed? Probabilistic approach
 (more on this soon)
 
-### Weights for different groups of days
+### Weights for different groups of days {#a-cal-weight-groups-day}
 
 We can define different sets of weights. The usual one consists in giving the same weight to each type of days. $w_i$ is just proportional to the number of days in the group $i$. In the case of "week days", $w_0 = \frac{5}{7}$ (weeks) and $w_1=\frac{2}{7}$ (week-ends). In the case of "trading days", $w_i=\frac{1}{7}$ ... Another approach consists in using the long term yearly averages, taking into account the actual holidays. We get now that $w_i=\frac{\bar{D_i^y}}{365.25}$.
 
 After the removal of the deterministic seasonality, the variables computed using the two sets of weights considered above are very similar. In the case of the "trading days", the difference for the time $t$, belonging to the period $J$, and for the day $i$ with contrast $K$ is $(1-\frac{w_i}{w_K})(D_{tK}- \bar{D_{K, J}^y})$, which is usually small. By default, JD+ uses the first approach, which is simpler. The second approach is implemented in the algorithmic modules, but not available through the graphical interface.
 
-### Use in Reg-ARIMA models
+### Use in Reg-ARIMA models {#a-cal-reg-arima}
 
 In the context of Reg-ARIMA modelling, we can also observe that the global effect of the trading days doesn't depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).
 
 The estimated coefficients slightly change if we use different weights (not if we use a different contrasting group). It must also be noted that the choices affect the T-Stat of the different coefficients (not the joint F-Test), which can lead to other solutions when those T-Stats are used for selecting the regression variables (Tramo). Considering that the leap year/length of period variable is nearly independent of the other variables, the test on that variable is not very sensitive to the various specifications.
 
-### Interpretation
+### Interpretation {#a-cal-interpret}
 
 The use of different specifications of the trading days doesn't impact the final results (except through some automatic selection procedure). It just (slightly) changes the way we interpret the estimated coefficients.
 
-### Easter effect 
+### Easter effect {#a-cal-easter}
 
-### Stock series 
+### Stock series {#a-cal-stock}
 
 ## Generating Regressors for calendar correction {#usr_def_cal}
 
@@ -159,7 +159,7 @@ As regressors have the same data frequency as the input series, several cases:
 - for weekly, monthly and quarterly series regressors are aggregated indicators, the way of grouping different types of days and holidays has to be specified. 
 
 
-### In GUI
+### In GUI {#a-cal-GUI}
 
 #### Creating calendars {#usr-def-cal}
 
@@ -206,7 +206,7 @@ Calendar variables shouldn't have a peak neither at a zero frequency (trend) nor
 ![Text](All_images/UG_CAL_image6.jpg)
 
 
-#### Modify an existing Calendar
+#### Modify an existing Calendar {#a-cal-modif-existing}
 
 -   click the option *Edit* from the context menu
 
@@ -237,7 +237,7 @@ Three options are available:
 
 -   *Chained calendars* : allows to chain two national calendars before and after a break
 
-##### National Calendar
+##### National Calendar {#a-cal-GUI-national}
 
 To define a national calendar: right click on Calendar item in the Utility panel of the workspace window
 
@@ -363,7 +363,7 @@ The calendar is visible in the *Workspace* window
 
 A national calendar can be edited, duplicated (to create another calendar) and/or analysed (double click to display it in the panel on the right) or deleted.
 
-##### Chained Calendar
+##### Chained Calendar {#a-cal-GUI-chained}
 
 Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.
 
@@ -384,7 +384,7 @@ In the *Properties* panel specify:
 
 ![Text](All_images/UG_CAL_image32.jpg)
 
-##### Composite Calendar
+##### Composite Calendar {#a-cal-GUI-composit}
 
 Creating a composite calendar is relevant when correcting series which
 include data from more than one country/region. This option can be
@@ -408,7 +408,7 @@ To define a chained calendar: right click on Calendar item in the Utility panel 
 ![Text](All_images/UG_CAL_image35.jpg)
 
 
-##### Importing an existing calendar from a file
+##### Importing an existing calendar from a file {a-cal-GUI-importing}
 
 Right click on the *Calendar* item from the *Workspace* window and choose the *Import* item from the menu.
 
@@ -425,7 +425,7 @@ JDemetra+ adds it to the calendars list
 ##### Example of a calendar file
 
 ![**Example of an `.xml` file containing a calendar**](All_images/UG_CAL_image9.jpg)
-#### Generating regressors
+#### Generating regressors {#a-cal-gen-regressors}
 
 ##### Type of days
 
