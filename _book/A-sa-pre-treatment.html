@@ -438,16 +438,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
+  <li><a href="#a-sa-pre-t-princip" id="toc-a-sa-pre-t-princip" class="nav-link" data-scroll-target="#a-sa-pre-t-princip">Pre-treatment principles</a></li>
   <li><a href="#sa-pre-t-realloc" id="toc-sa-pre-t-realloc" class="nav-link" data-scroll-target="#sa-pre-t-realloc">Reallocation of pre-treatment effects</a></li>
   <li><a href="#a-pre-t-def-spec" id="toc-a-pre-t-def-spec" class="nav-link" data-scroll-target="#a-pre-t-def-spec">Setting Specifications</a>
   <ul class="collapse">
   <li><a href="#usr-def-spec" id="toc-usr-def-spec" class="nav-link" data-scroll-target="#usr-def-spec">User-defined specifications</a></li>
   <li><a href="#sa-pre-t-spans" id="toc-sa-pre-t-spans" class="nav-link" data-scroll-target="#sa-pre-t-spans">Spans</a></li>
   <li><a href="#sa-pre-t-mode" id="toc-sa-pre-t-mode" class="nav-link" data-scroll-target="#sa-pre-t-mode">Decomposition Scheme</a></li>
-  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
-  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
-  <li><a href="#user-defined-regressors-1" id="toc-user-defined-regressors-1" class="nav-link" data-scroll-target="#user-defined-regressors-1">User-defined regressors</a></li>
+  <li><a href="#a-sa-pre-t-calendar" id="toc-a-sa-pre-t-calendar" class="nav-link" data-scroll-target="#a-sa-pre-t-calendar">Calendar correction</a></li>
+  <li><a href="#a-sa-pre-t-outliers" id="toc-a-sa-pre-t-outliers" class="nav-link" data-scroll-target="#a-sa-pre-t-outliers">Outliers</a></li>
+  <li><a href="#a-sa-pre-t-ud-regressors" id="toc-a-sa-pre-t-ud-regressors" class="nav-link" data-scroll-target="#a-sa-pre-t-ud-regressors">User-defined regressors</a></li>
   <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model">ARIMA Model</a></li>
   <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-ARIMA model Results and Diagnostics</a></li>
   </ul></li>
@@ -480,8 +480,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
 <p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
 </section>
-<section id="pre-treatment-principles" class="level2">
-<h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
+<section id="a-sa-pre-t-princip" class="level2">
+<h2 class="anchored" data-anchor-id="a-sa-pre-t-princip">Pre-treatment principles</h2>
 <p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.</p>
 <p><span class="math display">\[Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_{lin,t}\]</span></p>
 <ul>
@@ -713,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="usr-def-spec" class="level3">
 <h3 class="anchored" data-anchor-id="usr-def-spec">User-defined specifications</h3>
-<p>Principle over setting parameters: can be done from one of the default specifications or any specification in a “Save as” mode very similar in GUI and R, as detailed below.</p>
+<p>Principle oser setting parameters: can be done from one of the default specifications or any specification in a “Save as” mode very similar in GUI and R, as detailed below.</p>
 <p>The user may add new seasonal adjustment specifications to the <em>Workspace</em> window. To do it, go to the <em>Seasonal adjustment</em> section, right click on the <em>tramoseats</em> or <em>x13</em> item in the <em>specifications</em> node and select <em>New</em> from the local menu.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -908,31 +908,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="sa-pre-t-mode">Decomposition Scheme</h3>
 <section id="parameters" class="level4">
 <h4 class="anchored" data-anchor-id="parameters">Parameters</h4>
-<p>Transformation test: a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)</p>
-<p>Settings</p>
-<p>Function</p>
-<p>transform {function=}</p>
-<p>Transformation of data. 2 The user can choose between:</p>
-<p>None – no transformation of the data;</p>
-<p>Log – takes logs of the data;</p>
-<p>Auto – the program tests for the log-level specification. This option is recommended for automatic modelling of many series.</p>
-<p>The default setting is Auto.</p>
-<p>Reg-ARIMA specific settings</p>
-<p>AIC difference</p>
-<p>transform {aicdiff=}</p>
-<p>Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation</p>
-<p>selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.</p>
-<p>Adjust</p>
-<p>transform {adjust=}</p>
-<p>Options for proportional adjustment for the leap year effect. The option is available when Function is set to Log. Adjust can be set to:</p>
-<p>LeapYear – performs a leap year adjustment of monthly or quarterly data;</p>
-<p>LengthofPeriod – performs a length-of-month adjustment on monthly data or length-of-quarter adjustment on quarterly data;</p>
-<p>None – does not include a correction for the length of the period.</p>
-<p>The default setting is None</p>
-<p>Tramo specific settings</p>
-<p><strong>Fct</strong><br>
-<em>Transformation; fct</em></p>
-<p>Controls the bias in the log/level pre-test (the function is active when <strong>Function</strong> is set to <em>Auto</em>); <strong>Fct</strong> &gt; 1 favours levels, <strong>Fct</strong> &lt; 1 favors logs. The default setting is 0.95.</p>
+<section id="transformation" class="level5">
+<h5 class="anchored" data-anchor-id="transformation">Transformation</h5>
+<p>A test is performed to choose between an additive decomposition (no transformation, the series is modelled in its original scale) and a multiplicative decomposition (the series is log-transformed, it is modelled on a logarithmic scale).</p>
+<p><strong>Function</strong></p>
+<p>Specifies the transformation applied to the series:</p>
+<ul>
+<li><p><em>None</em>: no transformation.</p></li>
+<li><p><em>Log</em>: logarithmic transformation.</p></li>
+<li><p><em>Auto</em>: automatically selects between level and log specifications using an algorithm-specific procedure.</p></li>
+</ul>
+<p>The default is <code>Auto</code> that enable automatic selection.</p>
+<p><strong>AIC difference</strong></p>
+<p>Only for Reg-ARIMA. Defines the AICC difference threshold used to select between level and log specifications when <code>Function = Auto</code>. The default is <code>-2</code>. This parameter is active only with automatic selection.</p>
+<p>In Tramo <strong>Fct</strong> controls the automatic log/level pre-test. <strong>Fct</strong> &gt; 1 favours the level specification, while <strong>Fct</strong> &lt; 1 favours the log specification. The default is <code>0.95</code>. This parameter is active only when <code>Function = Auto</code>.</p>
+<p><strong>Adjustment</strong></p>
+<p>Specifies the <strong>proportional adjustment</strong> applied for calendar-period length effects when <code>Function = Log</code>:</p>
+<ul>
+<li><p><em>None</em>: no adjustment.</p></li>
+<li><p><em>LeapYear</em>: adjusts for the leap-year effect in monthly or quarterly data.</p></li>
+<li><p><em>LengthOfPeriod</em>: adjusts for the length of the month or quarter.</p></li>
+</ul>
+<p>The default is <code>None</code>.</p>
 <p><strong>Set in GUI</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -940,7 +937,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption">Model span setting</figcaption>
 </figure>
 </div>
-<p><strong>Set and in R</strong></p>
+<p><strong>Set in R</strong></p>
 <p>X-13</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
@@ -964,42 +961,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="calendar-correction" class="level3">
-<h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
-<p>JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don’t take into account national calendars (link) and their specific holidays. There are two ways to change this:</p>
+</section>
+<section id="a-sa-pre-t-calendar" class="level3">
+<h3 class="anchored" data-anchor-id="a-sa-pre-t-calendar">Calendar correction</h3>
+<p>Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows how to retrieve used parameters, regressors as well as results.</p>
+<p>JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with leap-year effect if needed. Those options don’t take into account <a href="./A-calendar-correction.html#a-cal-GUI-national">national calendars</a> and their specific holidays. There are two ways to change this:</p>
 <ul>
-<li><p>user-defined regressors (link)</p></li>
-<li><p>customized calendars (link)</p></li>
-</ul>
-<p>Overview: what you can do</p>
-<p>Need 1: correct for working days, trading days (+ easter) not taking national calendars</p>
-<p>Need 2: taking national calendar into account Solutions</p>
-<ul>
-<li>add a work of means of allocating regressors to the calendar component</li>
+<li><p><a href="./A-calendar-correction.html#a-cal-GUI">user-defined regressors</a>.</p></li>
+<li><p><a href="./A-calendar-correction.html#a-cal-modif-existing">customized calendars</a>.</p></li>
 </ul>
 <section id="available-options" class="level4">
 <h4 class="anchored" data-anchor-id="available-options">Available Options</h4>
-<section id="trading-days" class="level5">
-<h5 class="anchored" data-anchor-id="trading-days">Trading Days</h5>
+<section id="trading-days-and-working" class="level5">
+<h5 class="anchored" data-anchor-id="trading-days-and-working">Trading days and working</h5>
 <p>“Trading Days” has two meanings: general calendar correction process (here without easter effect) and one of the options of this correction (see below)</p>
 <pre><code>-    "None": no correction for trading days and working days effects
 
--    "Default": JDemetra + built regressors (xorking days or trading days)
+-    "Default": JDemetra+ built in regressors (working days or trading days)
 
--    "Holidays": same as above but taking into account a national calendar,                  available on ly in GUI, R interface requires direct use of pre-built                   regressors 
+-    "Holidays": same as above but taking into account a national calendar, available only in GUI, R interface requires direct use of pre-built regressors 
 
--     "UserDefined": user-defined trading days regressors (see below)
+-    "UserDefined": user-defined trading days regressors (see below)
 
 -    (if NONE) indicating the day of the month when inventories and other stock are reported (to denote the last day of the month, set the variable to 31). </code></pre>
 </section>
 <section id="leap-year-effect" class="level5">
 <h5 class="anchored" data-anchor-id="leap-year-effect">Leap Year effect</h5>
 <p><strong>Autoadjust</strong></p>
-<p>If enabled, the program corrects automatically for the leap year effect. When is the option available Modifications of this variable are taken into account only when transform.function is set to “Auto”.</p>
+<p>If enabled, the program corrects automatically for the leap year effect. When this option is available, modifications to this variable are taken into account only when <code>transform.function</code> is set to <code>"Auto"</code>. ***</p>
 <p><strong>Leapyear</strong></p>
-<p>to specify whether or not to include the leap-year effect in the model: - “LeapYear”: leap year effect; - “LengthOfPeriod”: length of period, - “None” = no effect included.</p>
-<p>The leap-year effect can be pre-specified in the model only if the input series hasn’t been pre-adjusted (transform.adjust set to “None”) and if the automatic correction for the leap-year effect isn’t selected (tradingdays.autoadjust set to FALSE).</p>
+<p>We can specify whether or not to include the leap-year effect regressor in the model:</p>
+<ul>
+<li><p>“LeapYear”: leap year effect is either tested or included.</p></li>
+<li><p>“LengthOfPeriod”: the correction for the length of months or the length of quarters is either tested or included.</p></li>
+<li><p>“None” = no effect included.</p></li>
+</ul>
+<p>The leap-year effect can be pre-specified in the model only if:</p>
+<ul>
+<li>the input series hasn’t been pre-adjusted (transform.adjust set to “None”) and if the automatic correction for the leap-year effect isn’t selected (tradingdays.autoadjust set to FALSE, not checked).</li>
+</ul>
 </section>
 </section>
 <section id="test" class="level4">
@@ -1174,8 +1174,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>(to be added: worked example: french calendar in R)</p>
 </section>
 </section>
-<section id="outliers" class="level3">
-<h3 class="anchored" data-anchor-id="outliers">Outliers</h3>
+<section id="a-sa-pre-t-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="a-sa-pre-t-outliers">Outliers</h3>
 <p>The sections below focus on</p>
 <ul>
 <li><p>outlier detection parameters (type and critical value)</p></li>
@@ -1324,8 +1324,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="user-defined-regressors-1" class="level3">
-<h3 class="anchored" data-anchor-id="user-defined-regressors-1">User-defined regressors</h3>
+<section id="a-sa-pre-t-ud-regressors" class="level3">
+<h3 class="anchored" data-anchor-id="a-sa-pre-t-ud-regressors">User-defined regressors</h3>
 <p>(to be added)</p>
 <ul>
 <li><p>rationale</p></li>

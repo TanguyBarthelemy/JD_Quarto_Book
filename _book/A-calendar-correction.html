@@ -437,20 +437,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#rationale-for-calendar-correction" id="toc-rationale-for-calendar-correction" class="nav-link active" data-scroll-target="#rationale-for-calendar-correction">Rationale for Calendar correction</a></li>
-  <li><a href="#modelling-calendar-effects" id="toc-modelling-calendar-effects" class="nav-link" data-scroll-target="#modelling-calendar-effects">Modelling calendar effects</a>
+  <li><a href="#a-cal-rationale" id="toc-a-cal-rationale" class="nav-link active" data-scroll-target="#a-cal-rationale">Rationale for Calendar correction</a></li>
+  <li><a href="#a-cal-modelling" id="toc-a-cal-modelling" class="nav-link" data-scroll-target="#a-cal-modelling">Modelling calendar effects</a>
   <ul class="collapse">
-  <li><a href="#regression-model-for-type-of-days" id="toc-regression-model-for-type-of-days" class="nav-link" data-scroll-target="#regression-model-for-type-of-days">Regression Model for type of days</a></li>
-  <li><a href="#correction-for-deterministic-seasonality" id="toc-correction-for-deterministic-seasonality" class="nav-link" data-scroll-target="#correction-for-deterministic-seasonality">Correction for deterministic seasonality</a></li>
-  <li><a href="#weights-for-different-groups-of-days" id="toc-weights-for-different-groups-of-days" class="nav-link" data-scroll-target="#weights-for-different-groups-of-days">Weights for different groups of days</a></li>
-  <li><a href="#use-in-reg-arima-models" id="toc-use-in-reg-arima-models" class="nav-link" data-scroll-target="#use-in-reg-arima-models">Use in Reg-ARIMA models</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#easter-effect" id="toc-easter-effect" class="nav-link" data-scroll-target="#easter-effect">Easter effect</a></li>
-  <li><a href="#stock-series" id="toc-stock-series" class="nav-link" data-scroll-target="#stock-series">Stock series</a></li>
+  <li><a href="#a-cal-regression-model" id="toc-a-cal-regression-model" class="nav-link" data-scroll-target="#a-cal-regression-model">Regression Model for type of days</a></li>
+  <li><a href="#a-cal-corr-det-seasonality" id="toc-a-cal-corr-det-seasonality" class="nav-link" data-scroll-target="#a-cal-corr-det-seasonality">Correction for deterministic seasonality</a></li>
+  <li><a href="#a-cal-weight-groups-day" id="toc-a-cal-weight-groups-day" class="nav-link" data-scroll-target="#a-cal-weight-groups-day">Weights for different groups of days</a></li>
+  <li><a href="#a-cal-reg-arima" id="toc-a-cal-reg-arima" class="nav-link" data-scroll-target="#a-cal-reg-arima">Use in Reg-ARIMA models</a></li>
+  <li><a href="#a-cal-interpret" id="toc-a-cal-interpret" class="nav-link" data-scroll-target="#a-cal-interpret">Interpretation</a></li>
+  <li><a href="#a-cal-easter" id="toc-a-cal-easter" class="nav-link" data-scroll-target="#a-cal-easter">Easter effect</a></li>
+  <li><a href="#a-cal-stock" id="toc-a-cal-stock" class="nav-link" data-scroll-target="#a-cal-stock">Stock series</a></li>
   </ul></li>
   <li><a href="#usr_def_cal" id="toc-usr_def_cal" class="nav-link" data-scroll-target="#usr_def_cal">Generating Regressors for calendar correction</a>
   <ul class="collapse">
-  <li><a href="#in-gui" id="toc-in-gui" class="nav-link" data-scroll-target="#in-gui">In GUI</a></li>
+  <li><a href="#a-cal-GUI" id="toc-a-cal-GUI" class="nav-link" data-scroll-target="#a-cal-GUI">In GUI</a></li>
   <li><a href="#in-r-with-rjd3toolkit" id="toc-in-r-with-rjd3toolkit" class="nav-link" data-scroll-target="#in-r-with-rjd3toolkit">In R with rjd3toolkit</a></li>
   </ul></li>
   <li><a href="#test-for-residual-calendar-effects" id="toc-test-for-residual-calendar-effects" class="nav-link" data-scroll-target="#test-for-residual-calendar-effects">Test for Residual Calendar effects</a></li>
@@ -496,8 +496,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into Reg-ARIMA models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
 <!-- ## Tools Map -->
 <!-- up coming content -->
-<section id="rationale-for-calendar-correction" class="level2">
-<h2 class="anchored" data-anchor-id="rationale-for-calendar-correction">Rationale for Calendar correction</h2>
+<section id="a-cal-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="a-cal-rationale">Rationale for Calendar correction</h2>
 <p>A calendar is heterogeneous, it at least composed of:</p>
 <ul>
 <li><p>trading days: days usually worked, taking into account the company’s sector. (Most frequently Mondays through Fridays when not bank holidays).</p></li>
@@ -513,10 +513,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This second effect is also relevant for daily (and weekly) data.</p>
 <p>An additional easter effect can be modelled, as for some series, variations linked to Easter can be seen over a few days prior or following Easter. For example, flowers and chocolate sales might rise significantly as Easter approaches. (in practice this effect is very rare, it is better to deactivate by default detection)</p>
 </section>
-<section id="modelling-calendar-effects" class="level2">
-<h2 class="anchored" data-anchor-id="modelling-calendar-effects">Modelling calendar effects</h2>
-<section id="regression-model-for-type-of-days" class="level3">
-<h3 class="anchored" data-anchor-id="regression-model-for-type-of-days">Regression Model for type of days</h3>
+<section id="a-cal-modelling" class="level2">
+<h2 class="anchored" data-anchor-id="a-cal-modelling">Modelling calendar effects</h2>
+<section id="a-cal-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-regression-model">Regression Model for type of days</h3>
 <p>For each period <span class="math inline">\(t\)</span>, the days are divided in <span class="math inline">\(K\)</span> groups <span class="math inline">\(\lbrace{D_{t1},\dots, D_{tK}\rbrace}\)</span>.</p>
 <p>The groups of days can be anything (trading days, working days, Sundays + holidays assimilated to Sundays…) ADD</p>
 <p>We write <span class="math inline">\(N_t=\sum_1^K{D_{ti}}\)</span>, the number of days of the period <span class="math inline">\(t\)</span></p>
@@ -555,8 +555,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \beta_K = -\frac{1}{w_K}\sum_{i=1}^{K-1}{\beta_i w_i}
 \]</span></p>
 </section>
-<section id="correction-for-deterministic-seasonality" class="level3">
-<h3 class="anchored" data-anchor-id="correction-for-deterministic-seasonality">Correction for deterministic seasonality</h3>
+<section id="a-cal-corr-det-seasonality" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-corr-det-seasonality">Correction for deterministic seasonality</h3>
 <p>In the case of seasonal adjustment, we further impose that the regression variables don’t contain deterministic seasonality. That is achieved by removing from each type of period (month, quarter…) its long term average. We write <span class="math inline">\(\bar{D_i^y}\)</span> the long term average of the yearly number of days in the group <span class="math inline">\(i\)</span> and <span class="math inline">\(\bar{D_{i,J}^y}\)</span> the long term average of the number of days in the group <span class="math inline">\(i\)</span> for the periods <span class="math inline">\(J\)</span> (for instance, average number of Mondays in January…).</p>
 <p>The corrected contrast for the time t belonging to the period J is:</p>
 <p><span class="math display">\[
@@ -564,25 +564,25 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 \]</span></p>
 <p>How is the long term mean computed? Probabilistic approach (more on this soon)</p>
 </section>
-<section id="weights-for-different-groups-of-days" class="level3">
-<h3 class="anchored" data-anchor-id="weights-for-different-groups-of-days">Weights for different groups of days</h3>
+<section id="a-cal-weight-groups-day" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-weight-groups-day">Weights for different groups of days</h3>
 <p>We can define different sets of weights. The usual one consists in giving the same weight to each type of days. <span class="math inline">\(w_i\)</span> is just proportional to the number of days in the group <span class="math inline">\(i\)</span>. In the case of “week days”, <span class="math inline">\(w_0 = \frac{5}{7}\)</span> (weeks) and <span class="math inline">\(w_1=\frac{2}{7}\)</span> (week-ends). In the case of “trading days”, <span class="math inline">\(w_i=\frac{1}{7}\)</span> … Another approach consists in using the long term yearly averages, taking into account the actual holidays. We get now that <span class="math inline">\(w_i=\frac{\bar{D_i^y}}{365.25}\)</span>.</p>
 <p>After the removal of the deterministic seasonality, the variables computed using the two sets of weights considered above are very similar. In the case of the “trading days”, the difference for the time <span class="math inline">\(t\)</span>, belonging to the period <span class="math inline">\(J\)</span>, and for the day <span class="math inline">\(i\)</span> with contrast <span class="math inline">\(K\)</span> is <span class="math inline">\((1-\frac{w_i}{w_K})(D_{tK}- \bar{D_{K, J}^y})\)</span>, which is usually small. By default, JD+ uses the first approach, which is simpler. The second approach is implemented in the algorithmic modules, but not available through the graphical interface.</p>
 </section>
-<section id="use-in-reg-arima-models" class="level3">
-<h3 class="anchored" data-anchor-id="use-in-reg-arima-models">Use in Reg-ARIMA models</h3>
+<section id="a-cal-reg-arima" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-reg-arima">Use in Reg-ARIMA models</h3>
 <p>In the context of Reg-ARIMA modelling, we can also observe that the global effect of the trading days doesn’t depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).</p>
 <p>The estimated coefficients slightly change if we use different weights (not if we use a different contrasting group). It must also be noted that the choices affect the T-Stat of the different coefficients (not the joint F-Test), which can lead to other solutions when those T-Stats are used for selecting the regression variables (Tramo). Considering that the leap year/length of period variable is nearly independent of the other variables, the test on that variable is not very sensitive to the various specifications.</p>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="a-cal-interpret" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-interpret">Interpretation</h3>
 <p>The use of different specifications of the trading days doesn’t impact the final results (except through some automatic selection procedure). It just (slightly) changes the way we interpret the estimated coefficients.</p>
 </section>
-<section id="easter-effect" class="level3">
-<h3 class="anchored" data-anchor-id="easter-effect">Easter effect</h3>
+<section id="a-cal-easter" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-easter">Easter effect</h3>
 </section>
-<section id="stock-series" class="level3">
-<h3 class="anchored" data-anchor-id="stock-series">Stock series</h3>
+<section id="a-cal-stock" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-stock">Stock series</h3>
 </section>
 </section>
 <section id="usr_def_cal" class="level2">
@@ -598,8 +598,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <li><p>for daily series : regressors are dummies representing each holidays</p></li>
 <li><p>for weekly, monthly and quarterly series regressors are aggregated indicators, the way of grouping different types of days and holidays has to be specified.</p></li>
 </ul>
-<section id="in-gui" class="level3">
-<h3 class="anchored" data-anchor-id="in-gui">In GUI</h3>
+<section id="a-cal-GUI" class="level3">
+<h3 class="anchored" data-anchor-id="a-cal-GUI">In GUI</h3>
 <section id="usr-def-cal" class="level4">
 <h4 class="anchored" data-anchor-id="usr-def-cal">Creating calendars</h4>
 <p>The customized calendar can be directly linked to the calendar correction option in GUI while specifying a seasonal adjustment process. See chapters on <a href="A-sa.qmd">SA</a> or <a href="./A-sa-hf.html">SA of HF data</a>.</p>
@@ -654,8 +654,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </div>
 </section>
 </section>
-<section id="modify-an-existing-calendar" class="level4">
-<h4 class="anchored" data-anchor-id="modify-an-existing-calendar">Modify an existing Calendar</h4>
+<section id="a-cal-modif-existing" class="level4">
+<h4 class="anchored" data-anchor-id="a-cal-modif-existing">Modify an existing Calendar</h4>
 <ul>
 <li><p>click the option <em>Edit</em> from the context menu</p></li>
 <li><p>the list of holidays defined for this calendar is displayed</p></li>
@@ -695,8 +695,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <li><p><em>Chained calendars</em> : allows to chain two national calendars before and after a break</p></li>
 </ul>
 </section>
-<section id="national-calendar" class="level5">
-<h5 class="anchored" data-anchor-id="national-calendar">National Calendar</h5>
+<section id="a-cal-GUI-national" class="level5">
+<h5 class="anchored" data-anchor-id="a-cal-GUI-national">National Calendar</h5>
 <p>To define a national calendar: right click on Calendar item in the Utility panel of the workspace window</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -844,8 +844,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </ul>
 <p>A national calendar can be edited, duplicated (to create another calendar) and/or analysed (double click to display it in the panel on the right) or deleted.</p>
 </section>
-<section id="chained-calendar" class="level5">
-<h5 class="anchored" data-anchor-id="chained-calendar">Chained Calendar</h5>
+<section id="a-cal-GUI-chained" class="level5">
+<h5 class="anchored" data-anchor-id="a-cal-GUI-chained">Chained Calendar</h5>
 <p>Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.</p>
 <p>First define the 2 (or <span class="math inline">\(N\)</span>) national calendars corresponding to each regime as explained in the section above.</p>
 <p>To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window</p>
@@ -867,8 +867,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </figure>
 </div>
 </section>
-<section id="composite-calendar" class="level5">
-<h5 class="anchored" data-anchor-id="composite-calendar">Composite Calendar</h5>
+<section id="a-cal-GUI-composit" class="level5">
+<h5 class="anchored" data-anchor-id="a-cal-GUI-composit">Composite Calendar</h5>
 <p>Creating a composite calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
 <p>First define the relevant national calendars corresponding to each member state/region as explained above.</p>
 <p>To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window</p>
@@ -890,8 +890,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </figure>
 </div>
 </section>
-<section id="importing-an-existing-calendar-from-a-file" class="level5">
-<h5 class="anchored" data-anchor-id="importing-an-existing-calendar-from-a-file">Importing an existing calendar from a file</h5>
+<section id="importing-an-existing-calendar-from-a-file-a-cal-gui-importing" class="level5">
+<h5 class="anchored" data-anchor-id="importing-an-existing-calendar-from-a-file-a-cal-gui-importing">Importing an existing calendar from a file {a-cal-GUI-importing}</h5>
 <p>Right click on the <em>Calendar</em> item from the <em>Workspace</em> window and choose the <em>Import</em> item from the menu.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -918,7 +918,7 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </section>
 <section id="example-of-a-calendar-file" class="level5">
 <h5 class="anchored" data-anchor-id="example-of-a-calendar-file">Example of a calendar file</h5>
-<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Example of an .xml file containing a calendar"> #### Generating regressors</p>
+<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Example of an .xml file containing a calendar"> #### Generating regressors {#a-cal-gen-regressors}</p>
 </section>
 <section id="type-of-days" class="level5">
 <h5 class="anchored" data-anchor-id="type-of-days">Type of days</h5>
@@ -958,8 +958,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </ul>
 <section id="creating-calendars" class="level4">
 <h4 class="anchored" data-anchor-id="creating-calendars">Creating calendars</h4>
-<section id="national-calendar-1" class="level5">
-<h5 class="anchored" data-anchor-id="national-calendar-1">National Calendar</h5>
+<section id="national-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="national-calendar">National Calendar</h5>
 <p>Creating a national calendar with rjd3toolkit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## French calendar</span></span>
@@ -1062,8 +1062,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="chained-calendar-1" class="level5">
-<h5 class="anchored" data-anchor-id="chained-calendar-1">Chained Calendar</h5>
+<section id="chained-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="chained-calendar">Chained Calendar</h5>
 <p>Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.</p>
 <p>First define the 2 (or <span class="math inline">\(N\)</span>) national calendars corresponding to each regime as explained in the section above.</p>
 <div class="cell">
@@ -1072,8 +1072,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>chained_cal <span class="ot">&lt;-</span> <span class="fu">chained_calendar</span>(France, Belgium, <span class="st">"2000-01-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="composite-calendar-1" class="level5">
-<h5 class="anchored" data-anchor-id="composite-calendar-1">Composite Calendar</h5>
+<section id="composite-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="composite-calendar">Composite Calendar</h5>
 <p>Creating a composite calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Belgium <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(<span class="fu">special_day</span>(<span class="st">"NEWYEAR"</span>), <span class="fu">fixed_day</span>(<span class="dv">7</span>, <span class="dv">21</span>)))</span>
