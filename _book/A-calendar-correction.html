@@ -347,30 +347,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P-Output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output description</span></a>
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./O-X13-ARIMA-Output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output from X13-Arima</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -676,8 +659,51 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <figcaption class="figure-caption"><strong>Removing a holiday from the calendar</strong></figcaption>
 </figure>
 </div>
-<section id="creating-a-new-calendar" class="level5">
-<h5 class="anchored" data-anchor-id="creating-a-new-calendar">Creating a new calendar</h5>
+<section id="list-of-pre-defined-special-days" class="level5">
+<h5 class="anchored" data-anchor-id="list-of-pre-defined-special-days">List of pre-defined special days</h5>
+<ul>
+<li>NEWYEAR Fixed holiday, falls on January, 1st.<br>
+</li>
+<li>SHROVEMONDAY Moving holiday, falls on the Monday before Ash Wednesday (48 days before Easter Sunday).</li>
+<li>SHROVETUESDAY Moving holiday, falls on the Tuesday before Ash Wednesday (47 days before Easter Sunday)</li>
+<li>ASHWEDNESDAY Moving holiday, occurring 46 days before Easter Sunday.<br>
+</li>
+<li>MAUNDYTHURSDAY Moving holiday, falls on the Thursday before Easter.<br>
+</li>
+<li>GOODFRIDAY Moving holiday, falls on the Friday before Easter.<br>
+</li>
+<li>EASTER Moving holiday, falls between March 22nd and April 25th.<br>
+</li>
+<li>EASTERMONDAY Moving holiday, falls on the day after Easter.<br>
+</li>
+<li>ASCENSION Moving holiday, celebrated on a Thursday, 39 days after Easter.<br>
+</li>
+<li>PENTECOST Moving holiday, celebrated 49 days after Easter Sunday.<br>
+</li>
+<li>WHITMONDAY Moving holiday, falling on the day after Pentecost.<br>
+</li>
+<li>CORPUSCHRISTI Moving holiday, celebrated 60 days after Easter Sunday.<br>
+</li>
+<li>JULIANEASTER<br>
+</li>
+<li>LABORDAY Moving holiday, celebrated (in the USA) on the first Monday of September.<br>
+</li>
+<li>MAYDAY Fixed holiday, falls on May, 1st.<br>
+</li>
+<li>ASSUMPTION Fixed holiday, falls on August, 15th.<br>
+</li>
+<li>HALLOWEEN Fixed holiday, falls on October, 31st.<br>
+</li>
+<li>ALLSAINTSDAY Fixed holiday, falls on November, 1st.<br>
+</li>
+<li>ARMISTICE Fixed holiday, falls on November, 11th.<br>
+</li>
+<li>CHRISTMAS Fixed holiday, falls on December, 25th.</li>
+</ul>
+</section>
+</section>
+<section id="creating-a-new-calendar" class="level4">
+<h4 class="anchored" data-anchor-id="creating-a-new-calendar">Creating a new calendar</h4>
 <p>An appropriate calendar, containing the required national holidays, needs to be created to adjust a series for country-specific calendar effects.</p>
 <ul>
 <li>right click on the <em>Calendar</em> item from the <em>Workspace</em> window and choose <strong>Add</strong></li>
@@ -694,7 +720,6 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <li><p><em>Composite calendars</em> : creates calendar as a weighted sum of several national calendars</p></li>
 <li><p><em>Chained calendars</em> : allows to chain two national calendars before and after a break</p></li>
 </ul>
-</section>
 <section id="a-cal-GUI-national" class="level5">
 <h5 class="anchored" data-anchor-id="a-cal-GUI-national">National Calendar</h5>
 <p>To define a national calendar: right click on Calendar item in the Utility panel of the workspace window</p>

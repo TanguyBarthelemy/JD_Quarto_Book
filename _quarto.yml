@@ -77,7 +77,7 @@ book:
           city: Ljubljana
           url: "https://www.stat.si/"
       role: "Collaborator"
-  date: "10/20/2026"
+  date: "10/26/2026"
   page-navigation: true
   chapters:
     - index.qmd
@@ -113,10 +113,10 @@ book:
         - T-plug-ins.qmd ##(#t-plug-ins)
         - T-Production-tools-cruncher-QR.qmd ##(#t-prod)
         - T-r-packages.qmd ##(#t-r-packs)
-    - part: P-Output.qmd ##(#part-Out)
-      chapters:
+    # - part: P-Output.qmd ##(#part-Out)
+    #   chapters:
     #     - O-Output-Description.qmd ##(#output-chap)
-        - O-X13-ARIMA-Output.qmd
+        # - O-X13-ARIMA-Output.qmd
     # - O_Output_Description_Internal.qmd ## do not publish
     - part: P_Methods.qmd ##(#part-T)
       chapters:
